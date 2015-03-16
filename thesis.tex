@@ -1,0 +1,345 @@
+% This is an example on how to use the chalmers-thesis document class.
+% Document should be compiled with pdflatex or lualatex
+% If you find something odd, wrong or lacking, you can email me at; Mikael Öhman <mikael.ohman@chalmers.se>
+% This file has been distributed through: http://www.github.com/Micket/chalmers
+
+% These manuals are a *must* read. They are all full of good examples;
+% amsldoc   - http://mirror.ctan.org/macros/latex/required/amslatex/math/amsldoc.pdf
+% mathtools - http://mirror.ctan.org/macros/latex/contrib/mh/mathtools.pdf
+% biblatex  - http://mirror.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf
+% booktabs  - http://mirror.ctan.org/macros/latex/contrib/booktabs/booktabs.pdf
+% http://www.ctan.org/tex-archive/help/Catalogue/bytopic.html
+% http://en.wikibooks.org/wiki/LaTeX/
+
+\RequirePackage[l2tabu,orthodox]{nag} % This package helps prevent you from doing things wrong.
+
+% change doctorate to licentiate if necessary
+\documentclass[licentiate,nocover,g5paper,11pt]{gu-thesis}
+% All options are; doctorate, licentiate, masters, bachelors, nocover, draft, g5paper,
+% and everything the standard report class support.
+%\usepackage{ifluatex} % Automatic check for luatex.
+%\ifluatex
+% \usepackage{fontspec}
+%\else
+\usepackage[utf8]{inputenc} % File encoding, you should try to stick to utf8.
+%\fi
+\usepackage{microtype} % Magically improves typesetting for pdflatex
+\usepackage{subfiles} % Convenient use of subfiles in documents. Using \subfile is optional. See README
+\usepackage{hyperref} % Required for in document links and document metadata.
+\usepackage[swedish, english]{babel}
+
+\newcommand{\todo}[1]{{\color{red}#1}}
+%\usepackage[draft]{graphicx}
+% More or less required packages
+%\usepackage{csquotes} % Needed for biblatex
+%\usepackage[firstinits=true, style=alphabetic, backend=biber]{biblatex} % Modern bibliography facilities (you may change style to numeric). change to old bibtex if you insist on using that.
+ 
+\usepackage[square, numbers,sort]{natbib}
+\usepackage{bibentry}
+\bibliographystyle{jfm}
+
+
+\usepackage{mathtools} % All your math related needs
+\usepackage{tikz} % Draw figures, required for cover page
+%\usepackage{subfigure} % Subfloats
+\usepackage{caption}
+\usepackage{subcaption}
+% Read the manuals for the respective package to see the usage;
+\usepackage{pdfpages} % For included other pdf files (like articles).
+%\usepackage{thmtools} % For theorems.
+%\usepackage{algorithms} % For algorithms.
+\usepackage{listings} % For source code.
+\usepackage{booktabs} % High quality tables.
+%\usepackage{siunitx} % For all your numerical values and units. 
+%\usepackage{pgfplots} % Make plots directly in latex. Also tables. Excellent package.
+%\usepackage{contmech} % Custom package for typesetting in continuum mechanics for applied mechanics.
+%\usepackage{yourcustomcommands} % Put your custom commands in a file 'yourcustomcommands.sty' and load it like this.
+
+% JONAS
+
+
+\newcommand{\ve}[1]{\ensuremath{\mbox{\boldmath$#1$}}}
+\newcommand{\ma}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\te}[1]{\ensuremath{\mathscr{#1}}}
+
+\newcommand{\CC}[2]{\ensuremath{{\cal C}{{#1}_;}{#2}}}
+\newcommand{\DD}{\ensuremath{{\cal D}}}
+\newcommand{\ku}{\ensuremath{\mbox{Ku}}}
+\newcommand{\st}{\ensuremath{\mbox{St}}}
+\newcommand{\steff}{\ensuremath{\widetilde \st}}
+\newcommand{\pe}{\ensuremath{\mbox{Pe}}}
+\newcommand{\per}{\ensuremath{\mbox{Pe}_{\mathrm r}}}
+\newcommand{\re}{\ensuremath{\mbox{Re}}}
+\newcommand{\rep}{\ensuremath{\mbox{Re}_{\mathrm p}}}
+\newcommand{\tr}{\ensuremath{\mbox{Tr}}}
+\newcommand{\sign}{\ensuremath{\mbox{sign}}}
+\newcommand\transpose{^{\mathrm T}}
+\newcommand{\diff}[2]{\frac{\rd #1}{\rd #2}}
+\newcommand{\ii}{{\rm i}}
+
+\newcommand{\spma}[1]{#1\ve n - \ve n(\ve n\transpose #1\ve n)}
+\newcommand{\venn}{\ve n \ve n\transpose}
+\newcommand{\maid}{\ma I}
+
+\newcommand{\Ordo}{\ensuremath{O}}
+\newcommand{\ordo}{\ensuremath{o}}
+
+\newcommand{\evalat}[1]{\,\bigg|_{#1}}
+\newcommand{\rd}{\ensuremath{\mathrm{d}}}
+
+
+\newcommand\nn{\nonumber}
+
+\newcommand{\eqnlab}[1]{\label{eqn:#1}}
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\tablab}[1]{\label{tab:#1}}
+\newcommand{\eqnref}[1]{(\ref{eqn:#1})}
+\newcommand{\figref}[1]{\ref{fig:#1}}
+\newcommand{\tabref}[1]{\ref{tab:#1}}
+\newcommand{\Eqnref}[1]{Eq.~(\ref{eqn:#1})}
+\newcommand{\Figref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\Tabref}[1]{Table~\ref{tab:#1}}
+\newcommand{\Eqsref}[1]{Eqs.~(\ref{eqn:#1})}
+\newcommand{\Figsref}[1]{Figs.~\ref{fig:#1}}
+\newcommand{\Tabsref}[1]{Tables~\ref{tab:#1}}
+
+\newcommand{\applab}[1]{\label{app:#1}}
+\newcommand{\chlab}[1]{\label{ch:#1}}
+\newcommand{\seclab}[1]{\label{sec:#1}}
+\newcommand{\sseclab}[1]{\label{ssec:#1}}
+\newcommand{\appref}[1]{\ref{app:#1}}
+\newcommand{\chref}[1]{\ref{ch:#1}}
+\newcommand{\secref}[1]{\ref{sec:#1}}
+\newcommand{\ssecref}[1]{\ref{ssec:#1}}
+\newcommand{\Appref}[1]{Appendix~\ref{app:#1}}
+\newcommand{\Chref}[1]{Chapter~\ref{ch:#1}}
+\newcommand{\Secref}[1]{Section~\ref{sec:#1}}
+\newcommand{\Ssecref}[1]{Subsec.~\ref{ssec:#1}}
+\newcommand{\Chsref}[1]{Chapter~\ref{ch:#1}}
+\newcommand{\Secsref}[1]{Sections.~\ref{sec:#1}}
+\newcommand{\Ssecsref}[1]{Subsecs.~\ref{ssec:#1}}
+
+	
+%\newcommand{\Ylm}[2]{Y_#1^#2(\ve n)}
+\newcommand{\Ylm}[2]{|#1,#2\rangle}
+\newcommand{\cross}{\times}
+\newcommand{\dd}{\colon}
+\newcommand{\lc}{\varepsilon}
+\newcommand{\proofheader}[1]{\emph{#1}}
+\usepackage{wrapfig}
+\usepackage{units}
+\usepackage{url}
+\usepackage{upgreek}
+\usepackage{lpic}
+% END JONAS
+
+\urlstyle{same}
+
+%\newcommand{\paperAaddress}{http://dx.doi.org/10.1007/s00707-013-0924-0}
+% FONT
+
+% 1
+%\usepackage[sc]{mathpazo}
+%\usepackage{tgpagella}
+%\usepackage[T1]{fontenc}
+
+%2
+\usepackage[adobe-utopia]{mathdesign}
+\usepackage[T1]{fontenc}
+
+
+% fancyhdr
+
+\usepackage{fancyhdr}
+\usepackage{flipbook}
+
+
+
+\fancypagestyle{fb}
+{%
+\fancyhf{}%
+\renewcommand{\headrulewidth}{0pt}
+\rfoot[]{%
+  \setlength\unitlength{1cm}%
+  \begin{picture}(0,0)%
+    \put(0.0,-2){%
+      \fbImageF{./figs/plotting/flipbook/output/symm/}{png}{width=20mm}%
+    }%
+  \end{picture}%
+}
+\lfoot[%
+  \setlength\unitlength{1cm}
+  \begin{picture}(0,0)
+    \put(-2.5,-2){
+      \fbImageF{./figs/plotting/flipbook/output/triax/}{png}{width=20mm}
+    }
+  \end{picture}
+]{}
+}
+
+
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+
+\renewcommand{\partmark}[1]{ \markboth{#1}{} }
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\fancyhf{}
+\fancyhead[LE,RO]{\textsc {\thepage}}
+\fancyhead[RE]{\textsc{ \nouppercase{\leftmark}} }
+\fancyhead[LO]{\textsc{ \nouppercase{\rightmark}} }
+
+\rfoot[]{%
+  \setlength\unitlength{1cm}
+  \begin{picture}(0,0)
+    \put(0.0,-2){
+      \fbImageF{./figs/plotting/flipbook/output/symm/}{png}{width=20mm}
+    }
+  \end{picture}
+}
+\lfoot[%
+  \setlength\unitlength{1cm}
+  \begin{picture}(0,0)
+    \put(-2.5,-2){
+      \fbImageF{./figs/plotting/flipbook/output/triax/}{png}{width=20mm}
+    }
+  \end{picture}
+]{}
+
+
+%\fancypagestyle{plain}{ %
+%  \fancyhf{} % remove everything
+%  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+%  \renewcommand{\footrulewidth}{0pt}
+%}
+
+%%%%
+
+
+% User commands
+\title{Orientational dynamics of small non-spherical\\particles in fluid flows}
+%\subtitle{And Perhaps a Subtitle}
+\author{Jonas Einarsson} % Not common with more than one author
+\thesisin{Physics}
+\department{Department of Physics}
+%\division{Division of Solid Mechanics}
+\reportno{2013:01}
+\ISBN{978-91-637-4473-0} % Only for doctorate
+\copyrightyear{2013}
+
+\opponent{
+Title Name \\
+Department \\
+University \\
+Country
+}
+\oppositiondate{When, and where}
+
+% You should scale the figure according to textwidth and or paperheight.
+%\coverfigure{\includegraphics[width=\textwidth,height=0.4\paperheight,keepaspectratio]{figures/ExampleCover}}
+%\covercaption{Some explanation}
+
+\firstabstract{%
+Particles suspended in fluid flows are common in nature. Important examples are drops of water or particulate matter in the atmosphere, and planktonic microorganisms in the ocean.
+Due to fluid velocity gradients, non-spherical particles are subject to a hydrodynamic torque. The torque leads to rotational motion of the particle.
+This thesis describes our work on the orientational dynamics of non-spherical particles suspended in fluid flows. We consider the viscous Stokes regime, where the particle Reynolds number $\rep\ll1$ ($\rep = u_0 a/\nu$, where $u_0$ is a typical flow speed, $a$ is the particle size and $\nu$ is the kinematic viscosity of the fluid). In this \emph{advective limit}, the hydrodynamic torques are given by Jeffery's theory [\textsc{Jeffery, G. B.} \emph{Proc. R. Soc. Lond. A} \textbf{102},~161–179~(1922)].
+
+First, we describe a microfluidic experiment where we observe periodic and aperiodic tumbling of rod-shaped particles. We argue that the aperiodic tumbling is commensurate with the quasi-periodic and chaotic tumbling predicted by the inertia-free limit of Jeffery's theory.
+
+Second, we calculate a modification to Jeffery's theory for axisymmetric particles, that takes into account the first effects of particle inertia. In a simple shear flow the particle inertia induces a drift towards a limiting orbit. We describe how the stationary orientational distribution of an ensemble of particles is determined by the competition between particle inertia and Brownian noise.
+
+Third, by averaging Jeffery's equation along particle trajectories, we make a connection between rotation rates and the third-order Lagrangian correlation functions of the flow. Our result explains recent numerical and experimental observations of different tumbling rates for disks and rods in turbulence.
+
+Finally, this thesis contains a non-technical introduction to the study of particle dynamics in fluid flows, aimed at a wider audience.
+}
+%\secondabstract{swedish}{Text}
+\keywords{}
+
+%\preface{Text}
+\acknowledgements{Most importantly, I want to thank my supervisor Bernhard Mehlig for taking me on as a student. I cannot imagine a better scientific climate to work in: everything is up for discussion, no stone unturned.
+
+I also want to thank the many collaborators we have: Dag Hanstorp and his students, for the microfluidic experiments; Jean-R\'egis Angilella for the many discussions and calculations, some of which resulted in paper B; Kristian Gustavsson for teaching me all I know about random flows and Kubo-numbers.
+
+Finally, a big thank you to my friends and collegues who improved this thesis by their scrutinous reading and helpful comments: Kajsa, Tora, Rasmus, Bernhard, Kristian, Erik and Marina.
+}
+%\paperwork{Text}
+\thesiscontents{This thesis consists of an extended summary and the following appended papers:}
+\printers{Kompendiet}
+
+% You can add extra contents such as abbreviations and nomenclature using.
+% Use \presectiontitle to render add titles to new sections.
+% \extrafrontmatter{\presectiontitle{Nomenclature} Text} % Optional
+
+% Other optional settings for biblatex;
+% \DeclareFieldFormat[article]{title}{#1} % Removes quotes from article title
+% \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}} % Makes volume print in bold.
+% \renewbibmacro{in:}{} % Removes the "In:" from the journals field.
+% \DeclareFieldFormat[article]{pages}{#1} % Removes the pp. before pages.
+% % Adds short journal entries;
+% \renewbibmacro*{journal+issuetitle}{%
+%   \usebibmacro{shortjournal}%
+%   \setunit*{\addspace}%
+%   \iffieldundef{series}{}{\newunit\printfield{series}\setunit{\addspace}}%
+%   \usebibmacro{volume+number+eid}%
+%   \setunit{\addspace}%
+%   \usebibmacro{issue+date}%
+%   \setunit{\addcolon\space}%
+%   \usebibmacro{issue}%
+%   \newunit}
+% % End of optional citation modifications.
+
+%\addbibresource{references.bib} % New command, use if available
+
+
+\setlength{\topcolumn}{0.22\textwidth} % Column for "Thesis" page which might need adjustments if there is other publications.
+
+
+\begin{document}
+
+%% TITLE
+\setcounter{page}{-99} % for hyperref, odd right sides
+
+\pagestyle{empty}
+%~\newpage
+\pagenumbering{roman}
+\maketitlepage
+\newpage\makeprintinfopage
+\newpage\makeabstractpage
+\cleardoublepage\maketableofpaperspage
+\newpage\makeacknowledgementspage
+\cleardoublepage\tableofcontents
+\cleardoublepage\pagenumbering{arabic}
+\pagestyle{fancy}
+
+
+\part{Introduction} % Using the starred command avoids numbering.
+ \thispagestyle{empty}
+ \subfile{Introduction}
+\clearpage
+\part{Present work} % Using the starred command avoids numbering.
+\thispagestyle{fb}
+\subfile{PartIIintroduction}
+\clearpage
+
+\nobibliography*
+\bibliography{references} % Legacy command
+
+
+\part{Appendices} % Using the starred command avoids numbering.
+\thispagestyle{fb}
+\appendix
+\subfile{app_spheroidal_multipoles}
+\clearpage
+
+\label{endpage}\part{Research papers}
+\pagestyle{fb}
+% You can write this manually \paper{Paper Title}{Full reference} or have bib entries entered automatically
+
+
+\pagestyle{fb}
+\cleardoublepage
+
+
+\end{document}
+ 
