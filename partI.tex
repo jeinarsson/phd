@@ -1,0 +1,164 @@
+\documentclass[thesis.tex]{subfiles}
+
+\begin{document}
+
+This thesis is about the \emph{effective equations of motion} for solid particles suspended in fluid flows. In all but the simplest cases we are unable to directly compute the forces acting on a solid particle from first principles. The fundamental equations of fluid mechanics are too complicated, and even finding a numerical approximation with a computer is too expensive.
+
+But when we limit our scope to a particular physical situation, we are sometimes able to exploit some of its properties to simplify the calculations and find an approximate answer. The result is an \emph{effective equation of motion}, which is simpler to use, but valid only in the limited scope we chose.
+
+These effective equations of motion are used as building blocks in higher-level modeling. For example the effective force on a small sphere becomes a building block in a model of the droplets in a rain cloud, and the effective torque on a spheroid is used to model the order of fibers in a paper-making machine.
+
+The technical centerpiece of this thesis is the calculation of an effective equation of motion, starting from the fundamental equations. It is described in detail in [] and Paper []. In the remainder of this thesis we will discuss more carefully the \emph{why} and \emph{how} of these equations.
+
+\section*{Disposition of this thesis}
+
+This thesis consists of an extended summary and discussion, and the appended papers. The summary is split into two parts: first this overview, motivation and an introduction aimed at a non-technical audience. The second part is a discussion of effective equations of motion, and a summary of each appended paper.
+
+\chapter{Motivation}
+
+The motion of small particles suspended in fluid flows is a fundamental research topic attracting interest in many branches of science, as well as in technical applications. In some cases it is the actual motion of the particles that is of interest. For example, in the atmospheric sciences the collisions and aggregation of small drops are important to the formation of rain \cite{devenish2012}. Similarly, in astronomy it is believed that the collisions of small dust grains lead eventually to the formation of planets in the accretion disk around a star \cite{wilkinson2008}. Another example is in marine biology, where the dynamics of small planktonic organisms swirled around by the ocean is fundamental in understanding their feeding and mating patterns \cite{guasto2012}. 
+
+In other contexts the motion of the individual particle is of lesser interest. Instead its effects on the suspending fluid is the topic of study. The properties of so-called complex fluids, meaning fluids with suspended particles, are studied in the field of rheology. For instance, the ``ketchup effect'' (where ketchup is stuck in the bottle, and nothing happens, and then suddenly all the ketchup pours out at once, only to become innocently solid again on the plate) exists because of how all the microscopic particles suspended in the liquid orient themselves \cite{bayod2008}. On a more serious note, the similarly sudden onset of landslides in clay soils is related to the complex fluid of water and clay particles \cite{coussot2002}. A fundamental question in rheology is how to relate the microscopic motion of the suspended particles to the macroscopic behaviour of the complex fluid.
+
+In many circumstances it is important to consider the non-spherical shape of particles, and how they are oriented. For instance, the ash clouds from volcanic eruptions play an important role in the radiation budget of our planet, and therefore its climate \cite{mather2003}. The ash particles are non-spherical \cite{gasteiger2011}, and their shapes and orientations influence how light and energy is absorbed in the volcanic cloud \cite{dubovik2002}. Similarly, the orientation of non-spherical plankton influences the light propagation through the upper layers of the oceans, determining to which depth life-supporting photosynthesis is possible~\cite{marcos2011}. 
+
+Despite their diversity, all the above examples share a basis in a fundamental question. How do particles respond to a given flow, and how does the flow in return respond to the presence of particles? The underlying goal of our research is to find an answer to this fundamental question. But with such grand aims there must be plenty of room for humility regarding which particular questions we seek answers to. The mathematics of fluid dynamics have challenged physicists and mathematicians alike for several hundred years. Before moving on to the description of my work, I allow myself to digress into the story of a seemingly innocent question: what is the drag force on a perfect sphere moving with constant velocity through a still fluid?
+
+Until the early 19th century the prevailing theory was the following: a moving sphere drags along some of the surrounding fluid in its motion, and the force upon the sphere is equal to the force required to drag along the extra weight. The force must then be dependent on the weight, or more precisely the density, of the fluid. But in 1829, Captain Sabine of the Royal Artillery performed detailed experiments with a pendulum in different gases \cite{sabine1829}. By observing the attenuation of the pendulum motion in both hydrogen gas and in air, he concluded beyond doubt that the damping force on the pendulum is not simply proportional to the density of the surrounding gas - there has to be another force.
+
+It was Sir George Gabriel Stokes who first computed the force on a \emph{slowly moving
+%\footnote{In modern lingo: viscous flow, characterised by $\re \ll1$ and $\st\ll1$. }
+} sphere due to the internal friction of the fluid \cite{stokes1851}. and found that it depends on the ``index of friction'', which we today know as the kinematic viscosity of a fluid. From his calculation, Stokes immediately concluded that ``the apparent suspension of the clouds is mainly due to the internal friction of air.'' 
+%(Eq.~(127) in Ref.~\citenum{stokes1851}.) 
+The \emph{Stokes drag force} was a great success, and it correctly predicts the forces for slowly moving particles.
+
+But for swiftly moving particles
+%($\re>0$) 
+the solution turned out to be very elusive. The question of how to correctly amend Stokes drag force to account for slightly faster motion took around a century of hard work, and the invention of a new branch of mathematics \cite{veysey2007}. If we dare ask how to properly calculate the drag force on a particle moving quickly, in a curved path, and in a fluid which itself moves, the answer is still debated.
+
+Meanwhile, the Stokes solution for slow motion has been extended to encompass both forces and torques on particles of any conceivable shape \cite{jeffery1922,brenner1974,kim1991}. Much of modern research on particles in fluid flows still relies directly on these well-known results. Indeed, all results presented in this thesis are based on the Stokes drag on non-spherical particles. Despite its apparent simplicity, we shall see in this thesis that it can lead to very non-trivial physical behaviour. However, we shall keep in mind that there is a largely unexplored world beyond the slow-motion approximation.
+
+Today we enjoy access to tools undreamed of in Stokes' time. We have computers that can solve otherwise unsolvable equations numerically. Albeit still expensive, it is even possible to create artificial computer ``experiments'' with turbulent flows. With the advent of electronics and microtechnology also our experimental techniques have improved tremendously. There are groups recording the detailed real-time motion of particles in turbulent fluid flows \cite{zimmermann2011,parsa2012}, raising the bar for theorists as well.
+
+In my research I work in an environment where we have experiments on one hand, and the methods of mathematical physics to attack the theory on the other. We work simultaneously on two main tracks. The first aims to understand which equations are appropriate to describe the rotation of non-spherical particles in simple flows, such as the ones Stokes himself considered. To this end we have an experimental setup where we observe the motion of single particles (see \Secref{experiment} \& Paper A). Based on the experimental observations, we try to deduce which physical mechanisms are responsible for the particle motion. The second track concerns the motion of non-spherical particles in turbulent and other random flows. It is theoretical work on our part, but the corresponding experiments are being performed in other parts of the world \cite{zimmermann2011,  parsa2012}. We aim to explain the complicated relation between the statistics of the turbulent flow, and the statistics of the particle motion (see \Secref{tumbling} \& Paper C).
+
+
+
+\chapter{Background}
+
+ Every now and then I get the question ``what is it you do, anyway?'' Often enough the question is posed out of sheer politeness, and I can simply say ``Physics! Tiny particles, like plankton, they tumble in the oceans, and stuff.'' But sometimes the question is sincere, and I find that it is quite a challenge to explain to a non-expert. I may say that we calculate how non-spherical particles rotate in flows. But that is comparable to if I was designing a gearbox, and said that I work with cars. It is true, but not very helpful. The following is an attempt at a description which is readable and not too complicated, but still complicated enough to get a glimpse of the physics.
+
+
+\section{Our field of study: particles in flows}\label{sec:context}
+
+Where do particles go when I put them into a flow? Which way do they face? how fast do they spin? These are all valid questions, but they are unspecific. Of course the answers depend on if the particle is an aircraft or a grain of particulate carbon soot, and if the liquid is air or water. 
+
+I will start with an elaboration on fluid physics, move through why we consider rigid particles specifically, then say something about the forces acting on the particles. This will naturally lead us to why we must consider ``small'' particles, which is not obvious from the outset. But let's start from the beginning.
+
+\subsection*{Fluids}
+
+Many physical systems around us are fluids. The air we breathe, the water we drink, the blood in our veins are all fluids. As a working definition we can think of a fluid as a system where the constituent molecules move around more or less freely. Sometimes they interact with each other and exchange some energy. These collisions give rise to what you perceive as friction. You know that syrup has more friction than water: if you pull a spoon through syrup, more of your energy is expended colliding molecules than if you were to pull the spoon through water. A measure of how often and how violently the molecules collide is the \emph{viscosity} of a fluid, and we say that syrup has higher viscosity than water. Now, it gets interesting when something else, for example a drop of oil or a particle, is added to the fluid. Consider dripping a drop of oil into water. Then what happens depends on how the water molecules interact with the oil molecules. As you probably have experienced, the oil molecules prefer to stick together. Therefore the oil concentrates into a drop where as many oil molecules as possible may be neighbours with other oil molecules.
+
+But so far, the above is a very qualitative, and you may rightly say naive, description of what happens. One could say that a fundamental problem of fluid physics is to figure out where all the different molecules go. From the detailed knowledge of every molecule we may proceed to deduce where the oil drop goes, and how fast, or if it perhaps breaks up, or maybe merges with another drop. However, making something useful out of this molecular picture is very difficult\footnote{
+%\begin{minipage}[l]{\textwidth}
+Modern computers now allow simulation of surprisingly large numbers of molecules. Here is a video showing the interface between two molten metals using exactly this approach: \url{http://www.youtube.com/watch?v=Wr7WbKODM2Q}
+ %\end{minipage}
+% \begin{minipage}[l]{1.5cm}
+% \includegraphics[width=1.5cm]{figs/ninebillion_qr.png}
+% \end{minipage}
+}.
+Just consider that in one litre of water there are about $10^{25}$ molecules (that is a very large number; about the weight of the Earth in kg). In fact, we are not even particularly interested in the specific details of every molecule -- we are interested in the macroscopic, observable world that is built up from all these molecules. Now, this thesis is not at all concerned with the detailed motion of molecules, but I still wanted to start with this picture because sometimes it becomes important to remember the origin of the macroscopic motion.
+
+%\todo{connect forward to chap's about noise, fokker-planckery}.
+
+\subsection*{Fluid dynamics}
+
+The discipline studying the macroscopic properties and motion of fluids is called fluid dynamics. Some typical quantities studied there are the fluid velocity and pressure. We can think of the velocity at a certain position in the fluid as the average velocity of all the molecules at that point. The pressure is the force per area an object in contact with the fluid experiences, due to the constant bombardment of molecules. Think for example of the forces in a bottle of soda. There are well-known equations called the Navier-Stokes equations (you can see them in \Eqnref{navierstokes} on p.~\pageref{eqn:navierstokes}) which describe the velocity and pressure, if we can solve them. We will soon return to how this helps us, but first we must restrict ourselves to avoid a difficult hurdle.
+
+Recall our example of a drop of oil in water. The switch from a molecular view to a fluid dynamical view presents a new problem: if we do not keep track of every molecule, we instead have to keep track of which points in space contain oil and which contain water. Separating the two materials, there is a boundary surface which can deform over time as the oil drop changes shape. This sounds very complicated. Indeed, drop dynamics is a topic of its own, which this thesis does not intend to cover. Instead, this thesis concerns \emph{rigid particles}.
+
+\subsection*{Rigid bodies}
+
+A rigid body in physics is an object whose configuration can be described by the position of one point (usually the center-of-mass) and the rotation of the body around that point. Simply put: it cannot deform. The dynamics of a rigid body is described by Newton's laws. In particular, the center-of-mass motion is described by Newton's second law: the force $\ve F$ on a body equals its mass $m$ times its acceleration $\ve a$,
+\begin{align*}
+    \ve F = m\ve a.
+\end{align*}
+While the above equation describes the movement of the position, there is a corresponding law for the rotation. Since this thesis concerns \emph{orientational dynamics} of particles, we need equations also for the rotation of a rigid body. Newton's second law governing rotations says that the torque $\ve T$ on a rigid body equals its moment of inertia $\ma I$ times its angular acceleration $\ve \alpha$,
+\begin{align*}
+    \ve T = \ma I \ve \alpha.
+\end{align*}
+The two equations above are deceivingly simple-looking, but their solutions contain full knowledge of the motion of a rigid body. I state the equations here only to draw a conclusion: in order to extract all the information about the motion of a particle, we need to know both the force and the torque acting on the particle at all times.
+
+There are many kinds of forces which can potentially act on a particle. For example there is gravity if the particle is heavy, or magnetic forces if the particle is magnetic. But for now we consider the forces on a particle due to the surrounding fluid, so called hydrodynamic forces. In everyday terms the hydrodynamic force is the drag, as experienced by the spoon you pull through syrup. Uneven drag over a body may also result in a hydrodynamic torque. For instance, turbulent air striking the wings of an aircraft will induce a torque which you feel as a rotational acceleration while the pilot compensates.
+
+\subsection*{Hydrodynamic forces}
+
+In order to find out what the force on a particle is, we need to know how the fluid around the particle behaves. And for that, we need to solve the Navier-Stokes equations of fluid dynamics around the particle. What does it mean to ``solve'' the equations? We imagine the fluid in some environment (we call this ``boundary conditions''), for example the air in a cloud. A solution of the equations tells us for example the velocity of the fluid at any given point at any given instant. If we have a solution, we know how to extract the resulting forces and torques on a particle in the fluid.
+
+The problem is that we cannot solve the equations. Not only can we not find solutions as mathematical formulas -- in many cases we can not even find numerical solutions using a supercomputer. For example, computing the motion of the air in a cloud is utterly out of reach with the computer resources of today.
+
+I think it is worthwhile to emphasise that some problems are inherently very hard, and cannot be solved by brute force. From time to time I get the question why we struggle with difficult mathematical work, why not just ``run it through the computer?'' A numerical computer solution is like an experiment: it will give you the numbers for a particular case, but not necessarily any understanding of why. We aim to extract all possible physical understanding available from the equations, even if it not possible to solve them in general. It is the understanding of the underlying physics that enables us to simplify the equations until it is practical to solve them. This requires knowledge of which particular details may be neglected, and which details are crucial to keep track of. 
+
+And indeed, the meteorologists now have methods of simulating the flows of air in the atmosphere. The trick is to ignore parts of the equation dealing with very small motions, and spend the resources on describing the large eddies of the flow, it is called ``Large Eddy Simulations''. The game of simplifying without over-simplifying is at the heart of fundamental research.
+
+At any rate, we wish to figure out what the forces on a rigid body in a fluid flow are. By now it is clear that some type of simplification has to be made. The great simplification is embodied in the word \emph{small} in the title of this thesis. The particles we consider are small. But how small is a small particle? The answer I have to give right away is a rather unsatisfactory ``it depends''. The smallness of the particle has to be relative to something else. This simple principle is formalised by scientists, who discuss smallness in terms of \emph{dimensionless numbers}. Because dimensionless numbers are very common in our work I will spend a few paragraphs to explain the basic idea.
+
+\subsection*{Dimensionless numbers}
+
+In principle all physical quantities have some units. For example, the size of a particle has units of ``length'', and the speed of the particle has units of ``length per time'', which we write as \nobreak{length/time}. Whenever we multiply or divide quantities with dimensions, we also multiply or divide their units. For example dividing the length \unit[20]{m} with the time \unit[5]{s} gives the speed \unit[4]{m/s}. Now suppose we divide the speed \unit[4]{m/s} with the speed \unit[2]{m/s}. The result is $2$, without any units -- they cancelled in the division. The idea is that in order to determine if a quantity $x_1$ is ``small'' we have to divide it with another quantity $x_2$ of the same units. Then if the resulting dimensionless number is smaller than $1$, we say that $x_1$ is small, and implicitly mean \emph{relative to $x_2$}.  This concept seems simple enough. Let's consider a slightly more complicated example.
+
+Imagine a rubber boat on the sea. There are waves on the sea, rising and falling periodically.  The boat speeds along, also rising and falling as it crosses the waves. Now I propose to find a dimensionless number to tell us if the boat is ``fast''. It has to be fast relative to something else, and the only thing we know of are the waves. 
+
+There are two distinct mechanisms at play for the rising and falling of the boat. First, if the boat stays in a fixed position the sea will rise and fall beneath it periodically. Call this period time $\tau$. Second, the boat may cross different waves by travelling over them. Let's call the speed of the boat $v$, and the distance between different waves on the sea is a length $\eta$. In the paragraph above we concluded that we have to divide $v$ with another speed, and check if the dimensionless number is smaller or larger than $1$. With the quantities we know of, that is the wave period time $\tau$ and the wave distance $\eta$, we can form the speed $\eta/\tau$. We divide the boat speed $v$ with the speed $\eta/\tau$. The ratio is a number which I will call the \emph{Kubo number}, for reasons I will explain shortly. The Kubo number is defined by
+\begin{align*}
+\ku = v\tau/\eta.
+\end{align*}
+I will now give a brief interpretation of what it means when $\ku$ is smaller or larger than $1$. If $\ku > 1$, it means that $v\tau > \eta$. The quantity $v\tau$ is a length, more precisely the length that the boat travels during the period time of a wave. Thus, $\ku > 1$ means that the boat travels more than one wave distance during the period time of a single wave. So when the Kubo number is very large, then the boat travels over many different waves before the wave landscape changes. In this case we may rightly say that the boat is \emph{fast}. On the other hand, if $\ku<1$, the boat does not cover the distance between waves in a single wave period time. Before the boat reaches the next wave, the entire wave landscape has changed underneath it.
+
+I made this example of the Kubo number because it is one of the fundamental quantities in Paper~C, which is about rotation rates of particles in turbulence. In Paper~C a particle plays the role of the boat, and a turbulent flow plays the role of the waves. As I did here, we describe the limits of very small $\ku$, and very large $\ku$. In a real turbulent flow $\ku$ is around $1$. That is to say neither of the extremes are true, but in the paper we argue that together they bring some insight into the tumbling of the particles. The use of dimensionless numbers simplifies our work. Instead of considering the effects of all three separate parameters, we can understand the physics by analysing a single dimensionless number.
+
+The dimensionless numbers tell us which physical quantities are important in relation to each other. In the example above, the actual speed of the boat is not important -- the speed only matters in relation to the waves. We know that all situations with the same Kubo number are, in some sense, equivalent. This very fact is also what enables engineers to use scale models in wind tunnels. They know that to test a model of a suspension bridge in a wind tunnel, they can not use full-scale wind speeds, but instead a scaled down version of the wind. The dimensionless numbers reveal what scaling is appropriate to match the model bridge to real conditions.
+
+\subsection*{Small particles}
+
+We are now equipped to understand what it means for a particle to be \emph{small} in the context of fluid flows. It turns out, for our purposes, that there are two dimensionless numbers that determine whether a particle is small. One has to do with how quickly the particle adjusts to the fluid, the other with how quickly the fluid adjusts to the particle.
+
+The first dimensionless number is the Stokes number, $\st$ for short. We can understand it as a comparison of two different time scales. The first is the time it takes for the particle to stop if thrown in an otherwise still fluid. If you throw a stone in air, it takes quite some time for the drag force to stop the stone. But if you try to throw a piece of paper, the drag force overcomes the inertia almost immediately. On the other hand, if you try to throw the stone under water, the time to stop is shorter than in air. We call this time the relaxation time of the particle in the fluid. 
+
+The other time is simply how long time it takes for the the fluid velocity to change appreciably. The Stokes number is then defined as
+\begin{align*}
+    \st = \frac{\textrm{Particle relaxation time}}{\textrm{Time for fluid velocity change}}.
+ \end{align*} 
+A small Stokes number means that the particle adjusts to the fluid faster than the fluid changes. Such particles stick closely to the flow velocity. Conversely, a large Stokes number means that the fluid changes before the particle has time to adjust, and the particle is relatively unaffected by the fluid velocity. Thus the first meaning of a \emph{small} particle is in the sense that the Stokes number is small, and the particle relaxes to the surrounding drag forces before they change.
+
+The other dimensionless number measuring particle smallness is the particle Reynolds number. It is a measure of how quickly disturbances in the flow settle down. If you stir with a spoon in your cup of tea there is a wake behind the spoon, perhaps even a vortex is created. When you stop stirring, the tea will splash about for a moment and then settle down. The time it takes for a small vortex to settle down is called the viscous time, because it is related to the viscosity of the fluid. Imagine stirring with a spoon in syrup instead of tea, the wake behind the spoon relaxes more quickly in the viscous fluid. But of course it also matters how vigorously you stir, or equivalently, how fast the fluid moves relative to the spoon. To find the particle Reynolds number we compare the viscous time to how fast the spoon, or particle, moves the distance of one particle length:
+\begin{align*}
+    \rep = \frac{\textrm{Viscous time}}{\textrm{Time for fluid to flow one particle length}}.
+ \end{align*} 
+A small particle Reynolds number implies that the viscous time is short, and the fluid disturbances we create settle down before the fluid has time to move past the particle. A large particle Reynolds number means that the vortices and disturbances produced by the particle are transported away from the particle, such as the wake and vortices you observe in your cup of tea. A \emph{small} particle corresponds to small particle Reynolds number, so that there is no wake, and no vortices created by the particle. 
+
+Recall the story about the Stokes drag in the very beginning of this thesis. When Stokes in 1851 called a particle ``slowly moving'', he meant exactly the condition that the particle is small, in the sense just described here.
+
+There is one more dimensionless number we encounter in this thesis. It is the P\'eclet number. I started this story with a molecular picture of the fluid, and said that the drag force on a particle is the combined result of many molecular collisions. But molecules move in a random fashion, and the number of collisions is not exactly the same all the time. Some times there will be more collisions, and other times there will be fewer collisions. The drag force we have considered thus far is the result of the \emph{average} number of collisions. But if the \emph{variation} around the average number of collisions is large, the randomness of the molecular collisions will induce a degree of randomness also in the force on the particle. The P\'eclet number measures whether the random fluctations are ``large'' in this sense:
+\begin{align*}
+    \pe = \frac{\textrm{Strength of average (hydrodynamic) force}}{\textrm{Strength of random force}}.
+\end{align*}
+If $\pe$ is large, we may disregard the randomness and consider the hydrodynamic force we discussed above. But if $\pe$ is small, we must expect a degree of randomness in the particle dynamics.
+
+\subsection*{Conclusion}
+
+Hopefully we have established enough common language to put the appended research papers in context.
+
+Paper A describes an experiment where we observe the rotation of rod-shaped particles. We try to keep $\rep=0$ and $\st=0$ (``small'' particle), and $\pe$ very large (``low randomness''). The aim is to understand the hydrodynamic force on non-spherical particles.
+
+Paper B is a theoretical study of how the particle rotation changes when we allow for a small value of $\st$ (weak particle inertia), but still enforce $\rep=0$ (no fluid inertia). It turns out that there is a big difference between rod-shaped particles and disk-shaped particles, which is not present when $\st=0$. As a second part, we also introduce random variations, as measured by the P\'eclet number. When there is enough noise (small $\pe$), the difference between rods and disks disappear.
+
+Paper C concerns the speed of rotation of particles in turbulence. Also here we consider small particles: $\rep=0$ (no fluid inertia) and $\st=0$ (no particle inertia). It turns out that disk-shaped particles rotate, on average, faster than rod-shaped particles. In the manuscript we make a connection between the particle rotation statistics and the statistics of the turbulent flow. 
+
+The presentation in Part~II may, or may not, be too technical for the casual reader. But even if, I hope I may encourage an ever so brief look.
+
+At the very least, we have an interpretation of the technical title ``Orientational dynamics of small non-spherical particles suspended in fluid flows.'' The interpretation is that we aim to understand the rotational motion of a non-spherical rigid body immersed in a fluid bath of molecules. We know the forces and torques driving the rotation through the macroscopic description of fluid dynamics. But in order to have a fair chance at progress, we consider the case of very small particles, as characterised by the Stokes and particle Reynolds dimensionless numbers.
+
+
+
+\end{document}

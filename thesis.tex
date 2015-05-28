@@ -75,6 +75,7 @@
 \newcommand{\sign}{\ensuremath{\mbox{sign}}}
 \newcommand\transpose{^{\mathrm T}}
 \newcommand{\diff}[2]{\frac{\rd #1}{\rd #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\ii}{{\rm i}}
 
 \newcommand{\spma}[1]{#1\ve n - \ve n(\ve n\transpose #1\ve n)}
@@ -313,13 +314,13 @@ Finally, a big thank you to my friends and collegues who improved this thesis by
 \pagestyle{fancy}
 
 
-\part{Introduction} % Using the starred command avoids numbering.
- \thispagestyle{empty}
- \subfile{Introduction}
+\part{Overview} % Using the starred command avoids numbering.
+\thispagestyle{empty}
+ \subfile{partI}
 \clearpage
 \part{Present work} % Using the starred command avoids numbering.
 \thispagestyle{fb}
-\subfile{PartIIintroduction}
+\subfile{partII}
 \clearpage
 
 \nobibliography*
@@ -329,10 +330,10 @@ Finally, a big thank you to my friends and collegues who improved this thesis by
 \part{Appendices} % Using the starred command avoids numbering.
 \thispagestyle{fb}
 \appendix
-\subfile{app_spheroidal_multipoles}
+%\subfile{app_spheroidal_multipoles}
 \clearpage
 
-\label{endpage}\part{Research papers}
+\label{endpage}\part{Papers}
 \pagestyle{fb}
 % You can write this manually \paper{Paper Title}{Full reference} or have bib entries entered automatically
 
