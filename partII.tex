@@ -23,7 +23,7 @@ This equation holds point-wise, because the volume is arbitrary. In addition we 
 \begin{align}
     \rho_f \left(\pdiff{}{t}\ve u + (\ve u \cdot \nabla) \ve u\right)=\nabla \cdot \ma \sigma\,.
 \end{align}
-We will now introduce a particle through the no-slip boundary conditions at the particle surface $S$. The particle center-of-mass moves along the trajectory $\ve y(t)$, with angular velocity $\ve \omega$. No-slip means no relative velocity, neither normal nor tangential, between fluid and boundary. Far away from the particle, ``at infinity'', the fluid is not disturbed by the presence of the particle:
+We will now introduce a particle through the no-slip boundary conditions at the particle surface $S$. The particle center-of-mass moves along the trajectory $\ve y(t)$ (velocity $\dot{\ve y}$), and its orientation $\ma R(t)$ with angular velocity $\ve \omega(t)$. No-slip means no relative velocity, neither normal nor tangential, between fluid and boundary. Far away from the particle, ``at infinity'', the fluid is not disturbed by the presence of the particle:
 \begin{align}
     \ve u(\ve x, t) &= \dot{\ve y} + \ve \omega \cross (\ve x - \ve y), & \ve x \in S. \nn\\
     \ve u(\ve x, t) &= \ve u^\infty(\ve x, t), & |\ve x-\ve y|\to\infty\,.
@@ -42,40 +42,80 @@ These equations are non-linear and coupled: convective term, moving boundary con
 
 \section{Particle reference frame}
 
-To reason about the non-linear system of equations we change coordinates into a reference frame following the particle. This eliminates the complication of a moving boundary condition in exchange for some non-linear inertial terms in the momentum equation. The new reference frame has a its origin at $\ve y(t)$ and its principal directions are given by a rotation $\ma R$.
-If we consider a position vector $\ve x$ its components in lab frame are $x_i$. We denote its components in the particle frame by $x_\alpha$, and the two are related by a translation and a rotation:
+To reason about the non-linear system of equations we change coordinates into a reference frame following the particle. This eliminates the complication of a moving boundary condition in exchange for some non-linear inertial terms in the momentum equation. The new reference frame has a its origin at $\ve y(t)$ and its principal directions are given by the rotation $\ma R(t)$.
+\subsection{Coordinate transformation}
+Consider a position vector $\ve x$ with components $x_i$ in the stationary frame. We denote its components in the particle frame by $X_\alpha$, and the two are related by a translation and a rotation:
 \begin{align}
-    x_\alpha &= R_{\alpha i}\left(x_i - y_i\right)\,.
+    X_\alpha &= R_{\alpha i}\left(x_i - y_i\right)\,.\eqnlab{transform}
 \end{align}
-A velocity $\ve u = \rd \ve x/\rd t$ measured at $\ve x$ has components $u_i$ in the lab frame, and the components in particle frame are related by
+A velocity $\ve u = \rd \ve x/\rd t$ measured at $\ve x$ has components $u_i=\rd x_i/\rd t$ in the lab frame, and its components $U_\alpha$ in the particle frame are 
 \begin{align}
-    u_\alpha &= \diff{R_{\alpha i}}{t}\left(x_i - y_i\right) + R_{\alpha i}\left(u_i - \diff{y_i}{t}\right)\,.
+    U_\alpha &= \diff{R_{\alpha i}}{t}\left(x_i - y_i\right) + R_{\alpha i}\left(u_i - \diff{y_i}{t}\right)\,.
 \end{align}
-The time derivative of the rotation $\ma R$ is related to the angular velocity $\ve \omega$. More precisely, since $R_{\alpha i}R_{\beta i} = \delta_{\alpha\beta}$, we find after differentiation
+The time derivative of the rotation $\ma R$ is related to the angular velocity $\ve \omega$. More precisely, since $R_{\alpha i}R_{i\beta} = \delta_{\alpha\beta}$, we find after differentiation
 \begin{align}
-    \diff{R_{\alpha i}}{t} &= -Q_{\alpha \beta} R_{\beta i} = -\lc_{\alpha\gamma\beta}\omega_\gamma R_{\beta i}\,.
+    \diff{R_{\alpha i}}{t} &= -Q_{\alpha \beta} R_{\beta i} = -\lc_{\alpha\gamma\beta}\omega_\gamma R_{\beta i}\,.\eqnlab{dRdt}
 \end{align}
 Here $\ma Q$ is the anti-symmetric matrix such that $\ma Q\ve x = \ve \omega \cross \ve x$. While perhaps unusual, I use the matrix $\ma Q$ in the following because I find the calculations easier to read than with the cross products. In the final result it is easy to convert to the more familiar notation.
 
-With the angular velocity we find the components of velocity to be
+With \Eqnref{dRdt} the components of the velocity $\ve u$ are
 \begin{align}
-    u_\alpha &= -Q_{\alpha \beta}R_{\beta i}\left(x_i - y_i\right) + R_{\alpha i}\left(u_i - \diff{y_i}{t}\right) \nn \\
-    &= -Q_{\alpha \beta}r_\beta + R_{\alpha i}u_i - R_{\alpha i}\diff{y_i}{t}\,.
+    U_\alpha &= -Q_{\alpha \beta}R_{\beta i}\left(x_i - y_i\right) + R_{\alpha i}\left(u_i - \diff{y_i}{t}\right) \nn \\
+    &= -Q_{\alpha \beta}X_\beta + R_{\alpha i}u_i - R_{\alpha i}\diff{y_i}{t}\,,\nn\\
+    \intertext{and conversely}
+    u_j &= R_{\alpha j}\left(U_\alpha + R_{\alpha k}\diff{y_k}{t} + Q_{\alpha \beta}X_\beta\right)\,.
+    \eqnlab{u}
 \end{align}
-Similarly, the components of the acceleration $\partial \ve u/\partial t$ measured at $\ve x$ becomes in particle frame
+\subsection{Time derivatives (acceleration term)}
+The components of an acceleration $\partial \ve u/\partial t$ measured at $\ve x$ becomes in particle frame
 \begin{align}
-    \pdiff{u_\alpha}{t} &= -\diff{Q_{\alpha \beta}}{t}R_{\beta i}\left(x_i - y_i\right) + Q_{\alpha \beta}Q_{\beta \gamma}R_{\gamma i}\left(x_i - y_i\right) \nn\\
+    \pdiff{U_\alpha}{t} &= -\diff{Q_{\alpha \beta}}{t}R_{\beta i}\left(x_i - y_i\right) + Q_{\alpha \beta}Q_{\beta \gamma}R_{\gamma i}\left(x_i - y_i\right) \nn\\
     &\quad- 2Q_{\alpha \beta}R_{\beta i}\left(u_i - \diff{y_i}{t}\right) + R_{\alpha i}\left(\pdiff{u_i}{t} - \frac{\rd^2 y_i}{\rd t^2}\right) \nn \\
-    &= -\diff{Q_{\alpha \beta}}{t}r_\beta - Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma - 2Q_{\alpha \beta}u_\beta + R_{\alpha i}\pdiff{u_i}{t} -R_{\alpha i}\frac{\rd^2 y_i}{\rd t^2}\,.
+    &= -\diff{Q_{\alpha \beta}}{t}X_\beta - Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma - 2Q_{\alpha \beta}U_\beta + R_{\alpha i}\pdiff{u_i}{t} -R_{\alpha i}\frac{\rd^2 y_i}{\rd t^2}\,,\\
+    \intertext{and conversely}
+    \pdiff{u_i}{t} &= R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta \right)\,.
+    \eqnlab{partialu}
 \end{align}
+\subsection{Space derivatives (convective terms)}
+It follows from \Eqnref{transform} that
+\begin{align}
+ 	\pdiff{}{x_i} &= R_{\alpha i}\pdiff{}{X_\alpha}\,, 
+ \end{align} 
+ and therefore
+ \begin{align}
+ 	\pdiff{u_i}{x_j} &= R_{\gamma j}\pdiff{}{X_\gamma}\left(R_{\alpha i}U_\alpha + R_{\alpha i}Q_{\alpha \beta}X_\beta\right) \nn\\
+ 	&= R_{\alpha i}R_{\beta j}\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right)\,.\eqnlab{dudx}
+ \end{align}
+\subsection{Transform Navier-Stokes}
 Navier-Stokes for the components in lab frame is
 \begin{align}
-    \rho_f\left(\pdiff{u_i}{t} + u_j \partial_j u_i\right) &= \partial_j \sigma_{ij}\,.
+    \rho_f\left(\pdiff{u_i}{t} + u_j\pdiff{u_i}{x_j}\right) &= \partial_j \sigma_{ij}\,.\eqnlab{nslab}
 \end{align}
-Multiply by $R_{\alpha i}$ and insert
+The stress tensor $\ma \sigma$ depends on the symmetric part of the fluid gradient. Since $Q_{\alpha \beta}=-Q_{\beta \alpha}$ it follows from \Eqnref{dudx} that
 \begin{align}
-    \rho_f\left(\pdiff{u_\alpha}{t} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta +R_{\alpha i}\frac{\rd^2 y_i}{\rd t^2}\right.\nn\\
-    \left.\quad (R_{\alpha j}u_\alpha + R_{\alpha j}Q_{\alpha \beta}r_\beta + \diff{y_j}{t} ) \partial_j u_\alpha\right) = \partial_j \sigma_{ij}\,.    
+	\sigma_{ij} &= R_{\alpha i}R_{\beta j}\Sigma_{\alpha \beta}\,,\nn\\
+	\Sigma_{\alpha \beta} &= -p \delta_{\alpha \beta} + 2\mu \left(\pdiff{U_\alpha}{X_\beta}+\pdiff{U_\beta}{X_\alpha}\right)\eqnlab{sigma_particle}
 \end{align}
-
+Insert \Eqnref{u}, \eqnref{partialu}, \eqnref{dudx}, and \eqnref{sigma_particle} into \Eqnref{nslab}:
+\begin{align}
+	\rho_f R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta \right) \nn \\
+	+ \rho_f R_{\alpha i}\left(U_\beta + R_{\alpha j}\diff{y_i}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
+	= R_{\alpha i}\pdiff{}{X_\beta} \sigma_{\alpha \beta}
+\end{align}
+After multiplying out the rotation matrix we obtain the Navier-Stokes equations for the components of the flow in a frame of reference rotating and translating with the particle.
+\begin{align}
+	\rho_f \left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta \right) \nn \\
+	+ \rho_f \left(U_\beta + R_{\alpha j}\diff{y_i}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
+	= \pdiff{}{X_\beta} \sigma_{\alpha \beta}
+\end{align}
+\begin{align}
+	\pdiff{U_\alpha}{X_\alpha} &= 0\,, \\
+	U_\alpha &= 0\,,\quad \ve X \in \mathcal S\,, \\
+	U_\alpha &= R_{\alpha i}u^\infty_i - R_{\alpha i}\diff{y_i}{t} - Q_{\alpha \beta} X_\beta\,,\quad|\ve x|\to\infty\,.
+\end{align}
+The first row of inertial terms are the acceleration terms due to the unsteady fluid, plus the various terms arising in non-inertial frames: linear and angular accelerations; centrifugal and coriolis accelerations. The second row contains the terms due to convective inertia, plus the apparent flow due to the translation and rotation of the frame of reference. Because of the transformation the no-slip boundary condition is simplified to vanish on a stationary boundary. It is a matter of taste whether one takes the particle boundary constant (by keeping all the rotation matrices as written), or if one chooses to set $R_{\alpha i} = \delta_{\alpha i}$ and have a rotated particle surface $\mathcal S$ instead.
+\subsection{Disturbance problem}
+\begin{align}
+	U_\alpha = U^\infty_\alpha + U'_\alpha
+\end{align}
 \end{document}
