@@ -73,7 +73,7 @@ The components of an acceleration $\partial \ve u/\partial t$ measured at $\ve x
     &\quad- 2Q_{\alpha \beta}R_{\beta i}\left(u_i - \diff{y_i}{t}\right) + R_{\alpha i}\left(\pdiff{u_i}{t} - \frac{\rd^2 y_i}{\rd t^2}\right) \nn \\
     &= -\diff{Q_{\alpha \beta}}{t}X_\beta - Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma - 2Q_{\alpha \beta}U_\beta + R_{\alpha i}\pdiff{u_i}{t} -R_{\alpha i}\frac{\rd^2 y_i}{\rd t^2}\,,\\
     \intertext{and conversely}
-    \pdiff{u_i}{t} &= R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta \right)\,.
+    \pdiff{u_i}{t} &= R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}U_\beta \right)\,.
     \eqnlab{partialu}
 \end{align}
 \subsection{Space derivatives (convective terms)}
@@ -98,24 +98,36 @@ The stress tensor $\ma \sigma$ depends on the symmetric part of the fluid gradie
 \end{align}
 Insert \Eqnref{u}, \eqnref{partialu}, \eqnref{dudx}, and \eqnref{sigma_particle} into \Eqnref{nslab}:
 \begin{align}
-	\rho_f R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta \right) \nn \\
+	\rho_f R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}U_\beta \right) \nn \\
 	+ \rho_f R_{\alpha i}\left(U_\beta + R_{\alpha j}\diff{y_i}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
 	= R_{\alpha i}\pdiff{}{X_\beta} \sigma_{\alpha \beta}
 \end{align}
 After multiplying out the rotation matrix we obtain the Navier-Stokes equations for the components of the flow in a frame of reference rotating and translating with the particle.
 \begin{align}
-	\rho_f \left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}r_\beta + Q_{\alpha \beta}Q_{\beta \gamma}r_\gamma + 2Q_{\alpha \beta}u_\beta \right) \nn \\
+	\rho_f \left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}U_\beta \right) \nn \\
 	+ \rho_f \left(U_\beta + R_{\alpha j}\diff{y_i}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
-	= \pdiff{}{X_\beta} \sigma_{\alpha \beta}
+	= \pdiff{}{X_\beta} \sigma_{\alpha \beta}\eqnlab{nspar}
 \end{align}
 \begin{align}
 	\pdiff{U_\alpha}{X_\alpha} &= 0\,, \\
 	U_\alpha &= 0\,,\quad \ve X \in \mathcal S\,, \\
-	U_\alpha &= R_{\alpha i}u^\infty_i - R_{\alpha i}\diff{y_i}{t} - Q_{\alpha \beta} X_\beta\,,\quad|\ve x|\to\infty\,.
+	U_\alpha &= R_{\alpha i}u^\infty_i - R_{\alpha i}\diff{y_i}{t} - Q_{\alpha \beta} X_\beta\,,\quad|\ve X|\to\infty\,.
 \end{align}
 The first row of inertial terms are the acceleration terms due to the unsteady fluid, plus the various terms arising in non-inertial frames: linear and angular accelerations; centrifugal and coriolis accelerations. The second row contains the terms due to convective inertia, plus the apparent flow due to the translation and rotation of the frame of reference. Because of the transformation the no-slip boundary condition is simplified to vanish on a stationary boundary. It is a matter of taste whether one takes the particle boundary constant (by keeping all the rotation matrices as written), or if one chooses to set $R_{\alpha i} = \delta_{\alpha i}$ and have a rotated particle surface $\mathcal S$ instead.
 \subsection{Disturbance problem}
 \begin{align}
-	U_\alpha = U^\infty_\alpha + U'_\alpha
+	U_\alpha &= U^\infty_\alpha + U'_\alpha \\
+	p &= p^\infty + p'
+\end{align}
+\begin{align}
+	\rho_f \left(\pdiff{U^\infty_\alpha}{t}+\pdiff{U'_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}(U^\infty_\beta+U'_\beta) \right) \nn \\
+	+ \rho_f \left(U^\infty_\beta + U'_\beta + R_{\alpha j}\diff{y_i}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U^\infty_\alpha}{X_\beta}+\pdiff{U'_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
+	= \pdiff{}{X_\beta} \sigma^\infty_{\alpha \beta} + \pdiff{}{X_\beta} \sigma'_{\alpha \beta}
+\end{align}
+The ambient flow satisfies \Eqnref{nspar}, therefore
+\begin{align}
+	\rho_f \left(\pdiff{U'_\alpha}{t} + 2Q_{\alpha \beta}U'_\beta \right) \nn \\
+	+ \color{red}{\rho_f \left(U^\infty_\beta + U'_\beta + R_{\alpha j}\diff{y_i}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U^\infty_\alpha}{X_\beta}+\pdiff{U'_\alpha}{X_\beta}+Q_{\alpha \beta}\right)} \nn \\
+	= \pdiff{}{X_\beta} \sigma'_{\alpha \beta}
 \end{align}
 \end{document}
