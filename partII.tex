@@ -42,8 +42,22 @@ These equations are non-linear and coupled: convective term, moving boundary con
 
 \section{Particle reference frame}
 
-To reason about the non-linear system of equations we change coordinates into a reference frame following the particle. This eliminates the complication of a moving boundary condition in exchange for some non-linear inertial terms in the momentum equation. The new reference frame has a its origin at $\ve y(t)$ and its principal directions are given by the rotation $\ma R(t)$.
+To reason about the non-linear system of equations we change into a set of coordinates whose axes are aligned with the particle. This eliminates the complication of a moving boundary condition in exchange for some non-linear inertial terms in the momentum equation.
+
+The new reference frame has a its origin at $\ve y(t)$ and its principal directions are given by the rotation $\ma R(t)$, such that the particle axis $\ve t^k_i = R_{ij} \ve e^k_j\,, i=1..3$.
+
 \subsection{Coordinate transformation}
+
+\begin{align}
+    x_i \ve e^i &= X_\alpha \ve t_^\alpha = X_\alpha R^\alpha_i \ve e  \\
+    x_i &= R_{i \alpha}X_\alpha
+\end{align}
+\begin{align}
+    \ve x &= \ve y + \ve r \\
+    x_i &= y_i + r_i\\
+    X_\alpha
+\end{align}
+
 Consider a position vector $\ve x$ with components $x_i$ in the stationary frame. We denote its components in the particle frame by $X_\alpha$, and the two are related by a translation and a rotation:
 \begin{align}
     X_\alpha &= R_{\alpha i}\left(x_i - y_i\right)\,.\eqnlab{transform}
