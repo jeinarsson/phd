@@ -1,171 +1,66 @@
 \documentclass[thesis.tex]{subfiles}
 
 \begin{document}
-\chapter{Linearizing the Navier-Stokes equations}
 
-\section{Stationary reference frame}
+Introduction to Part II.
 
-Let $\ve u(\ve x, t)$ the flow velocity vector field and $\rho_f$ the density of the fluid. Consider the momentum balance in a volume $\mathcal V$ bounded by surface $\mathcal S$:
-\begin{align}
-    \pdiff{}{t}\int_\mathcal V  \rho_f \ve u \rd\mathcal V +
-    \int_\mathcal S \rho_f\ve u (\ve u \cdot \rd \mathcal S) =
-    \int_\mathcal S \ma \sigma \cdot \rd \mathcal S
-\end{align}
-The first term accounts for changing velocities in the bulk of the volume. The second term accounts for the momentum transfer across the boundary of the volume. The right hand side contains the forces acting on the surface of the volume, $\ma \sigma$ is the stress tensor describing the force per unit area in the fluid. A Newtonian fluid is modeled by $\ma \sigma = -p \ma I + 2\mu \ma S$, where $p$ is the pressure field and $\ma S$ is the symmetric part of the flow field gradient. Body forces are omitted here, but are straightforward to add.
+\chapter{Effective equation of motion for a weakly inertial spheroids in shear flow}
 
-We apply the divergence theorem to the surface integrals and find
-\begin{align}
-    \pdiff{}{t}\int_\mathcal V  \rho_f \ve u \rd\mathcal V +
-    \int_\mathcal V  \left[(\nabla\cdot\rho_f\ve u) \ve u+(\rho_f\ve u\cdot\nabla) \ve u\right] \rd \mathcal V =
-    \int_\mathcal V \nabla\cdot\ma \sigma \rd \mathcal V.
-\end{align}
-This equation holds point-wise, because the volume is arbitrary. In addition we consider an incompressible fluid with constant density, and arrive at the Navier-Stokes equations for an incompressible fluid:
+\section{History of problem}
+
+\section{Anatomy of an effective equation}
+
 \begin{align}
     \rho_f \left(\pdiff{}{t}\ve u + (\ve u \cdot \nabla) \ve u\right)=\nabla \cdot \ma \sigma\,.
 \end{align}
-We will now introduce a particle through the no-slip boundary conditions at the particle surface $S$. The particle center-of-mass moves along the trajectory $\ve y(t)$ (velocity $\dot{\ve y}$), and its orientation $\ma R(t)$ with angular velocity $\ve \omega(t)$. No-slip means no relative velocity, neither normal nor tangential, between fluid and boundary. Far away from the particle, ``at infinity'', the fluid is not disturbed by the presence of the particle:
+\begin{align}
+    \ma \sigma = -p \ma 1 + 2\mu \ma S
+\end{align}
 \begin{align}
     \ve u(\ve x, t) &= \dot{\ve y} + \ve \omega \cross (\ve x - \ve y), & \ve x \in S. \nn\\
     \ve u(\ve x, t) &= \ve u^\infty(\ve x, t), & |\ve x-\ve y|\to\infty\,.
 \end{align}
-The forces and torques acting on the particle are in turn determined by integrating the fluid stresses over the particle surface:
 \begin{align}
     \ve F &= \int_S \ma \sigma \cdot \rd S\,, \\
     \ve T &= \int_S (\ve x - \ve y) \cross \ma \sigma \cdot \rd S\,.
 \end{align}
-Finally, the particle trajectory is governed by Newton's equations
 \begin{align}
     m\ddot{\ve y} = \ve F\,, \quad \diff{}{t}(\ma I \ve \omega) = \ve T\,.
 \end{align}
 
-These equations are non-linear and coupled: convective term, moving boundary condition.
+\begin{table}
+    \begin{tabular}{ll}
+    \toprule
+    Symbol & Meaning \\
+    \midrule
+    $\ve u$      & Fluid velocity       \\
+    $p$      & Fluid pressure       \\
+    $\ma \sigma$      & Fluid stress tensor       \\
+    $\ve y$      & Particle position       \\
+    $\dot{\ve y}$      & Particle velocity       \\
+    $\ddot{\ve y}$      & Particle acceleration       \\
+    $\ve F$      & Force on particle from fluid       \\
+    $\ve T$      & Torque on particle from fluid       \\
+    $\ve \omega$      & Particle angular velocity       \\
+    $\ve u^\infty$      & Undisturbed fluid velocity (far from particle)       \\
+    $m$      & Particle mass       \\
+    $\ma I$ & Particle moment-of-inertia tensor \\
+    $\rho_f$      & Fluid density       \\
+    $\rho_p$      & Particle density       \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
-\section{Particle reference frame}
+\section{Results}
 
-To reason about the non-linear system of equations we change into a set of coordinates whose axes are aligned with the particle. This eliminates the complication of a moving boundary condition in exchange for some non-linear inertial terms in the momentum equation.
+\chapter{Measurements of asymmetric rods tumbling in microchannel flow}
+\section{History of problem}
+\section{Results}
+\chapter{Effects of thermal noise on the tumbling of triaxial ellipsoids}
+\section{History of problem}
+\section{Results}
+\chapter{Rotation of axisymmetric particles in isotropic turbulence}
+\section{History of problem}
+\section{Results}
 
-The new reference frame has a its origin at $\ve y(t)$ and its principal directions are given by the rotation $\ma R(t)$, such that the particle axis $\ve t^k_i = R_{ij} \ve e^k_j\,, i=1..3$.
-
-\subsection{Coordinate transformation}
-
-\begin{align}
-    x_i \ve e^i &= X_\alpha \ve t_^\alpha = X_\alpha R^\alpha_i \ve e  \\
-    x_i &= R_{i \alpha}X_\alpha
-\end{align}
-\begin{align}
-    \ve x &= \ve y + \ve r \\
-    x_i &= y_i + r_i\\
-    X_\alpha
-\end{align}
-
-Consider a position vector $\ve x$ with components $x_i$ in the stationary frame. We denote its components in the particle frame by $X_\alpha$, and the two are related by a translation and a rotation:
-\begin{align}
-    X_\alpha &= R_{\alpha i}\left(x_i - y_i\right)\,.\eqnlab{transform}
-\end{align}
-A velocity $\ve u = \rd \ve x/\rd t$ measured at $\ve x$ has components $u_i=\rd x_i/\rd t$ in the lab frame, and its components $U_\alpha$ in the particle frame are 
-\begin{align}
-    U_\alpha &= \diff{R_{\alpha i}}{t}\left(x_i - y_i\right) + R_{\alpha i}\left(u_i - \diff{y_i}{t}\right)\,.
-\end{align}
-The time derivative of the rotation $\ma R$ is related to the angular velocity $\ve \omega$. More precisely, since $R_{\alpha i}R_{i\beta} = \delta_{\alpha\beta}$, we find after differentiation
-\begin{align}
-    \diff{R_{\alpha i}}{t} &= -Q_{\alpha \beta} R_{\beta i} = -\lc_{\alpha\gamma\beta}\omega_\gamma R_{\beta i}\,.\eqnlab{dRdt}
-\end{align}
-Here $\ma Q$ is the anti-symmetric matrix such that $\ma Q\ve x = \ve \omega \cross \ve x$. While perhaps unusual, I use the matrix $\ma Q$ in the following because I find the calculations easier to read than with the cross products. In the final result it is easy to convert to the more familiar notation.
-
-With \Eqnref{dRdt} the components of the velocity $\ve u$ are
-\begin{align}
-    U_\alpha &= -Q_{\alpha \beta}R_{\beta i}\left(x_i - y_i\right) + R_{\alpha i}\left(u_i - \diff{y_i}{t}\right) \nn \\
-    &= -Q_{\alpha \beta}X_\beta + R_{\alpha i}u_i - R_{\alpha i}\diff{y_i}{t}\,,\nn\\
-    \intertext{and conversely}
-    u_j &= R_{\alpha j}\left(U_\alpha + R_{\alpha k}\diff{y_k}{t} + Q_{\alpha \beta}X_\beta\right)\,.
-    \eqnlab{u}
-\end{align}
-\subsection{Time derivatives (acceleration term)}
-The components of an acceleration $\partial \ve u/\partial t$ measured at $\ve x$ becomes in particle frame
-\begin{align}
-    \pdiff{U_\alpha}{t} &= -\diff{Q_{\alpha \beta}}{t}R_{\beta i}\left(x_i - y_i\right) + Q_{\alpha \beta}Q_{\beta \gamma}R_{\gamma i}\left(x_i - y_i\right) \nn\\
-    &\quad- 2Q_{\alpha \beta}R_{\beta i}\left(u_i - \diff{y_i}{t}\right) + R_{\alpha i}\left(\pdiff{u_i}{t} - \frac{\rd^2 y_i}{\rd t^2}\right) \nn \\
-    &= -\diff{Q_{\alpha \beta}}{t}X_\beta - Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma - 2Q_{\alpha \beta}U_\beta + R_{\alpha i}\pdiff{u_i}{t} -R_{\alpha i}\frac{\rd^2 y_i}{\rd t^2}\,,\\
-    \intertext{and conversely}
-    \pdiff{u_i}{t} &= R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}U_\beta \right)\,.
-    \eqnlab{partialu}
-\end{align}
-\subsection{Space derivatives (convective terms)}
-It follows from \Eqnref{transform} that
-\begin{align}
- 	\pdiff{}{x_i} &= R_{\alpha i}\pdiff{}{X_\alpha}\,, 
- \end{align} 
- and therefore
- \begin{align}
- 	\pdiff{u_i}{x_j} &= R_{\gamma j}\pdiff{}{X_\gamma}\left(R_{\alpha i}U_\alpha + R_{\alpha i}Q_{\alpha \beta}X_\beta\right) \nn\\
- 	&= R_{\alpha i}R_{\beta j}\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right)\,.\eqnlab{dudx}
- \end{align}
-\subsection{Transform Navier-Stokes}
-Navier-Stokes for the components in lab frame is
-\begin{align}
-    \rho_f\left(\pdiff{u_i}{t} + u_j\pdiff{u_i}{x_j}\right) &= \partial_j \sigma_{ij}\,.\eqnlab{nslab}
-\end{align}
-The stress tensor $\ma \sigma$ depends on the symmetric part of the fluid gradient. Since $Q_{\alpha \beta}=-Q_{\beta \alpha}$ it follows from \Eqnref{dudx} that
-\begin{align}
-	\sigma_{ij} &= R_{\alpha i}R_{\beta j}\Sigma_{\alpha \beta}\,,\nn\\
-	\Sigma_{\alpha \beta} &= -p \delta_{\alpha \beta} + 2\mu \left(\pdiff{U_\alpha}{X_\beta}+\pdiff{U_\beta}{X_\alpha}\right)\eqnlab{sigma_particle}
-\end{align}
-Insert \Eqnref{u}, \eqnref{partialu}, \eqnref{dudx}, and \eqnref{sigma_particle} into \Eqnref{nslab}:
-\begin{align}
-	\rho_f R_{\alpha i}\left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}U_\beta \right) \nn \\
-	+ \rho_f R_{\alpha i}\left(U_\beta + R_{\beta j}\diff{y_j}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
-	= R_{\alpha i}\pdiff{}{X_\beta} \sigma_{\alpha \beta}
-\end{align}
-After multiplying out the rotation matrix we obtain the Navier-Stokes equations for the components of the flow in a frame of reference rotating and translating with the particle.
-\begin{align}
-	\rho_f \left(\pdiff{U_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}U_\beta \right) \nn \\
-	+ \rho_f \left(U_\beta + R_{\beta j}\diff{y_j}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
-	= \pdiff{}{X_\beta} \sigma_{\alpha \beta}\eqnlab{nspar}
-\end{align}
-\begin{align}
-	\pdiff{U_\alpha}{X_\alpha} &= 0\,, \\
-	U_\alpha &= 0\,,\quad \ve X \in \mathcal S\,, \\
-	U_\alpha &= R_{\alpha i}u^\infty_i - R_{\alpha i}\diff{y_i}{t} - Q_{\alpha \beta} X_\beta \equiv U^\infty_\alpha \,,\quad|\ve X|\to\infty\,.
-\end{align}
-The first row of inertial terms are the acceleration terms due to the unsteady fluid, plus the various terms arising in non-inertial frames: linear and angular accelerations; centrifugal and coriolis accelerations. The second row contains the terms due to convective inertia, plus the apparent flow due to the translation and rotation of the frame of reference. Because of the transformation the no-slip boundary condition is simplified to vanish on a stationary boundary. It is a matter of taste whether one takes the particle boundary constant (by keeping all the rotation matrices as written), or if one chooses to set $R_{\alpha i} = \delta_{\alpha i}$ and have a rotated particle surface $\mathcal S$ instead.
-\subsection{Disturbance problem}
-\begin{align}
-	U_\alpha &= U^\infty_\alpha + U'_\alpha \\
-	p &= p^\infty + p'
-\end{align}
-\begin{align}
-	\rho_f \left(\pdiff{U^\infty_\alpha}{t}+\pdiff{U'_\alpha}{t} + R_{\alpha j}\frac{\rd^2y_j}{\rd t^2} + \diff{Q_{\alpha \beta}}{t}X_\beta + Q_{\alpha \beta}Q_{\beta \gamma}X_\gamma + 2Q_{\alpha \beta}(U^\infty_\beta+U'_\beta) \right) \nn \\
-	+ \rho_f \left(U^\infty_\beta + U'_\beta + R_{\beta j}\diff{y_j}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U^\infty_\alpha}{X_\beta}+\pdiff{U'_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
-	= \pdiff{}{X_\beta} \sigma^\infty_{\alpha \beta} + \pdiff{}{X_\beta} \sigma'_{\alpha \beta}
-\end{align}
-The ambient flow satisfies \Eqnref{nspar}, therefore
-\begin{align}
-    \rho_f \left(\pdiff{U'_\alpha}{t} + 2Q_{\alpha \beta}U'_\beta \right) \nn \\
-    + \rho_f \left(U^\infty_\beta + U'_\beta + R_{\beta j}\diff{y_j}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U^\infty_\alpha}{X_\beta}+\pdiff{U'_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
--     \rho_f \left(U^\infty_\beta + R_{\beta j}\diff{y_j}{t}+Q_{\beta \gamma}X_\gamma\right)\left(\pdiff{U^\infty_\alpha}{X_\beta}+Q_{\alpha \beta}\right) \nn \\
-    = \pdiff{}{X_\beta} \sigma'_{\alpha \beta}
-\end{align}
-Further simplified
-\begin{align}
-    \rho_f \left(\pdiff{U'_\alpha}{t} + 2Q_{\alpha \beta}U'_\beta \right) \nn \\
-    \rho_f\left(\left(U^\infty_\beta + R_{\beta j}\diff{y_j}{t}+Q_{\beta \gamma}X_\gamma\right)\pdiff{U'_\alpha}{X_\beta}+U'_\beta\left(\pdiff{U^\infty_\alpha}{X_\beta}+\pdiff{U'_\alpha}{X_\beta}+Q_{\alpha \beta}\right)\right)\nn\\
-   = \pdiff{}{X_\beta} \sigma'_{\alpha \beta}
-\end{align}
-And because $U^\infty_\alpha = R_{\alpha i}u^\infty_i - R_{\alpha i}\diff{y_i}{t} - Q_{\alpha \beta} X_\beta$,
-\begin{align}
-    \rho_f \left(\pdiff{U'_\alpha}{t} + 2Q_{\alpha \beta}U'_\beta \right) \nn \\
-    \rho_f\left(R_{\beta i}u^\infty_i\pdiff{U'_\alpha}{X_\beta}+U'_\beta\left(R_{\alpha i}R_{\beta j}\pdiff{u^\infty_i}{x_j}+\pdiff{U'_\alpha}{X_\beta}\right)\right)\nn\\
-   = \pdiff{}{X_\beta} \sigma'_{\alpha \beta}
-\end{align}
-Boundary conditions
-\begin{align}
-    \pdiff{U'_\alpha}{X_\alpha} &= 0\,, \\
-    U'_\alpha &= -U^\infty_\alpha=-\left(R_{\alpha i}u^\infty_i - R_{\alpha i}\diff{y_i}{t} - Q_{\alpha \beta} X_\beta\right)\,,\quad \ve X \in \mathcal S\,, \\
-    U'_\alpha &= 0\,,\quad|\ve X|\to\infty\,.
-\end{align}
-Summary disturbance problem:
-\begin{itemize}
-    \item One new inertial term (Coriolis) $2\ve\omega \cross \ve U'$
-    \item Boundary condition implies that the magnitude of $U'$ is related to the translational and orientational slip velocities, that means particle center-of-mass velocity versus $\ve u^\infty$, and particle angular velocity compared to gradients $\ma A^\infty$.
-\end{itemize}
 \end{document}
