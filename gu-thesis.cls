@@ -601,7 +601,7 @@
 
 
  \begin{center}
-  \textsc{\large Licentiate Thesis}
+  \textsc{\large Doctorate Thesis}
   \\[35mm]
   \Large {\@title}
   \\[10mm]
