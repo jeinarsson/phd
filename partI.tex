@@ -1,3 +1,4 @@
+%!TEX root=thesis.tex
 \documentclass[thesis.tex]{subfiles}
 
 \begin{document}
@@ -352,6 +353,8 @@ Curiously, the dynamics of non-spherical particles in simple shear flow offers a
 
 \section{The Jeffery equation and its solutions}\seclab{jefferyequation}
 
+\subsection{Axisymmetric particles}
+
 In this section we consider axisymmetric particles: particles which are rotationally symmetric around an axis of symmetry. For such particles the orientational configuration may be represented by a unit vector $\ve n$, attached to the axis of symmetry. As alluded to in Sec.~\ref{sec:forces}, Jeffery presents two major results in his seminal paper from 1922 \cite{jeffery1922}. First, he calculates the hydrodynamic torque on a ellipsoid, not necessarily axisymmetric, in any linear flow. Second, he derives the equation of motion of an inertia-free, axisymmetric ellipsoid (a spheroid). This equation of motion is often referred to as the Jeffery equation. In our notation the Jeffery equation is
 \begin{align}
 	\dot{\ve n} &= \ma O \ve n + \Lambda \left(\ma S \ve n - \ve n \ve n \transpose \ma S \ve n\right).\eqnlab{jeffery}
@@ -433,6 +436,8 @@ In the region where there is a pair of complex eigenvalues, the two cases of spi
 \end{align*}
 The other combinations of $\ma S$ and $\ma O$ which could be expected to contribute, such as $\tr \ma O\ma O \ma O$, vanish identically because of symmetries of $\ma O$ and $\ma S$. As explained above, changing a particle from rod-like to disk-shaped implies a change of sign of the shape factor $\Lambda$. The implications of this observation for the tumbling of particles in turbulent and random flows are further discussed in Sec.~\ref{sec:tumbling} in Part~II, and in Paper C. 
 
+\subsection{The Jeffery Orbits}\seclab{jefferyorbits}
+
 The remainder of this section concerns the case of simple shear flow. This case is characterised by $\tr \ma B^3=0$ and $\tr \ma B^2<0$. The simple shear has a special position among flows, and we understand the significance of the condition $\tr\ma B^3=0$ from the above discussion. First, a change of particle shape does not change the qualitative dynamics. Both disk-shaped particles and rod-like particles rotate in a shear flow. Second, $\ma B$ has a zero eigenvalue, as seen from the characteristic equation \eqnref{bcharacteristic}. The zero eigenvalue is important, because it implies that the particle dynamics never forgets its initial condition. The eigenvector of the zero eigenvalue is the vorticity direction\footnote{See Fig.~\ref{fig:coordinates} and Sec.~\ref{sec:shearflow} for the definition of the coordinate system and the terminology of its directions in a simple shear flow.}, thus the component of $\ve q$ in the vorticity direction is constant in a shear flow. The other two eigenvalues are an imaginary pair, resulting in a periodic rotation of $\ve q$.
 
 In summary, the dynamics of $\ve q$ in a simple shear flow is a periodic rotation in a plane. The plane is normal to the vorticity direction, and determined by the initial condition of $\ve q$.
@@ -486,5 +491,7 @@ First, the particle may not be axisymmetric. In this case the dynamics is more c
 Second, there may be inertial effects. Fluid inertia was neglected when we used the resistance tensor formulation \eqnref{resistanceformulation} for the torque on a particle. Particle inertia was neglected when Newton's equation reduced to Jeffery's equation in the advective limit $\st \to 0$. In Paper B we describe how the effects of a small amount of particle inertia break the degeneracy of the solutions $\ve n(t)$. See the discussion in \Secref{inertia} for an outlook on the case of fluid inertia.
 
 Finally, the third mechanism is Brownian noise. The idea is that thermal fluctuations kick the particle out of one Jeffery orbit and into another. After some time, the initial condition is forgotten and the state of the particle is described by an orientational probability distribution. The problem of computing the orientational distribution has a long history, and in the next Section I briefly review some of the methods and results.
+
+\subsection{Non-axisymmetric particles}
 
 \end{document}

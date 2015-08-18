@@ -1,10 +1,11 @@
+%!TEX root=thesis.tex
 \documentclass[thesis.tex]{subfiles}
 
 \begin{document}
 
-In the following Sections I give the context and main results for each of the four projects I am part of.
+In the following Sections I give the context and main results for each of the four projects I am part of. 
 
-My main project is the development of an effective equation of motion for a neutrally buoyant spheroid suspended in a simple shear flow, valid when inertial effects are weak but not vanishing. It consists of the appended Papers A-D.
+The main project is the development of an effective equation of motion for the orientation of a neutrally buoyant spheroid suspended in a simple shear flow, valid when inertial effects are weak but not vanishing. In short, we compute what happens to the Jeffery orbits when the particle Reynolds number is non-zero. The results are contained in the appended Papers A-D.
 
 In addition I have taken part in three studies related to the orientational motion of non-spherical particles. They have in common that they involve Jeffery's theory for ellipsoidal particles.
 \begin{enumerate}
@@ -13,6 +14,7 @@ In addition I have taken part in three studies related to the orientational moti
     \item a description of the rotational modes of disks and rods in isotropic turbulence, combining data from experiments, direct numerical simulations and random flow theory (Paper G).
 \end{enumerate}
 
+
 \chapter{Effective equation of motion for a weakly inertial spheroid in shear flow}
 
 This project is a collaboration with collegues in Cherbourg and Marseille (France), and Stockholm (Sweden). J.R. Angilella (Cherbourg) and F. Candelier (Marseille) have many years of experience in dynamical systems, fluid mechanics and perturbation theory, without which this project would not have landed. T. Ros\'en and F. Lundell in Stockholm are experts in direct numerical simulation of particulate flows by the lattice Boltzmann method, by which we could validate our calculations. I also attribute the initial idea to perform stability analysis on the log-rolling motion under inertial perturbation, however vague at the time, to F. Lundell at a COST meeting in Udine, Italy. 
@@ -20,6 +22,24 @@ This project is a collaboration with collegues in Cherbourg and Marseille (Franc
 Paper A is a brief summary of the calculation and result in letter form, while the Papers B \& C contain all details. Paper D describes the direct numerical simulations which validates our theoretical calculation, and shows in detail when the effective equations break down due to finite domain size and increasing importance of inertial effects.
 
 \section{History of problem}
+
+The Jeffery equations for an axisymmetric particle in simple shear flow are interesting because their solutions are degenerate, as explained in \Secref{jefferyorbits} in Part I. Their solutions form a one-parameter family of periodic orbits. No orbit is preferred over another, it is the initial condition which determines the dynamics indefinitely. Jeffery was very aware of this fact, he writes \blockquote{It is obviously undesirable to leave a problem, which is physically quite determinate, in this indeterminate form.}
+He further conjectures that \blockquote{this failure is due to the limitations of the theory of the slow motion of a viscous fluid.}
+In other words, he believed that inertial corrections were necessary to break the degenaracy. He concludes, referring to inertial corrections, \blockquote[][...]{[...] a more complete investigation would reveal the fact that the particles do tend to adopt special orientations} 
+In connection with this discussion Jeffery hypothesized that this preferred orientation would be such that the energy dissipated by viscosity is minimized: a prolate particle ends up log-rolling (long axis along the vorticity), and an oblate particle tumbles (with a diameter along vorticity.)
+
+\citet{saffman1956} made the first attempt to include the non-linear inertial terms. It seems, although details are sparse, that he used an early form of asymptotic matching. For this he acknowledges I. Proudman, who a year later co-authored a paper \cite{proudman1957} on the inertial correction to the drag on a translating sphere, pioneering the use of asymptotic matching in viscous fluid mechanics. But Saffman did not have the proper solution to the outer ``Oseen problem'' for matching, instead he invented a plausible but ad-hoc boundary condition to match the inner expansion. With this method, applied for nearly spherical particles, he found agreement with Jeffery's minimum dissipation hypothesis.
+
+\citet{harper1968} analyzed the rotation of two spheres rigidly constrained by an invisible rod, a so-called dumbbell. In the purely viscous regime a dumbell is equivalent to a prolate spheroid when its aspect ratio approaches infinity. They assumed that both spheres experienced lift forces (calculated by \citet{saffman1965}) independently of each other. By this method they found the opposite of Jeffery's minumum dissipation hypothesis: a slender rod ends up tumbling end-to-end in the flow-shear plane.
+
+More recently \citet{subramanian2005,subramanian2006} re-examined the slender fibre and nearly-spherical limiting cases using a reciprocal theorem \cite{kim1991,lovalenti1993}. Their method is less controversial than those employed by the earlier attemps. However, they found, like \citet{harper1968}, that for small values of the Reynolds number a slender rod tumbles end-to-end in the flow-shear plane. For larger values of the Reynolds number the tumbling orbit is destroyed and replaced by fixed points, which means that the particle stops rotating and aligns, a phenomenen observed in numerical studies \cite{ding2000} (see below). \citet{subramanian2006} found that a nearly spherical prolate particle aligns its long axis along the vorticity, and a nearly spherical oblate particle tumbles, in agreement with \citet{saffman1956}. They remark that the different types of motions for nearly spherical particles, and slender particles \blockquote{suggests a possible bifurcation [...] at an intermediate aspect ratio.}
+
+Meanwhile, several groups began studies of this problem using direct numerical solution of the Navier-Stokes equations, via lattice Boltzmann simulations \cite{feng1995,ding2000,qi2003,yu2007,huang2012,rosen2014,mao2014,rosen2015a,rosen2015b}. These studies reveal a rich structure of dynamical modes for moderate to large values of the Reynolds number. Not only log-rolling or tumbling is possible, but also intermediate limit cycles and alignment with new fixed points.
+But the parameter ranges where the existing theory should be valid is also where the numerical simulations become computationally impractical. More precisely, small values of the Reynolds number, large distance to the boundaries, and extreme particle shape all add to the computational cost. Therefore any comparisons to existing theory were qualitative. Nevertheless, these qualitative observations were inconsistent with the results of \citet{saffman1956} and \cite{subramanian2006}. The clearest example is in Fig.~12 of \citet{mao2014}, where they find that the dynamics of a nearly spherical particle ($\lambda=1.2$ and $\lambda=0.8$) is the opposite of the theoretical prediction. 
+
+
+
+
 
 \section{Anatomy of an effective equation}
 
