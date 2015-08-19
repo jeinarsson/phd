@@ -59,7 +59,7 @@ Here the first row is the result of \citet{jeffery1922}. The projection matrix $
 
 The result \eqnref{ndoteffective} resolves the inconsistensies between earlier theories, and between theory and numerical simulations. It also conclusively refutes Jeffery's minimum dissipation hypothesis. I summarise these findings in the following Sections.
 
-\subsection{First effects of inertia}
+\subsection*{First effects of inertia}
 
 The solution to Jeffery's equation, \Eqnref{ndoteffective} with $\Reys=0$, are the degenerate periodic Jeffery orbits. But just as Jeffery conjectured, an arbitrarily small amount of inertia breaks the degeneracy, and the particle adopts a preferred orbit. What the preferred orbit is depends on the particle aspect ratio, and initial condition as follows.
 \begin{itemize}
@@ -70,21 +70,47 @@ The solution to Jeffery's equation, \Eqnref{ndoteffective} with $\Reys=0$, are t
 
 Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results valid for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. This is a bold statement, but we took great care in deriving and checking our result. First, we asked F. Candelier to independently analyse the case of nearly spherical particles. We knew that my general solution must match his solution for nearly spherical particles exactly, as $\lambda\to1$. By comparing notes we eliminated mistakes until, very suddenly, our solutions matched. At that point we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. Second, we asked T. Ros\'en and F. Lundell to use their numerical codes to verify our result. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D, see in particular \obs{Fig.~2}. We conclude that our effective equation is correct, which resolves the indeterminacy discovered by Jeffery in 1922. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the Reynolds number.
 
-\subsection{Dynamics at larger Reynolds numbers}
+\subsection*{Phase diagram for the effective equation}
+In the previous Section I discussed the first effects of inertia, for which a perturbative effective equation like \Eqnref{ndoteffective} should be valid. For larger values of $\Reys$ it is not as clear-cut, we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. Nevertheless it can be fruitful to examine the dynamics of the effective equations.
 
+Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys\approx0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} as $\Reys$ increases. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a phase diagram of the different regions in this parameter space. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are \emph{bifurcation lines}, where the qualitative dynamics change.
 
+It is clear that the effective equation has no quantitative predictive power except for very small values of $\Reys$. It can, for example, in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. But if a bifurcation line extends towards $\Reys=0$ somewhere, we know that it must \emph{connect} to a corresponding bifurcation line in the exact dynamics. This does not necessarily predict what will happen in the exact dynamics, but it does constrain the options, and may serve as a guide for further numerical analysis.
+
+In the phase diagram three lines extend to $\Reys=0$. One of them separates the regions of stable and unstable tumbling for oblate particles, referred to in the previous Section. It connects to $\Reys=0$ approximately when $\lambda=1/7.3$. In Paper~D there is numerical evidence that this happens also in the exact equations. The two other bifurcation lines reach $\Reys=0$ only asymptotically as $\lambda\to0$ and $\lambda\to\infty$, corresponding to infinitely thin disks or rods.
+
+One may hope that the effective equation is qualitatively correct in predicting what the first bifurcation is as $\Reys$ increases. The data of \citet{rosen2015b} and Paper~D indicate that the ``critical point'', where several bifurcation lines merge, does exist also in the exact dynamics. However, the bifurcation lines seem to be sensitive to the confinement ratio in the numerical simulations and as of now we do not have enough data to confirm nor refute any claims on equivalence.
 
 \chapter{Measurements of asymmetric rods tumbling in microchannel flow}
-Paper E
-\section{History of problem}
-\section{Results}
+
+This project is a collaboration with our experimentalist collegues in Gothenburg, Sweden. Roughly, the division of work is that they build and perform the experiment, and we design the specifications and perform the analysis.
+
+The project was initiated with an intention of observing the scattering between Jeffery orbits due to thermal noise. But first we needed to observe plain Jeffery orbits, as a baseline. With hindsight that was naive, given the long list of skilled experimentalists before us, Sec.~II in Paper E is a more or less exhaustive list. Our focus has shifted away from thermal noise, to the sensitive dependence on particle shape and initial condition. In \Secref{triaxialintro} in Part I, I explained how Jeffery's result implies complicated dynamics for triaxial particles, even if the deviation from axisymmetry very small. We want to observe this effect in experiment.
+
+We previously published two papers \cite{mishra2012,einarsson2013} describing our methods and some initial observations. In Paper~E we describe our most recent measurements. There are two main differences from before. First, we employ an optical trap to arrange particles for the experimental runs. This allows us to use the same particle several times, and to control its initial condition. Second, we have particles made from glass fibres which have a very symmetric cross-section.
+
+In Paper~E we claim to observe both quasi-periodic and chaotic trajectories, for the same particle. 
+\begin{enumerate}
+    \item Pressure reversals revert the orientational dynamics, which excludes any non-reversible effects such as inertia or thermal noise,
+    \item Several trajectories for the same particle, but with different initial conditions.
+\end{enumerate}
+
 \chapter{Effects of thermal noise on the tumbling of triaxial ellipsoids}
 Paper F
 \section{History of problem}
 \section{Results}
-\chapter{Rotation of axisymmetric particles in isotropic turbulence}
-Paper G
-\section{History of problem}
-\section{Results}
+
+
+
+\chapter{Rotation rates of particles in turbulence}
+Paper~G started as the synthesis of discussions we had during a workshop at {\sc nordita} in Stockholm. For those I am grateful especially to E.~Variano and G.~Voth. The paper is a discussion of the rotations of axisymmetric particles in isotropic turbulence. I think the strength of this paper is it's breadth, as it contains pieces of experimental results, numerical results and analytical model calculations.
+
+From what I remember the discussions started because of confusion between \emph{rotation rate} and \emph{tumbling rate}. In this context rotation rate means magnitude of the angular velocity: $|\ve \omega|$. The tumbling rate is the rate at which the symmetry axis of the particle turns: $|\dot{\ve n}|=|\ve \omega \cross \ve n|$. The two are of course kinematically related, because
+\begin{align}
+    |\ve \omega|^2 &= |\dot{\ve n}|^2 + |\ve \omega \cdot \ve n|^2\,.
+\end{align}
+The difference $|\ve \omega \cdot \ve n|$ is called the \emph{spinning rate}, because it is the rate at which the particle spins around its symmetry axis.
+
+
 
 \end{document}
