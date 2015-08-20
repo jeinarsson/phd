@@ -3,7 +3,7 @@
 
 \begin{document}
 
-In the following Sections I give the context and main results for each of the four projects I am part of. 
+In the following Sections I give the context and main results for each of the four projects I worked on recently. 
 
 The main project is the development of an effective equation of motion for the orientation of a neutrally buoyant spheroid suspended in a simple shear flow, valid when inertial effects are weak but not vanishing. In short, we compute what happens to the Jeffery orbits when the particle Reynolds number is non-zero. The results are contained in the appended Papers A-D.
 
@@ -15,7 +15,7 @@ In addition I have taken part in three studies related to the orientational moti
 \end{enumerate}
 
 
-\chapter{Effective equation of motion for a weakly inertial spheroid in shear flow}
+\chapter{Effective equation of motion for a weakly inertial spheroid in shear flow}\label{sec:effective}
 
 This project is a collaboration with collegues in Cherbourg and Marseille (France), and Stockholm (Sweden). J.R. Angilella (Cherbourg) and F. Candelier (Marseille) have many years of experience in dynamical systems, fluid mechanics and perturbation theory, without which this project would not have landed. T. Ros\'en and F. Lundell in Stockholm are experts in direct numerical simulation of particulate flows by the lattice Boltzmann method, by which we could validate our calculations. I also attribute the initial idea to perform stability analysis on the log-rolling motion under inertial perturbation, however vague at the time, to F. Lundell at a COST meeting in Udine, Italy. 
 
@@ -73,7 +73,56 @@ Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} i
 \subsection*{Phase diagram for the effective equation}
 In the previous Section I discussed the first effects of inertia, for which a perturbative effective equation like \Eqnref{ndoteffective} should be valid. For larger values of $\Reys$ it is not as clear-cut, we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. Nevertheless it can be fruitful to examine the dynamics of the effective equations.
 
-Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys\approx0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} as $\Reys$ increases. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a phase diagram of the different regions in this parameter space. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are \emph{bifurcation lines}, where the qualitative dynamics change.
+Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys\approx0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} as $\Reys$ increases. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a schematic phase diagram for oblate particles ($\lambda<1$), showing the first bifurcations as $\Reys$ increase. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are bifurcation lines, where the qualitative dynamics change. For even larger values of $\Reys$ there are even more bifurcations, not shown here. The regions shown are as follows:
+\begin{itemize}
+    \item Log rolling stable everywhere, but spiral below dashed line and node above.
+    \item For larger $\Reys$ there are more bifurcations not depicted in this figure, for instance an additional pair of fixed points is created in the flow-shear plane.
+    \item[A] \begin{itemize}
+        \item Tumbling orbit unstable,
+        \item No additional fixed points/orbits exist.
+    \end{itemize}
+    \item[B] \begin{itemize}
+        \item Tumbling orbit stable,
+        \item Unstable limit cycle separates log rolling FP/tumbling orbit.
+    \end{itemize}
+    \item[C] \begin{itemize}
+        \item Tumbling fixed points exist: Saddle / Stable,
+        \item Limit cycle exists.
+    \end{itemize}
+    \item[D] \begin{itemize}
+        \item Tumbling fixed points exist: Unstable / Stable,
+        \item Non-trivial saddle point exists in interior near tumbling fixed points.
+    \end{itemize}
+    \item[E] \begin{itemize}
+        \item Tumbling fixed points exist: Unstable / Saddle,
+        \item No additional fixed points/orbits exist.
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}
+\begin{overpic}[unit=1mm,width=\linewidth]{figs/bifurcations.pdf}
+\put(38,-1){\colorbox{white}{{%
+     $0.137$}
+}}
+\put(56,-1){\colorbox{white}{{%
+     $0.245$}
+}}
+\put(76,-1){\colorbox{white}{{%
+     $0.5$}
+}}
+\put(83,-1){\colorbox{white}{{%
+     $0.8$}
+}}
+\put(3,2){\colorbox{white}{{%
+     $\lambda$}
+}}
+\put(95,55){\colorbox{white}{{%
+     $\Reys$}
+}}
+\end{overpic}
+\vspace{1em}
+\caption{\figlab{phasediagram} Bifurcation diagram for oblate particles in the effective equations.}
+\end{figure}
 
 It is clear that the effective equation has no quantitative predictive power except for very small values of $\Reys$. It can, for example, in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. But if a bifurcation line extends towards $\Reys=0$ somewhere, we know that it must \emph{connect} to a corresponding bifurcation line in the exact dynamics. This does not necessarily predict what will happen in the exact dynamics, but it does constrain the options, and may serve as a guide for further numerical analysis.
 
@@ -85,32 +134,49 @@ One may hope that the effective equation is qualitatively correct in predicting 
 
 This project is a collaboration with our experimentalist collegues in Gothenburg, Sweden. Roughly, the division of work is that they build and perform the experiment, and we design the specifications and perform the analysis.
 
-The project was initiated with an intention of observing the scattering between Jeffery orbits due to thermal noise. But first we needed to observe plain Jeffery orbits, as a baseline. With hindsight that was naive, given the long list of skilled experimentalists before us, Sec.~II in Paper E is a more or less exhaustive list. Our focus has shifted away from thermal noise, to the sensitive dependence on particle shape and initial condition. In \Secref{triaxialintro} in Part I, I explained how Jeffery's result implies complicated dynamics for triaxial particles, even if the deviation from axisymmetry very small. We want to observe this effect in experiment.
+The project was initiated with an intention of observing the scattering between Jeffery orbits due to thermal noise. But first we needed to observe plain Jeffery orbits, as a baseline. With hindsight that was naive, given the long list of skilled experimentalists before us who struggled with this: Sec.~II in Paper E is a more or less exhaustive list. 
+
+Our focus has shifted away from thermal noise, to the sensitive dependence on particle shape and initial condition. In \Secref{triaxialintro} in Part I, I explained how Jeffery's result implies complicated dynamics for triaxial particles, even if the deviation from axisymmetry very small \cite{hinch1979,yarin1997}. We want to observe this effect in experiment.
 
 We previously published two papers \cite{mishra2012,einarsson2013} describing our methods and some initial observations. In Paper~E we describe our most recent measurements. There are two main differences from before. First, we employ an optical trap to arrange particles for the experimental runs. This allows us to use the same particle several times, and to control its initial condition. Second, we have particles made from glass fibres which have a very symmetric cross-section.
 
-In Paper~E we claim to observe both quasi-periodic and chaotic trajectories, for the same particle. 
+In Paper~E we claim to observe both quasi-periodic and chaotic trajectories, for the same particle. Thus we confirm the predictions of \citet{hinch1979} and \citet{yarin1997}. We can claim that the observed trajectories are due to particle shape because of two main reasons. First, we reverse the pressure over the channel at the end of each particle trajectory. The particle must then retrace its trajectory backwards. If they do not, we discard the data. These reversals exclude any non-reversible effects, in particular effects of inertia or thermal noise.
+
+Second, we record several distinct trajectories with different initial conditions a single particle.
 \begin{enumerate}
     \item Pressure reversals revert the orientational dynamics, which excludes any non-reversible effects such as inertia or thermal noise,
     \item Several trajectories for the same particle, but with different initial conditions.
 \end{enumerate}
 
 \chapter{Effects of thermal noise on the tumbling of triaxial ellipsoids}
-Paper F
+This project is the Master's thesis of G.~Almondo. The main result are orientational probability distributions for triaxial ellipsoids in simple shear flow, subject to rotational diffusion. Under my supervision he derived a new Langevin equation for quaternions representing rotations. He verified the new equation both against previous analytical results \cite{rallison,brenner} and his own microscopic numerical simulations.
+
+This work resulted in Paper~F in which we describe the probability distributions as function of the particle shape and the noise strength. We also show how the intrinsic viscosity of a dilute suspension changes due to the presence of the particles.
+
 \section{History of problem}
+
+
+
+
 \section{Results}
 
-
-
 \chapter{Rotation rates of particles in turbulence}
-Paper~G started as the synthesis of discussions we had during a workshop at {\sc nordita} in Stockholm. For those I am grateful especially to E.~Variano and G.~Voth. The paper is a discussion of the rotations of axisymmetric particles in isotropic turbulence. I think the strength of this paper is it's breadth, as it contains pieces of experimental results, numerical results and analytical model calculations.
+Paper~G started as the synthesis of discussions during a workshop at {\sc nordita} in Stockholm. For those I am grateful especially to E.~Variano and G.~Voth. The paper is a discussion of the rotations of axisymmetric particles in isotropic turbulence. I think the strength of this paper is it's breadth, as it contains pieces of experimental results, numerical results and analytical model calculations.
 
-From what I remember the discussions started because of confusion between \emph{rotation rate} and \emph{tumbling rate}. In this context rotation rate means magnitude of the angular velocity: $|\ve \omega|$. The tumbling rate is the rate at which the symmetry axis of the particle turns: $|\dot{\ve n}|=|\ve \omega \cross \ve n|$. The two are of course kinematically related, because
+From what I remember, the discussions started because of confusion between the \emph{rotation rate} and the \emph{tumbling rate} of a particle. In this context rotation rate means magnitude of the angular velocity: $|\ve \omega|$. The tumbling rate is the rate at which the symmetry axis of the particle turns: $|\dot{\ve n}|=|\ve \omega \cross \ve n|$. The two are kinematically related, because
 \begin{align}
     |\ve \omega|^2 &= |\dot{\ve n}|^2 + |\ve \omega \cdot \ve n|^2\,.
 \end{align}
 The difference $|\ve \omega \cdot \ve n|$ is called the \emph{spinning rate}, because it is the rate at which the particle spins around its symmetry axis.
 
+In the paper we make two main observations. First, that the average rotation rate is roughly independent of particle shape. This is true in numerical simulations (Fig.~3 in Paper G), and in experimental measurements (Fig.~5 in Paper G.) This shape independence is unexpected, in particular because the average tumbling rate has a strong shape dependence \cite{parsa2012,gustavsson2014}. Therefore it turns out that the shape dependence of the average spinning rate almost exactly cancels the shape dependence of the average tumbling rate, as to make the total rotation rate shape independent. The reasons for this cancellation are still not known. However, in the paper we show that the average rotation rate of a particle in a random flow field is \emph{not} shape independent. This implies that the cancellation is due to the properties of the turbulent flow, and not inherent in the equations of motion.
 
+The second main observation is on the \emph{instantaneous} rotation rates of particles. Although the average rotation rates for a thin disk and a slender rod are almost the same, their trajectories are qualitatively very different.
+
+A key feature of turbulence is the existence of \emph{vortex tubes} \cite{she1990}. They are regions of strong vorticity, created by stretching of a large vortex into a thinner but more intensive vortex. These regions typically are long-lived, compared to the average rate of change in the flow. In these vortex tubes, rods tend to rotate such that it keeps aligned with the direction of the vorticity. The vorticity makes them spin around their own symmetry axis. But disks instead align a diameter with the vorticity, and the vorticity makes them tumble. But as the disk tumbles, the tumbling rate alternates between being faster and slower than vorticity, because of the flow strain. An example of this is shown in the first panel of Fig.~1 in Paper G. The rotation rate of the rod varies smoothly, and is very close to the strength of the vorticity. The rotation rate of the disk oscillates strongly, but is on average close to the strength of the vorticity.
+
+We may partly understand these observations by a very simple picture. The effect of a rotational flow $\ve u_R= \ve \Omega \cross \ve r$ is to rotate a particle around $\ve \Omega$. The effect of a strain flow $\ve u_S=\ma S \ve r$ is to align a long axis of a particle with the strongest eigendirection of $\ma S$. The simple picture is that the same strain that stretches and intensifies a vortex to a vortex tube, will also align the axes of any nearby particles with $\ve \Omega$. Therefore long axes of rods, and diameters of disks tend to align with $\ve \Omega$ in these regions. With this alignment it follows that rods spin and disks tumble because of the strong vorticity.
+
+This simple argument cannot explain why the rotation rate of the disk happens to average to the same value as that of the rod. The details of the tumbling rate depends on how the vorticity $\ve \Omega$, and the particle direction $\ve n$, are aligned relative to the eigensystem of $\ma S$. The details and implications of these alignments are important open questions. The underlying reason for the shape-dependence of the average rotation rate in the random-flow model, is precisely that these alignments with the eigensystem of $\ma S$ is very weak.
 
 \end{document}

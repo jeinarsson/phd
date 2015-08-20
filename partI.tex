@@ -3,19 +3,25 @@
 
 \begin{document}
 
-This thesis is about the \emph{effective equations of motion} for solid particles suspended in fluid flows. In all but the simplest cases we are unable to directly compute the forces acting on a solid particle from first principles. The fundamental equations of fluid mechanics are too complicated, and even finding a numerical approximation with a computer is too expensive.
+This thesis is about \emph{effective equations of motion} for solid particles suspended in fluid flows. In all but the simplest cases we are unable to directly compute the forces acting on a solid particle from first principles. The fundamental equations of fluid mechanics are too complicated, and even finding a numerical approximation with a computer is too expensive.
 
 But when we limit our scope to a particular physical situation, we are sometimes able to exploit some of its properties to simplify the calculations. With these simplifications we may find a \emph{effective equations of motion}. They are simpler, and therefore more useful, than the fundamental equations. The price for the simplicity is that they apply only in our limited scope. In this thesis we limit our scope to small particles. I will make a precise definition of what ``small'' means later. For now think of small as the plankton in the oceans, not the shark, or the raindrops in the clouds, not the airplane.
 
 The effective equations of motion are used as building blocks in higher-level modeling. For example the effective force on a small sphere becomes a building block in a model of the droplets in a rain cloud, and the effective torque on a spheroid is used to model the order of fibers in a paper-making machine.
 
-The technical centerpiece of this thesis is the calculation of an effective equation of motion, starting from the fundamental equations. The effective equations describe the rotation of a spheroid which is small, but finite. The motion of a finite particle is affected by inertia, but also the motion of the surrounding fluid is, which in turn modifies the forces and torques acting on the particle. These effects are captured in our calculation. It is described in detail in [] and Paper []. In the remainder of this thesis we will discuss more carefully the \emph{why} and \emph{how} of these equations.
+The technical centerpiece of this thesis is the calculation of an effective equation of motion, starting from the fundamental equations. The effective equations describe the rotation of a spheroid which is small, but finite. The motion of a finite particle is affected by inertia, and so is the motion of the surrounding fluid. The inertia affects the forces and torques acting on the particle. These effects are captured in our calculation. It is described in detail in \Secref{effective} in Part II, and the appended Papers~A-D.
+
+The new effective equation generalises aspects of an earlier effective equation: the Jeffery equation \cite{jeffery1922}, which is valid for truly small particles that are not affected by inertia. In addition to my main project I have also worked on three side-projects which all involve the Jeffery equation (Papers~E-G.)
 
 \section*{Disposition of this thesis}
 
-This thesis consists of an extended summary and discussion, and the appended papers. The summary is split into two parts: first this overview, motivation and an introduction aimed at a non-technical audience. The second part is a discussion of effective equations of motion, and a summary of each appended paper.
+The remainder of this thesis consists of an extended summary, and the appended papers.
 
-\chapter{Motivation}
+You are now reading Part I, which continues in \Secref{motivation} with a motivation for our research about the motion of small particles in fluid flows. Then follows an introduction to our research aimed at a non-technical reader in \Secref{background}. Finally, \Secref{prerequisites} contains an introduction to the prerequisite concepts needed to understand this thesis. In particular I discuss the Jeffery equation and its solutions in some detail.
+
+In Part II I present the original research contained in the appended papers. I aim to give a little bit of context to each paper, and present the main results in broad strokes without being too technical. I try to write my papers such that 
+
+\chapter{Motivation}\label{sec:motivation}
 
 The motion of small particles suspended in fluid flows is a fundamental research topic attracting interest in many branches of science, as well as in technical applications. In some cases it is the actual motion of the particles that is of interest. For example, in the atmospheric sciences the collisions and aggregation of small drops are important to the formation of rain \cite{devenish2012}. Similarly, in astronomy it is believed that the collisions of small dust grains lead eventually to the formation of planets in the accretion disk around a star \cite{wilkinson2008}. Another example is in marine biology, where the dynamics of small planktonic organisms swirled around by the ocean is fundamental in understanding their feeding and mating patterns \cite{guasto2012}. 
 
@@ -45,7 +51,7 @@ One aim of theoretical fluid mechanics is to derive new, simpler, equations of m
 
 The main technical content of this thesis is a derivation (Paper A) and validation (Paper B) of an effective equation of motion for the orientation of a spheroid in a simple shear flow. 
 
-\chapter{Background}
+\chapter{Background}\label{sec:background}
 
  Every now and then I get the question ``what is it you do, anyway?'' Often enough the question is posed out of sheer politeness, and I can simply say ``Physics! Tiny particles, like plankton, they tumble in the oceans, and stuff.'' But sometimes the question is sincere, and I find that it is quite a challenge to explain to a non-expert. I may say that we calculate how non-spherical particles rotate in flows. But that is comparable to if I was designing a gearbox, and said that I work with cars. It is true, but not very helpful. The following is an attempt at a description which is readable and not too complicated, but still complicated enough to get a glimpse of the physics.
 
@@ -161,7 +167,7 @@ The presentation in Part~II may, or may not, be too technical for the casual rea
 At the very least, we have an interpretation of the technical title ``Orientational dynamics of small non-spherical particles suspended in fluid flows.'' The interpretation is that we aim to understand the rotational motion of a non-spherical rigid body immersed in a fluid bath of molecules. We know the forces and torques driving the rotation through the macroscopic description of fluid dynamics. But in order to have a fair chance at progress, we consider the case of very small particles, as characterised by the Stokes and particle Reynolds dimensionless numbers.
 
 
-\chapter{Prerequisite concepts}
+\chapter{Prerequisite concepts}\label{sec:prerequisites}
 
 
 In this section I introduce some basic concepts needed to understand the appended research papers. 
