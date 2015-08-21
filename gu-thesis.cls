@@ -323,7 +323,7 @@
 
 % Section printed on the table of papers
 \newcommand{\thesiscontents}[1]{\gdef\@thesiscontents{#1}}
-\thesiscontents{This thesis consists of an extended summary and the following appended papers:}
+\thesiscontents{This thesis builds on the scientific work in the following papers:}
 
 % User commands for the defence date.
 \newcommand{\opponent}[1]{\gdef\@opponent{#1}}
