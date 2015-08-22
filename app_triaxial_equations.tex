@@ -1,0 +1,132 @@
+%!TEX root=thesis.tex
+\documentclass[thesis.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Triaxial particle in a linear flow}\applab{triaxial_equation}
+
+In this Appendix I derive the torque-free equation of motion for an triaxial ellipsoidal particle in a general linear flow. It is the generalisation of the Jeffery equation to triaxial particles. 
+
+We represent the orientation of the particle with a rotation matrix $\ma R(t)$, which transforms the world-fixed cartesian coordinate frame $(\ve e_1, \ve e_2, \ve e_3)$ to the particle-fixed coordinate frame $(\ve n_1, \ve n_2, \ve n_3)$. The ellipsoid is defined by the lengths of its three half-axes, we denote them $a_1$, $a_2$ and $a_3$. Each $a_i$ is the length along the corresponding particle axis $\ve n_i$.
+
+The end result of this calculation is an equation of motion for $\ve n_1$ and $\ve n_2$. The two orthogonal vectors describe fully the orientation of the rigid body.
+
+The kinematic equation of motion for a rotating vector is 
+\begin{align}
+	\dot{\ve n}_i &= \ve \omega \cross \ve n_i,\eqnlab{tri01}
+\end{align}
+where $\ve \omega$ is the angular velocity of the particle.
+Jeffery \cite{jeffery1922} computed the components of the angular velocity vector in the particle frame of reference. Updated to the present notation, his Eq.~(37) reads
+\begin{align*}
+	(\ve n_1 \cdot \ve \omega) &= \ve n_1\cdot \ve \Omega + \frac{a_2^2-a_3^2}{a_2^2+a_3^2}\left(\ve n_2\transpose \ma {S}\ve n_3\right),\\
+	(\ve n_2 \cdot \ve \omega) &= \ve n_2\cdot \ve \Omega + \frac{a_3^2-a_1^2}{a_3^2+a_1^2}\left(\ve n_3\transpose \ma {S}\ve n_1\right),\\
+	(\ve n_3 \cdot \ve \omega) &= \ve n_3\cdot \ve \Omega + \frac{a_1^2-a_2^2}{a_1^2+a_2^2}\left(\ve n_1\transpose \ma {S}\ve n_2\right).
+\end{align*}
+Here $\ve \Omega$ is such that $\ve \Omega \cross x = \ma O\ve x$, where $\ma S$ and $\ma O$ are the symmetric and antisymmetric parts of the flow gradient:
+\begin{align*}
+	&\ma O = \frac{1}{2}(\ma A - \ma A\transpose),\quad
+	\ma S = \frac{1}{2}(\ma A + \ma A\transpose),\quad
+	\ma A = \nabla \ve u = \ma O + \ma S.
+\end{align*}
+We can put Jeffery's expression into a single vector expression
+\begin{align*}
+	\ve \omega &= \ve \Omega
+	 + \frac{a_2^2-a_3^2}{a_2^2+a_3^2}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
+	 + \frac{a_3^2-a_1^2}{a_3^2+a_1^2}\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
+	  + \frac{a_1^2-a_2^2}{a_1^2+a_2^2}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3.
+\end{align*}
+
+
+In order to ease the notation we introduce the two aspect ratios $\lambda = a_3/a_1$ and $\kappa=a_2/a_3$:
+\begin{align*}
+	\ve \omega &= \ve \Omega
+	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
+	 - \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
+	  + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3,
+\end{align*}
+where
+\begin{align*}
+	K=\frac{\kappa^2-1}{\kappa^2+1}, \qquad \Lambda=\frac{\lambda^2-1}{\lambda^2+1}.
+\end{align*}
+Now, take the equations of motion for $\ve n_1$ and $\ve n_2$,
+\begin{align*}
+	\dot{\ve n}_1 &= \ve \omega \cross \ve n_1 \\
+	&= \ve \Omega \cross \ve n_1 
+	+ \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_3
+    + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2
+	,\\
+	\dot{\ve n}_2 &= \ve \omega \cross \ve n_2 \\
+	&= \ve \Omega \cross \ve n_2
+	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_3
+	  - \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1.
+\end{align*}
+The final step is to eliminate $\ve n_3$ from the equations. This elimination is accomplished by noting that
+\begin{align*}
+	\ma S \ve x &= (\ve n_1 \transpose \ma S \ve x) \ve n_1 + (\ve n_2 \transpose \ma S \ve x) \ve n_2 + (\ve n_3 \transpose \ma S \ve x) \ve n_3,
+	\intertext{implying}
+	(\ve n_3 \transpose \ma S \ve x) \ve n_3 &= \ma S \ve x - (\ve n_1 \transpose \ma S \ve x) \ve n_1 - (\ve n_2 \transpose \ma S \ve x) \ve n_2.
+\end{align*}
+Take the equation for $\dot{\ve n}_1$,
+\begin{align*}
+	\dot{\ve n}_1
+    &= 	\ve \Omega \cross \ve n_1 
+	+ \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_3
+    + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2 \\
+	&= \ve \Omega \cross \ve n_1 
+	+ \Lambda\left(
+	\ma S \ve n_1 - (\ve n_1 \transpose \ma S \ve n_1) \ve n_1 - (\ve n_2 \transpose \ma S \ve n_1) \ve n_2
+	\right)
+    + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2 \\
+	&= \ve \Omega \cross \ve n_1 
+	+ \Lambda\left(
+	\ma S \ve n_1 - (\ve n_1 \transpose \ma S \ve n_1) \ve n_1
+	\right)
+    + \frac{K- \Lambda - \Lambda(K \Lambda - 1)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2 \\
+	&= \ve \Omega \cross \ve n_1 
+	+ \Lambda\left(
+	\ma S \ve n_1 - (\ve n_1 \transpose \ma S \ve n_1) \ve n_1
+	\right)
+    + \frac{K(1- \Lambda^2)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2. 
+\end{align*}
+In the same fashion, we find for $\dot{\ve n}_2$,
+\begin{align*}
+	\dot{\ve n}_2
+	&= \ve \Omega \cross \ve n_2
+	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_3
+	  - \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1 \\
+	&= \ve \Omega \cross \ve n_2
+	 + K\left(
+\ma S \ve n_2 - (\ve n_1 \transpose \ma S \ve n_2) \ve n_1 - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
+	 \right)
+	  - \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1 \\
+	&= \ve \Omega \cross \ve n_2
+	 + K\left(
+\ma S \ve n_2  - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
+	 \right)
+	  - \frac{K- \Lambda + K(K \Lambda - 1)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1\\
+	&= \ve \Omega \cross \ve n_2
+	 + K\left(
+\ma S \ve n_2  - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
+	 \right)
+	  + \frac{\Lambda(1-K^2)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1.
+\end{align*}
+In most places in this thesis, I write the cross product with $\ve \Omega$ as the matrix product with $\ma O$ instead. We also rename $\ve n = \ve n_1$ and $\ve p = \ve n_2$:
+\begin{align*}
+	\dot{\ve n}	&= \ma O \ve n 
+	+ \Lambda\left(
+	\ma S \ve n - (\ve n \transpose \ma S \ve n) \ve n
+	\right)
+    + \frac{K(1- \Lambda^2)}{K \Lambda - 1}\left(\ve n\transpose \ma S\ve p\right)\ve p, \\
+\dot{\ve p}	&=    \ma O \ve p
+	 + K\left(
+\ma S \ve p  - (\ve p \transpose \ma S \ve p) \ve p
+	 \right)
+	  + \frac{\Lambda(1-K^2)}{K \Lambda - 1}\left(\ve n\transpose \ma S\ve p\right)\ve n
+\end{align*}
+In terms of the aspect ratios $\lambda$ and $\kappa$ the equations read
+\begin{align*}
+	\dot{\ve n} &= \ma O \ve{n} + \frac{\lambda^2-1}{\lambda^2+1} \left(\ma S \ve n- \ve{n}\transpose \ma S \ve{n})\ve{n}\right) + \frac{ 2\lambda^2 (1 - \kappa^2) }{(\lambda^2+\kappa^2)(\lambda^2+1)}(\ve{n}\transpose \ma S \ve{p})\ve{p}, \nn\\
+	\dot{\ve p} &= \ma O \ve{p} + \frac{\kappa^2-1}{\kappa^2+1}\left(\ma S \ve p - \ve{p}\transpose \ma S \ve{p})\ve{p}\right) + \frac{ 2\kappa^2 (1 - \lambda^2) }{(\kappa^2+\lambda^2)(\kappa^2+1)}(\ve{n}\transpose \ma S \ve{p})\ve{n}.
+\end{align*}
+This equation is identical to \Eqnref{triaxial_equation}. It is further discussed in \Secref{expresults}.
+\end{document}
