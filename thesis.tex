@@ -224,7 +224,7 @@
 
 
 % User commands
-\title{Orientational dynamics of small non-spherical particles \\ in fluid flows}
+\title{Orientational dynamics of non-spherical particles \\ at small particle Reynolds numbers}
 %\subtitle{And Perhaps a Subtitle}
 \author{Jonas Einarsson} % Not common with more than one author
 \thesisin{Physics}
@@ -297,7 +297,24 @@ Country
 \newpage\makeprintinfopage
 \newpage\makeabstractpage
 \cleardoublepage\maketableofpaperspage
-\newpage\makeacknowledgementspage
+
+
+\cleardoublepage
+{
+\null\vfill
+\centering
+\parbox{8cm}{%
+  \raggedright{\large\itshape%
+Men då mitt skarpsinne visade sig otillräckligt även för detta, slungade jag schackbrädet ut genom fönstret i huvudet på en gammal man med träben, för vilken döden endast var en välgärning, och kastade mig därefter ut i världsvimlet, föraktande mig själv.\par\bigskip
+  }   
+  \raggedleft\large{ur \emph{Spleen}, av Hjalmar Söderberg}\par%
+}
+\vfill\vfill
+}
+\clearpage
+
+
+
 \cleardoublepage\tableofcontents
 \cleardoublepage\pagenumbering{arabic}
 \pagestyle{fancy}
@@ -311,8 +328,23 @@ Country
 \thispagestyle{fb}
 \subfile{partII}
 
-\clearpage
+\cleardoublepage
+\thispagestyle{fb}
+{
+\null\vfill
+\centering
+\parbox{8cm}{%
+  \raggedright{\large\itshape%
+Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu är sagan slut. Den som icke har förstått den kan trösta sig med att det blir vackert väder imorgon.\par\bigskip
+  }   
+  \raggedleft\large{ur \emph{Duggregnet}, av Hjalmar Söderberg}\par%
+}
+\vfill\vfill
+}
+\cleardoublepage
+\thispagestyle{fb}\makeacknowledgementspage
 
+\cleardoublepage
 \nobibliography*
 \bibliography{references} % Legacy command
 
