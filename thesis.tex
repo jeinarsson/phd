@@ -42,7 +42,8 @@
 \usepackage{mathtools} % All your math related needs
 \usepackage{tikz} % Draw figures, required for cover page
 %\usepackage{subfigure} % Subfloats
-\usepackage{caption}
+\usepackage[list=off]{caption}
+\captionsetup{singlelinecheck=off}
 \usepackage{subcaption}
 % Read the manuals for the respective package to see the usage;
 \usepackage{pdfpages} % For included other pdf files (like articles).
@@ -58,7 +59,7 @@
 % JONAS
 
 \usepackage[bbgreekl]{mathbbol}
-\usepackage{amssymb}
+%\usepackage{amssymb}
 
 
 \newcommand{\ve}[1]{\ensuremath{\mbox{\boldmath$#1$}}}
@@ -285,17 +286,15 @@ Country
 
 \setlength{\topcolumn}{0.22\textwidth} % Column for "Thesis" page which might need adjustments if there is other publications.
 
-
 \begin{document}
-%% TITLE
-\setcounter{page}{-99} % for hyperref, odd right sides
 
+%% TITLE
 \pagestyle{empty}
-%~\newpage
 \pagenumbering{roman}
+\setcounter{page}{-99} % for hyperref, odd right sides
 \maketitlepage
-\newpage\makeprintinfopage
-\newpage\makeabstractpage
+\clearpage\makeprintinfopage
+\cleardoublepage\makeabstractpage
 \cleardoublepage\maketableofpaperspage
 
 
@@ -311,15 +310,10 @@ Men då mitt skarpsinne visade sig otillräckligt även för detta, slungade jag
 }
 \vfill\vfill
 }
-\clearpage
-
-
-
 \cleardoublepage\tableofcontents
+
 \cleardoublepage\pagenumbering{arabic}
 \pagestyle{fancy}
-
-
 \part{Introduction} % Using the starred command avoids numbering.
 \thispagestyle{empty}
  \subfile{partI}

@@ -68,36 +68,13 @@ The solution to Jeffery's equation, \Eqnref{ndoteffective} with $\Reys=0$, are t
     \item $0 < \lambda$: The particle tumbles, whatever the initial condition.
 \end{itemize}
 
-Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results valid for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. This is a bold statement, but we took great care in deriving and checking our result. First, we asked F. Candelier to independently analyse the case of nearly spherical particles. We knew that my general solution must match his solution for nearly spherical particles exactly, as $\lambda\to1$. By comparing notes we eliminated mistakes until, very suddenly, our solutions matched. At that point we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. Second, we asked T. Ros\'en and F. Lundell to use their numerical codes to verify our result. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D, see in particular \obs{Fig.~2}. We conclude that our effective equation is correct, which resolves the indeterminacy discovered by Jeffery in 1922. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the Reynolds number.
+Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results valid for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. This is a bold statement, but we took great care in deriving and checking our result. First, we asked F. Candelier to independently analyse the case of nearly spherical particles. We knew that my general solution must match his solution for nearly spherical particles exactly, as $\lambda\to1$. By comparing notes we eliminated mistakes until, very suddenly, our solutions matched. At that point we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. Second, we asked T. Ros\'en and F. Lundell to use their numerical codes to verify our result. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D (in particular Fig.~2). We conclude that our effective equation is correct, which resolves the indeterminacy discovered by Jeffery in 1922. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the Reynolds number.
 
 \subsection*{Phase diagram for the effective equation}
 In the previous Section I discussed the first effects of inertia, for which a perturbative effective equation like \Eqnref{ndoteffective} should be valid. For larger values of $\Reys$ it is not as clear-cut, we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. Nevertheless it can be fruitful to examine the dynamics of the effective equations.
 
-Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys\approx0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} as $\Reys$ increases. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a schematic phase diagram for oblate particles ($\lambda<1$), showing the first bifurcations as $\Reys$ increase. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are bifurcation lines, where the qualitative dynamics change. For even larger values of $\Reys$ there are even more bifurcations, not shown here. The regions shown are as follows:
-\begin{itemize}
-    \item Log rolling stable everywhere, but spiral below dashed line and node above.
-    \item For larger $\Reys$ there are more bifurcations not depicted in this figure, for instance an additional pair of fixed points is created in the flow-shear plane.
-    \item[A] \begin{itemize}
-        \item Tumbling orbit unstable,
-        \item No additional fixed points/orbits exist.
-    \end{itemize}
-    \item[B] \begin{itemize}
-        \item Tumbling orbit stable,
-        \item Unstable limit cycle separates log rolling FP/tumbling orbit.
-    \end{itemize}
-    \item[C] \begin{itemize}
-        \item Tumbling fixed points exist: Saddle / Stable,
-        \item Limit cycle exists.
-    \end{itemize}
-    \item[D] \begin{itemize}
-        \item Tumbling fixed points exist: Unstable / Stable,
-        \item Non-trivial saddle point exists in interior near tumbling fixed points.
-    \end{itemize}
-    \item[E] \begin{itemize}
-        \item Tumbling fixed points exist: Unstable / Saddle,
-        \item No additional fixed points/orbits exist.
-    \end{itemize}
-\end{itemize}
+Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys\approx0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} as $\Reys$ increases. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a schematic phase diagram for oblate particles ($\lambda<1$), showing the first bifurcations as $\Reys$ increase. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are bifurcation lines, where the qualitative dynamics change. For even larger values of $\Reys$ there are even more bifurcations, not shown here.
+
 
 \begin{figure}
 \begin{overpic}[unit=1mm,width=\linewidth]{figs/bifurcations.pdf}
@@ -121,7 +98,31 @@ Numerical simulation of the exact equations reveals many different modes of rota
 }}
 \end{overpic}
 \vspace{1em}
-\caption{\figlab{phasediagram} Bifurcation diagram for oblate particles in the effective equations.}
+\caption{\figlab{phasediagram} Bifurcation diagram for oblate particles in the effective equations.%
+\begin{itemize}
+    \item For larger $\Reys$ there are more bifurcations not depicted in this figure, for instance an additional pair of fixed points is created in the flow-shear plane.
+    \item The Log-rolling fixed point is always stable. It is a spiral below the dashed line and node above.
+    \item[A] \begin{itemize}
+        \item Tumbling orbit unstable,
+        \item No additional fixed points/orbits exist.
+    \end{itemize}
+    \item[B] \begin{itemize}
+        \item Tumbling orbit stable,
+        \item Unstable limit cycle separates log rolling FP/tumbling orbit.
+    \end{itemize}
+    \item[C] \begin{itemize}
+        \item Tumbling fixed points exist: Saddle / Stable,
+        \item Limit cycle exists.
+    \end{itemize}
+    \item[D] \begin{itemize}
+        \item Tumbling fixed points exist: Unstable / Stable,
+        \item Non-trivial saddle point exists in interior near tumbling fixed points.
+    \end{itemize}
+    \item[E] \begin{itemize}
+        \item Tumbling fixed points exist: Unstable / Saddle,
+        \item No additional fixed points/orbits exist.
+    \end{itemize}
+\end{itemize}}
 \end{figure}
 
 It is clear that the effective equation has no quantitative predictive power except for very small values of $\Reys$. It can, for example, in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. But if a bifurcation line extends towards $\Reys=0$ somewhere, we know that it must \emph{connect} to a corresponding bifurcation line in the exact dynamics. This does not necessarily predict what will happen in the exact dynamics, but it does constrain the options, and may serve as a guide for further numerical analysis.
