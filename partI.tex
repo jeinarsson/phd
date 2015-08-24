@@ -577,27 +577,36 @@ A rotation in three dimensions has three degrees of freedom, and can be represen
 
 We follow Ref.~\citenum{hinch1979} and put the surface-of-section at $n_x=0, n_y > 0$, as depicted in \Figref{sos}. Every time a trajectory goes through the surface of section we record the value of $n_z$ and $\psi$, the angle of rotation around the $\ve n$-vector%
 \footnote{Instead of $\psi$ we could choose something more directly related to the $\ve p$-vector. We choose $\psi=\arccos(p_1^2+p_3^2)$ mainly to keep in line with the existing literature.}%
-. We compute many long trajectories with different initial conditions and plot the resulting surfaces-of-section.
+. We compute many long trajectories with different initial conditions, and plot the resulting surfaces-of-section. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
 
-First let us revisit the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because of the perodicity of the Jeffery orbit. However, it turns out that the value of $\psi$ is in general not periodic. This results in straight horizontal lines on the surface-of-section, as shown in \Figref{poincareA}.
+\Figref{poincare1o00} shows the surface-of-section for an axisymmetric particle. The horizontal lines are the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because of the perodicity of the Jeffery orbit. However, it turns out that the value of $\psi$ is in general not periodic. This means that the vector $\ve p$ does not, in general, make one revolution around $\ve n$ for every Jeffery orbit. The strict periodicity of the Jeffery orbits really only apply to the motion of the symmetry axis. This detail has no physical implications for the motion. But if we were to paint a pattern on a particle, and observe the motion experimentally, this aperiodicity would be apparent.
 
-For the trajectory of a nearly axisymmetric particle neither $n_z$, nor $\psi$ is constant. The structure of trajectories on the surface-of-section is more complicated, with closed ellipses near $n_z\approx 0$, and curved lines towards $n_z\approx\pm 1$, shown in \Figref{poincareB}.
+For the trajectory of a nearly axisymmetric particle neither $n_z$, nor $\psi$ is constant. The structure of trajectories on the surface-of-section is more complicated, with closed ellipses near $n_z\approx 0$, and curved lines towards $n_z\approx\pm 1$, shown in \Figref{poincare1o10}.
 However, a trajectory is always confined to the curve on which it started. In this sense the orientational dynamics of a triaxial particle is degenerate, just like the Jeffery orbits for an axisymmetric particle. No orbit is physically preferred over any other, but the dynamics are determined by the initial condition.
 
-When we consider a significantly non-axisymmetric particle, the trajectories on the surface-of-section look very different, like in \Figref{poincareC}. Many initial conditions lead to deterministic chaos, which shows up as areas full of gray dots without apparent structure. A trajectory starting in this chaotic layer can go anywhere else inside it.
+When we consider a significantly non-axisymmetric particle, the trajectories on the surface-of-section look very different, like in \Figref{poincare1o30} and \Figref{poincare2o00}. Many initial conditions lead to deterministic chaos, which shows up as areas full of gray dots without apparent structure. A trajectory starting in this chaotic layer can go anywhere else inside it.
 
 \begin{figure}
-\includegraphics[width=12cm]{figs/poincareA.png}%
-\caption{\label{fig:poincareA} Top: Poincar\'e surface-of-section of an axisymmetric particle with aspect ratios $\lambda=10$, $\kappa=1$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. Surface-of-section image made by Anton Johansson, reproduced under a CC-BY license.}%
+\includegraphics[width=12cm]{figs/poincare1o00.png}%
+\caption{\label{fig:poincare1o00} Top: Poincar\'e surface-of-section of an axisymmetric particle with aspect ratios $\lambda=5$, $\kappa=1$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. 
+}
 \end{figure}
 \begin{figure}
-\includegraphics[width=12cm]{figs/poincareB.png}%
-\caption{\label{fig:poincareB} Top: Poincar\'e surface-of-section of an asymmetric particle with aspect ratios $\lambda=10$, $\kappa=1.1$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. Surface-of-section image made by Anton Johansson, reproduced under a CC-BY license.}%
+\includegraphics[width=12cm]{figs/poincare1o10.png}%
+\caption{\label{fig:poincare1o10} Top: Poincar\'e surface-of-section of an asymmetric particle with aspect ratios $\lambda=5$, $\kappa=1.1$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. 
+}
 \end{figure}
 \begin{figure}
-\includegraphics[width=12cm]{figs/poincareC.png}%
-\caption{\label{fig:poincareC} Top: Poincar\'e surface-of-section of an axisymmetric particle with aspect ratios $\lambda=10$, $\kappa=1.3$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. Surface-of-section image made by Anton Johansson, reproduced under a CC-BY license.}%
+\includegraphics[width=12cm]{figs/poincare1o30.png}%
+\caption{\label{fig:poincare1o30} Top: Poincar\'e surface-of-section of an axisymmetric particle with aspect ratios $\lambda=5$, $\kappa=1.3$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. 
+}
 \end{figure}
+\begin{figure}
+\includegraphics[width=12cm]{figs/poincare2o00.png}%
+\caption{\label{fig:poincare2o00} Top: Poincar\'e surface-of-section of an axisymmetric particle with aspect ratios $\lambda=5$, $\kappa=2$. Bottom: Examples of what $n_z(t)$ looks like, given the trajectory indicated by the color coded markers on the surface-of-section. 
+}
+\end{figure}
+
 
 The degeneracy of these solutions may be broken in the same way as discussed for axisymmetric particles in \Secref{jeffaxisymmetric}.
 

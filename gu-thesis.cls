@@ -678,7 +678,7 @@
   ISBN \@ISBN\\[5mm]
  %
  This thesis is electronically published, available at \\
- \url{http://hdl.handle.net/2077/34320}\\[5mm]
+ \url{TODO}\\[5mm]
  %
   \@department\\
   \universityname\\
@@ -690,11 +690,11 @@
    Creative Commons Attribution 3.0 Unported License.\\
    \includegraphics[width=3cm]{figures/by.pdf}\\[3mm]
    In {Part IV},\\
-   \emph{Paper A} is \copyright~2013 Springer, and is reprinted with permission. \\
-   \emph{Papers B \& C} are \copyright~2013 their respective authors.\\[5mm]
+   \emph{Paper G} is \copyright~2015 AIP Publishing LLC, and is reprinted with permission. \\
+   \emph{Papers A-F} are \copyright~2015 their respective authors.\\[5mm]
   Front cover: Illustration of spheroidal particle tumbling in a shear flow.\\
   Flipbooks: Ellipsoidal particles rotating in a simple shear flow. \\
-  \emph{Odd pages:} Symmetric particle with major aspect ratio $\lambda=7$ and minor aspect ratio $\kappa=1$. \emph{Even pages:} Slightly asymmetric particle with $\lambda=7$ and $\kappa=1.2$. Both particles started with identical initial conditions. See Sections~\secref{jefferyequation} and \secref{experiment} for further explanation. \\[5mm]
+  \emph{Odd pages:} TODO \emph{Even pages:} TODO\\[5mm]
  Printed by \@printers \\
  \cityname, \countryname\ \@copyrightyear
   }
