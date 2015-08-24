@@ -357,17 +357,19 @@ Thus, if the flow profile $f$ varies slowly over the particle size, the particle
 Curiously, the dynamics of non-spherical particles in a viscous shear flow offers a rich variety of behaviours. There is no stationary state, but a particle tumbles end-to-end indefinitely. If the particle is axisymmetric, the tumbling is periodic. The technical details and explanations of this are discussed in Sec.~\ref{sec:jefferyequation}, but we can understand the underlying reason from the composition of the shear flow. Fig.~\ref{fig:shear_decomposition} illustrates schematically how the shear is a superposition of two flows. One is a pure rotation, corresponding to the antisymmetric part $\ma O$ of the flow gradient. The other is a pure strain, the symmetric part $\ma S$ of the flow gradient. Now imagine a rod-shaped particle in these flows. The pure rotation, the vorticity, will rotate the rod with a constant angular velocity, regardless of the rod's orientation. The strain, on the other hand, has a preferred direction to which it will attract the long axis of the rod. Sometimes the vorticity and strain will cooperate to turn the rod onto the strain eigendirection, and sometimes the vorticity will struggle to rotate the rod out of the attracting direction. The result is that the rod will always rotate, but sometimes faster and sometimes slower. When the difference between the fast and the slow rotations is large, we perceive this as intermittent tumbling.
 \begin{figure}
 \centering
-%  \makebox[\textwidth]{\includegraphics[width=7cm]{figs/fig_coordinates.png}}
-\begin{lpic}{figs/fig_coordinates(7cm,)}
-   \lbl[tl]{40,9;$\hat{\ve x}$}
-   \lbl[tl]{140,45;$\hat{\ve y}$}
-   \lbl[tl]{80,115;$\hat{\ve z}$}
-   \lbl[bl]{120,80;$\ve n$}
-   \lbl[bl]{85,75;$\theta$}
-   \lbl[tl]{75,45;$\varphi$}
-\end{lpic}
-\caption{\figlab{coordinates}Coordinate system of simple shear flow in this thesis. The directions are the flow direction $\hat{\ve x}$, the shear direction $\hat{\ve y}$, and the vorticity direction $\hat{\ve z}$. The angles $(\theta, \varphi)$ are the spherical coordinates of the particle direction vector $\ve n$. }%
+\begin{overpic}[unit=1mm]{figs/coords.pdf}
+\put(83,78){$\ve n$}
+\put(-1.5,5){$\hat{\ve x}$}
+\put(100.5,12.5){$\hat{\ve y}$}
+\put(54.5,85.5){$\hat{\ve z}$}
+\put(57,44){$\theta$}
+\put(52,28){$\varphi$}
+\end{overpic}
+\vspace{5mm}
+\caption{\figlab{coordinates}Coordinate system of simple shear flow in this thesis. The directions are the flow direction $\hat{\ve x}$, the shear direction $\hat{\ve y}$, and the vorticity direction $\hat{\ve z}$. The angles $(\theta, \varphi)$ are the spherical coordinates of the particle direction $\ve n$. }%
 \end{figure}
+
+
 \begin{figure}
 \centering
   %\makebox[\textwidth]{\includegraphics[width=1.2\textwidth]{figs/shear_decomposition}}
@@ -529,15 +531,14 @@ The remainder of this section concerns the case of simple shear flow. This case 
 In summary, the dynamics of $\ve q$ in a simple shear flow is a periodic rotation in a plane. The plane is normal to the vorticity direction, and determined by the initial condition of $\ve q$.
 
 \begin{figure}
-	\centering
 	  \makebox[\textwidth]{%
-        \begin{subfigure}[b]{0.62\textwidth}
+        \begin{subfigure}[b]{0.5\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{figs/projection_orbit1.png}
                 \caption{}
                 \label{fig:projection_orbit1}
         \end{subfigure}%
-        \begin{subfigure}[b]{0.62\textwidth}
+        \begin{subfigure}[b]{0.5\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{figs/projection_orbit2.png}
                 \caption{}
@@ -545,13 +546,13 @@ In summary, the dynamics of $\ve q$ in a simple shear flow is a periodic rotatio
         \end{subfigure}
         }
         \makebox[\textwidth]{%
-        \begin{subfigure}[b]{0.62\textwidth}
+        \begin{subfigure}[b]{0.5\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{figs/projection_orbit3.png}
                 \caption{}
                 \label{fig:projection_orbit3}
         \end{subfigure}
-        \begin{subfigure}[b]{0.62\textwidth}
+        \begin{subfigure}[b]{0.5\textwidth}
                 \centering
                 %\includegraphics[width=\textwidth]{figs/projection_orbit4.png}
 				\begin{lpic}{figs/projection_orbit4(7cm,)}
@@ -568,7 +569,7 @@ In summary, the dynamics of $\ve q$ in a simple shear flow is a periodic rotatio
 
 When the trajectories $\ve q(t)$ are projected onto the unit sphere, the result $\ve n(t)$ are the Jeffery orbits. I visualise this in Fig.~\ref{fig:projection_orbits} where the trajectories $\ve q(t)$ and $\ve n(t)$ are shown for three different initial conditions.
 
-The orbits on the north and south hemispheres are the same, because of the particle inversion symmetry: changing $\ve n \to -\ve n$ implies $\dot{\ve n} \to - \dot{\ve n}$. The orbits are also symmetric under a 180 degree rotation around the vorticity, becuse the shear flow is. These two symmetries together enforce that no orbit may cross the equator of the sphere. The Jeffery orbit which is exactly on the equator of the sphere is called the \emph{tumbling orbit}, because the vector $\ve n$ tumbles in the flow-shear plane. The orbit at a pole of the sphere, where $\ve n$ is aligned with the vorticity direction, is called the \emph{log-rolling} orbit. The name refers to the motion of a rod which rolls around its axis of symmetry, but the name is used for both prolate and oblate particles. Log-rolling for an oblate particle means that it spins like a frisbee.
+The orbits on the north and south hemispheres are the same, because of the particle inversion symmetry: changing $\ve n \to -\ve n$ implies $\dot{\ve n} \to - \dot{\ve n}$. The orbits are also symmetric under a 180 degree rotation around the vorticity, becuse the shear flow is. These two symmetries together enforce that no orbit may cross the equator of the sphere. The Jeffery orbit which is exactly on the equator of the sphere is called the \emph{tumbling orbit}, because the vector $\ve n$ tumbles in the flow-shear plane. The orbit at a pole of the sphere, where $\ve n$ is aligned with the vorticity direction, is called the \emph{log-rolling} orbit. The name refers to the motion of a rod which rolls around its axis of symmetry, but the name is used for both prolate and oblate particles. Log-rolling for an oblate particle means that it spins like a frisbee. These particular orbits are depicted in \Figref{tumbling_lr}.
 
 The solutions to Jeffery's equation in a simple shear flow are degenerate: the orientational trajectory depends on the initial condition indefinitely. The degeneracy is a result of the assumptions made in the course deriving the Jeffery orbits. In this thesis we encounter two possible mechanisms to break this degeneracy.
 
@@ -579,9 +580,41 @@ Second, there may be Brownian noise. The idea is that thermal fluctuations kick 
 One might expect that the degeneracy of the Jeffery orbits could be broken by a particle which is not perfectly axisymmetric. This is not the case. However, the dynamics are much more intricate. This is the topic of \Secref{jefftriaxial}.
 
 
+\begin{figure}
+\centering
+\begin{overpic}[unit=1mm,scale=0.5]{figs/coords_prolate_tumbling.pdf}
+\put(0,70){\textbf{\small(a)}}
+\put(-5,2){$\hat{\ve x}$}
+\put(101,12){$\hat{\ve y}$}
+\put(54,87){$\hat{\ve z}$}
+\end{overpic}\qquad\qquad
+\begin{overpic}[unit=1mm,scale=0.5]{figs/coords_oblate_tumbling.pdf}
+\put(0,70){\textbf{\small(b)}}
+\put(-5,2){$\hat{\ve x}$}
+\put(101,12){$\hat{\ve y}$}
+\put(54,87){$\hat{\ve z}$}
+\end{overpic}\\\vspace{5mm}
+\begin{overpic}[unit=1mm,scale=0.5]{figs/coords_prolate_lr.pdf}
+\put(0,70){\textbf{\small(c)}}
+\put(-5,2){$\hat{\ve x}$}
+\put(101,12){$\hat{\ve y}$}
+\put(54,87){$\hat{\ve z}$}
+\end{overpic}\qquad\qquad
+\begin{overpic}[unit=1mm,scale=0.5]{figs/coords_oblate_lr.pdf}
+\put(0,70){\textbf{\small(d)}}
+\put(-5,2){$\hat{\ve x}$}
+\put(101,12){$\hat{\ve y}$}
+\put(54,87){$\hat{\ve z}$}
+\end{overpic}\\\vspace{5mm}
+\caption{\figlab{tumbling_lr} Illustration of the tumbling and log-rolling orbits it a simple shear flow. \textbf{(a)} prolate tumbling, \textbf{(b)} oblate tumbling, \textbf{(c)} prolate log-rolling, \textbf{(d)} oblate log-rolling.}%
+\end{figure}
+
+
 \subsection{Non-axisymmetric particles}\seclab{jefftriaxial}
 
 In this Section I describe the solutions to the Jeffery equation \eqnref{np} for a triaxial particle in a simple shear flow. It turns out that a triaxial particle also tumbles, but in a much more complicated fashion than the Jeffery orbits for an axisymmetric particle \cite{gierszewski1978,hinch1979,yarin1997}. In general no closed form solutions are known, therefore we rely on numerical solutions in this section.
+
+A rotation in three dimensions has three degrees of freedom, and can be represented in different ways. In general it is complicated to represent rotations, because the space of rotations $SO(3)$ does not simply map to $\ma R^3$. Fortunately the tumbling of a triaxial particle shares one property with the Jeffery orbits: the vector $\ve n$ monotonically rotates around the vorticity. This fact was proven by \citet{hinch1979}. They expressed \Eqnref{np} in Euler angle coordinates, such that $(\varphi, \theta)$ are spherical coordinates for $\ve n$ (\Figref{coordinates}), and $\psi$ is the angle of rotation around $\ve n$. Then $\dot\varphi < 0$ for all values of $\Lambda$ and $K$. It follows that it is sufficient to observe the trajectories the as they pass through a plane in phase space, as depicted in \Figref{sos}. The monotonic rotation guarantees that all trajectories hit the surface-of-section, over and over again.
 
 \begin{figure}
 \centering
@@ -591,8 +624,6 @@ In this Section I describe the solutions to the Jeffery equation \eqnref{np} for
 \end{overpic}
 \caption{\label{fig:sos} Illustration of the surface-of-section $\varphi=\pi/2+2n\pi$. The trajectory (in red) starts at a point in the surface-of-section, makes one revolution of $\varphi $in phase-space, and returns to another point on the same curve in the surface-of-section.}%
 \end{figure}
-
-A rotation in three dimensions has three degrees of freedom, and can be represented in different ways. In general it is complicated to represent rotations, because the space of rotations $SO(3)$ does not simply map to $\ma R^3$. Fortunately the tumbling of a triaxial particle shares one property with the Jeffery orbits: the vector $\ve n$ monotonically rotates around the vorticity. This fact was proven by \citet{hinch1979}. They expressed \Eqnref{np} in Euler angle coordinates, such that $(\varphi, \theta)$ are spherical coordinates for $\ve n$ (\Figref{coordinates}), and $\psi$ is the angle of rotation around $\ve n$. Then $\dot\varphi < 0$ for all values of $\Lambda$ and $K$. It follows that it is sufficient to observe the trajectories the as they pass through a plane in phase space, as depicted in \Figref{sos}. The monotonic rotation guarantees that all trajectories hit the surface-of-section, over and over again.
 
 We follow \citet{hinch1979} and choose the surface-of-section $\varphi = \pi/2+2n\pi$. This corresponds to $n_x=0, n_y > 0$. We solve \Eqnref{np} numerically for many different initial conditions. Every time a trajectory passes through the surface-of-section we plot a point at the corresponding value of $n_z=\cos \theta$ and $\psi$. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
 
