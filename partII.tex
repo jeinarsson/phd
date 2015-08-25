@@ -15,7 +15,7 @@ In addition I have taken part in three studies related to the orientational moti
 \end{enumerate}
 
 
-\chapter{Effective equation of motion for a weakly inertial spheroid in shear flow}\label{sec:effective}
+\chapter[Effective equation for a spheroid]{Effective equation of motion for a spheroid in simple shear}\label{sec:effective}
 
 This project is a collaboration with collegues in Cherbourg and Marseille (France), and Stockholm (Sweden). J.R. Angilella (Cherbourg) and F. Candelier (Marseille) have many years of experience in dynamical systems, fluid mechanics and perturbation theory, without which this project would not have landed. T. Ros\'en and F. Lundell in Stockholm are experts in direct numerical simulation of particulate flows by the lattice Boltzmann method, by which we could validate our calculations. I also attribute the initial idea to perform stability analysis on the log-rolling motion under inertial perturbation, however vague at the time, to F. Lundell at a COST meeting in Udine, Italy. 
 
@@ -36,7 +36,7 @@ More recently \citet{subramanian2005,subramanian2006} re-examined the slender fi
 
 Meanwhile, several groups began studies of this problem using direct numerical solution of the Navier-Stokes equations, via lattice Boltzmann simulations \cite{feng1995,ding2000,qi2003,yu2007,huang2012,rosen2014,mao2014,rosen2015a,rosen2015b}. These studies reveal a rich structure of dynamical modes for moderate to large values of the Reynolds number. Not only log-rolling or tumbling is possible, but also intermediate limit cycles and alignment with new fixed points. The studies are limited to a few particle shapes, typically $\lambda=1/4$, $\lambda=1/2$, $\lambda=2$ and $\lambda=4$. Instead they focus on the effects of increasing Reynolds numbers, confinement and particle buoyancy.
 
-I enter this chronology sometime in 2013, after submitting a paper \cite{einarsson2014} in which we describe the effects of particle inertia alone, neglecting the fluid inertia. We were intrigued by the results of \citet{subramanian2006,subramanian2006} outlined above, and the fact that no numerical results had shown the predicted log-rolling mode for nearly spherical prolate particles. For example, \citet{qi2003} simulated both oblate ($\lambda=1/2$) and prolate ($\lambda=2$) spheroids, and found for that the oblate particle logs-rolls while the prolate particle tumbles, the opposite of the existing theoretical prediction. But, as \citet{subramanian2006} points out, there were several possible explanations for this discrepancy. First, the simulations were performed at moderately small Reynolds numbers, but not much smaller than unity, where a perturbation theory should be valid. Second, they were performed in a finite computational domain, whereas the theory is valid for an unbounded shear flow. Third, the particle aspect ratio $\lambda=2$ is not close to unity, whereas the theory assumed $\lambda\approx1$. The parameter ranges where the existing theory should be valid is also where the numerical simulations become computationally impractical. More precisely, small values of the Reynolds number, large distance to the boundaries, and extreme particle shape all add to the computational cost. Therefore any comparisons to existing theory were qualitative.
+I enter this chronology sometime in 2013, after submitting a paper \cite{einarsson2014} in which we describe the effects of particle inertia alone, neglecting the fluid inertia. We were intrigued by the results of \citet{subramanian2006,subramanian2006} outlined above, and the fact that no numerical results had shown the predicted log-rolling mode for nearly spherical prolate particles. For example, \citet{qi2003} simulated both oblate ($\lambda=1/2$) and prolate ($\lambda=2$) spheroids, and found for that the oblate particle log-rolls while the prolate particle tumbles, opposite to the existing theoretical prediction. But, as \citet{subramanian2006} points out, there were several possible explanations for this discrepancy. First, the simulations were performed at moderately small Reynolds numbers, but not much smaller than unity, where a perturbation theory should be valid. Second, they were performed in a finite computational domain, whereas the theory is valid for an unbounded shear flow. Third, the particle aspect ratio $\lambda=2$ is not close to unity, whereas the theory assumed $\lambda\approx1$. The parameter ranges where the existing theory should be valid is also where the numerical simulations become computationally impractical. More precisely, small values of the Reynolds number, large distance to the boundaries, and extreme particle shape all add to the computational cost. Therefore any comparisons to existing theory were qualitative.
 
 These facts convinced us to attempt relaxing the assumption of $\lambda\approx1$, and find the exact value of $\lambda$ for the cross-over from log-rolling to tumbling.
 
@@ -45,7 +45,7 @@ of the higher-order effects...}, implying that the value of the Reynolds number 
 
 \section{Results}
 
-We initially set out to calculate only the linear stability exponents of the log-rolling position. But it turned out that we could compute an explicit correction to Jeffery's equation of motion, which is more useful. Let $\ve n$ be the unit vector along the symmetry axis of the particle, and $\ma O$ and $\ma S$ the antisymmetric and symmetric parts of the flow gradient (see \Secref{forces} in Part I for details.) Then the result is
+We initially set out to calculate only the linear stability exponents of the log-rolling position. But it turned out that we could compute an explicit correction to Jeffery's equation of motion, which is more useful. Let $\ve n$ be the unit vector along the symmetry axis of the particle, and $\ma O$ and $\ma S$ the antisymmetric and symmetric parts of the flow gradient (see \Secref{fluidflows} in Part I for details.) Then the result is
 \begin{align}
 \eqnlab{ndoteffective}
   \dot {\ve n} &=  
@@ -68,13 +68,12 @@ The solution to Jeffery's equation, \Eqnref{ndoteffective} with $\Reys=0$, are t
     \item $0 < \lambda$: The particle tumbles, whatever the initial condition.
 \end{itemize}
 
-Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results valid for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. This is a bold statement, but we took great care in deriving and checking our result. First, we asked F. Candelier to independently analyse the case of nearly spherical particles. We knew that my general solution must match his solution for nearly spherical particles exactly, as $\lambda\to1$. By comparing notes we eliminated mistakes until, very suddenly, our solutions matched. At that point we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. Second, we asked T. Ros\'en and F. Lundell to use their numerical codes to verify our result. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D (in particular Fig.~2). We conclude that our effective equation is correct, which resolves the indeterminacy discovered by Jeffery in 1922. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the Reynolds number.
+Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results valid for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. This is a bold statement, but we took great care in deriving and checking our result. First, we asked F. Candelier to independently analyse the case of nearly spherical particles. We knew that my general solution must match his solution for nearly spherical particles exactly, as $\lambda\to1$. By comparing notes we eliminated mistakes until, very suddenly, our solutions matched. At that point we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. Second, we asked T. Ros\'en and F. Lundell to use their numerical codes to verify our result. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D (in particular Fig.~2). We conclude that our effective equation is correct. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the shear Reynolds number.
 
 \subsection*{Phase diagram for the effective equation}
-In the previous Section I discussed the first effects of inertia, for which a perturbative effective equation like \Eqnref{ndoteffective} should be valid. For larger values of $\Reys$ it is not as clear-cut, we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. Nevertheless it can be fruitful to examine the dynamics of the effective equations.
+In the previous Section I discussed the first effects of inertia, for which a perturbative effective equation like \Eqnref{ndoteffective} should be valid. For larger values of $\Reys$ we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. Nevertheless it can be fruitful to examine the dynamics of the effective equations.
 
-Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys\approx0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} as $\Reys$ increases. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a schematic phase diagram for oblate particles ($\lambda<1$), showing the first bifurcations as $\Reys$ increase. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are bifurcation lines, where the qualitative dynamics change. For even larger values of $\Reys$ there are even more bifurcations, not shown here.
-
+Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. Log-rolling and tumbling are two such modes which exist already when $\Reys=0$. But for larger values of $\Reys$ the particles may cease to rotate and align, for example. Such fixed points of the dynamics also appear for the effective equation of motion \eqnref{ndoteffective} when $\Reys>0$. The effective equation has two parameters, $\Reys$ and $\lambda$. In \Figref{phasediagram} I show a schematic phase diagram for oblate particles ($\lambda<1$), showing the first bifurcations as $\Reys$ increase. Each region corresponds to a distinct mode of rotation, depending on which periodic orbits and fixed points exist in \Eqnref{ndoteffective} at those values of the parameters. The borders between regions are bifurcation lines, where the qualitative dynamics change. For even larger values of $\Reys$ there are even more bifurcations, not shown here.
 
 \begin{figure}
 \begin{overpic}[unit=1mm,width=\linewidth]{figs/bifurcations.pdf}
@@ -89,6 +88,9 @@ Numerical simulation of the exact equations reveals many different modes of rota
 }}
 \put(83,-1){\colorbox{white}{{%
      $0.8$}
+}}
+\put(92,-1){\colorbox{white}{{%
+     $1$}
 }}
 \put(3,2){\colorbox{white}{{%
      $\lambda$}
@@ -125,13 +127,13 @@ Numerical simulation of the exact equations reveals many different modes of rota
 \end{itemize}}
 \end{figure}
 
-It is clear that the effective equation has no quantitative predictive power except for very small values of $\Reys$. It can, for example, in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. But if a bifurcation line extends towards $\Reys=0$ somewhere, we know that it must \emph{connect} to a corresponding bifurcation line in the exact dynamics. This does not necessarily predict what will happen in the exact dynamics, but it does constrain the options, and may serve as a guide for further numerical analysis.
+It is clear that the effective equation has no quantitative predictive power except for very small values of $\Reys$. It can, for example, in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. But the bifurcation lines that extend to $\Reys=0$ must \emph{connect} to a corresponding bifurcation line in the exact dynamics. This constrains the possible bifurcation topologies for the exact equations, and may serve as a guide for further numerical analysis.
 
 In the phase diagram three lines extend to $\Reys=0$. One of them separates the regions of stable and unstable tumbling for oblate particles, referred to in the previous Section. It connects to $\Reys=0$ approximately when $\lambda=1/7.3$. In Paper~D there is numerical evidence that this happens also in the exact equations. The two other bifurcation lines reach $\Reys=0$ only asymptotically as $\lambda\to0$ and $\lambda\to\infty$, corresponding to infinitely thin disks or rods.
 
 One may hope that the effective equation is qualitatively correct in predicting what the first bifurcation is as $\Reys$ increases. The data of \citet{rosen2015b} and Paper~D indicate that the ``critical point'', where several bifurcation lines merge, does exist also in the exact dynamics. However, the bifurcation lines seem to be sensitive to the confinement ratio in the numerical simulations and as of now we do not have enough data to confirm nor refute any claims on equivalence.
 
-\chapter{Measurements of asymmetric rods tumbling in microchannel flow}
+\chapter[Measurements of asymmetric rods]{Measurements of asymmetric rods tumbling in microchannel flow}
 
 This project is a collaboration with our experimentalist collegues in Gothenburg, Sweden. Roughly, the division of work is that they build and perform the experiment, and we design the specifications and perform the analysis.
 
@@ -179,5 +181,36 @@ A key feature of turbulence is the existence of \emph{vortex tubes} \cite{she199
 We may partly understand these observations by a very simple picture. The effect of a rotational flow $\ve u_R= \ve \Omega \cross \ve r$ is to rotate a particle around $\ve \Omega$. The effect of a strain flow $\ve u_S=\ma S \ve r$ is to align a long axis of a particle with the strongest eigendirection of $\ma S$. The simple picture is that the same strain that stretches and intensifies a vortex to a vortex tube, will also align the axes of any nearby particles with $\ve \Omega$. Therefore long axes of rods, and diameters of disks tend to align with $\ve \Omega$ in these regions. With this alignment it follows that rods spin and disks tumble because of the strong vorticity.
 
 This simple argument cannot explain why the rotation rate of the disk happens to average to the same value as that of the rod. The details of the tumbling rate depends on how the vorticity $\ve \Omega$, and the particle direction $\ve n$, are aligned relative to the eigensystem of $\ma S$. The details and implications of these alignments are important open questions. The underlying reason for the shape-dependence of the average rotation rate in the random-flow model, is precisely that these alignments with the eigensystem of $\ma S$ is very weak.
+
+\chapter{Outlook}
+
+We have just started. Two years ago I firmly believed that the perturbation calculation in Paper C was far out of reach for me. We knew next to nothing about the fluid mechanics of particles. In our papers and this thesis I have exhausted everything I have learned, and yet we have barely scratched the surface. I suppose that we know next to next to nothing now. I end this thesis with a brief discussion of interesting future directions.
+
+\subsubsection{Extensions to Papers~A-D}
+
+There are two obvious extensions to our work on the orientational motion of spheroids in simple shear. First, the effect of confinement of the particle by nearby walls is substantial. The nearby boundaries affect the nature of the inertial correction. Likely this effect can be computed by a method of images. The second extension is to compute one more order of perturbation in $\Reys$. From the numerical results in Paper~D it is clear that the next order makes a substantial difference, and that it should allow for a strong connection from the analytical results to the lattice Boltzmann simulations. In the case of spherical particles, the lowest order correction is $O(\Reys^{3/2})$.
+
+\subsubsection{Singular perturbation theory}
+
+The reason that the calculation described in Papers~A-C is conceptually straightforward is that the Stokes flow works as the zeroth order flow field in the reciprocal theorem integral. Perturbation theory for small values of the Reynolds number is infamous, because the Stokes flow field is not a uniformly valid approximation of the flow field as $\Reys\to0$. In our case this did not matter, as the erronous contribution to the volume integral is small. But in cases involving translational motion the volume integral diverges. We may not, for example, reproduce the Saffman lift force on a sphere translating in simple shear with just the Stokes flow field and the reciprocal theorem.
+
+In order to solve most problems, it is necessary to construct uniformly valid flow fields to lowest order. This usually requires singular perturbation theory, of which asymptotic matching is perhaps the most common technique in fluid dynamics. I believe that understanding these methods is a necessary next step.
+
+\subsubsection{Conclusion}
+
+We routinely impose assumptions and symmetries on equations in order to find a solution and answer a question. Sometimes these assumptions lead to an indeterminacy in the solution, which therefore cannot answer our question. The Jeffery orbits are one example of this, and we ask: does the particle tumble or roll with inertia? What if the particle is not axisymmetric? Or if we break its mirror symmetry? Another example is the equation of motion of a sphere advected in a turbulent flow. The center-of mass an inertia-free sphere follows any curved streamline perfectly, but where does it actually go? Does the effect of inertia push it into, or out of a vortex? What if the particle is not spherical?
+
+In these degenerate cases it may be fruitful to relax an assumption ever so slightly by perturbation theory. Even an infinitesimal perturbation allows us to peek through the curtains to the other side of the assumption. We did this for the Jeffery orbits. What's next?
+
+% Concretely for our problem with a rotating particle in a simple shear, we assume that
+% \begin{align}
+%     \frac{\Reys|\ve u' \nabla \ve u^\infty|}{|\nabla^2 \ve u'|} \ll 1\,,
+% \end{align}
+% and this leads to the Stokes solution which behaves like $\ve u' \sim 1/r^2\,, r \to \infty$. But inserting this into our assumption gives
+% \begin{align}
+%     \frac{\Reys/r^2}{1/r^4} = \Reys r^2 \ll 1\,.
+% \end{align}
+% So at $r \approx 1/\sqrt{\Reys}$ the Stokes solution becomes invalid.
+
 
 \end{document}

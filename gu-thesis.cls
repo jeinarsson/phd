@@ -451,8 +451,8 @@
 \begin{flushright}
 {\huge{Paper \papernumber{paper}}}
 \\[30mm]
-{\Large{#1}}\\[30mm]
-{arXiv e-print available at \url{#3}}
+%{\Large{#1}}\\[30mm]
+{#3}
 \end{flushright}
 %  \vspace*{2em}
 %  \begin{center}
@@ -690,8 +690,9 @@
    Creative Commons Attribution 3.0 Unported License.\\
    \includegraphics[width=3cm]{figures/by.pdf}\\[3mm]
    In {Part IV},\\
+   \emph{Paper B} is \copyright~2015 American Physical Society, and is reprinted with permission. \\
    \emph{Paper G} is \copyright~2015 AIP Publishing LLC, and is reprinted with permission. \\
-   \emph{Papers A-F} are \copyright~2015 their respective authors.\\[5mm]
+   \emph{Papers A \& C-F} are \copyright~2015 their respective authors.\\[5mm]
   Front cover: Illustration of spheroidal particle tumbling in a shear flow.\\
   Flipbooks: Ellipsoidal particles rotating in a simple shear flow. \\
   \emph{Odd pages:} TODO \emph{Even pages:} TODO\\[5mm]
@@ -770,8 +771,7 @@
  \phantomsection
  \presectiontitle{\listofpublicationsname}
  \noindent \@thesiscontents
- ~\\[10mm]
- \tableofpapers
+  \tableofpapers
  \@ifundefined{@paperwork}{}{
    \noindent \@paperwork
  }

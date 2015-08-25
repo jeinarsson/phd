@@ -256,7 +256,7 @@ Country
 \acknowledgements{
 }
 %\paperwork{Text}
-\thesiscontents{This thesis consists of an extended summary and the following appended papers:}
+
 \printers{Kompendiet}
 
 % You can add extra contents such as abbreviations and nomenclature using.
@@ -298,7 +298,17 @@ Country
 \cleardoublepage\maketableofpaperspage
 
 
-\cleardoublepage
+
+\cleardoublepage\tableofcontents
+
+\cleardoublepage\pagenumbering{arabic}
+\pagestyle{fancy}
+\part{Introduction} % Using the starred command avoids numbering.
+\thispagestyle{empty}
+ \subfile{partI}
+
+
+\cleardoublepage\thispagestyle{fb}
 {
 \null\vfill
 \centering
@@ -310,19 +320,14 @@ Men då mitt skarpsinne visade sig otillräckligt även för detta, slungade jag
 }
 \vfill\vfill
 }
-\cleardoublepage\tableofcontents
 
-\cleardoublepage\pagenumbering{arabic}
-\pagestyle{fancy}
-\part{Introduction} % Using the starred command avoids numbering.
-\thispagestyle{empty}
- \subfile{partI}
-\clearpage
+
+
+\newpage\thispagestyle{fb}\cleardoublepage
 \part{My work} % Using the starred command avoids numbering.
 \thispagestyle{fb}
 \subfile{partII}
-
-\cleardoublepage
+\thispagestyle{fb}\cleardoublepage
 \thispagestyle{fb}
 {
 \null\vfill
@@ -335,14 +340,14 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
 }
 \vfill\vfill
 }
-\cleardoublepage
+\newpage\thispagestyle{fb}\cleardoublepage
 \thispagestyle{fb}\makeacknowledgementspage
-
+\nocite{paperA,paperB,paperC,paperD,paperE,paperF,paperG}
 \cleardoublepage
 \nobibliography*
 \bibliography{references} % Legacy command
 
-
+\cleardoublepage
 \part{Appendices} % Using the starred command avoids numbering.
 \appendix
 \subfile{betaexpressions}
@@ -350,25 +355,32 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
 \thispagestyle{fb}
 \appendix
 %\subfile{app_spheroidal_multipoles}
-\clearpage
 
+\cleardoublepage
 \label{endpage}\part{Papers}
 \pagestyle{fb}
 % You can write this manually \paper{Paper Title}{Full reference} or have bib entries entered automatically
 
 \paper{Paper A}{%
-citation A%
-}{arXiv A}
+{\sc Einarsson, J, Candelier, F, Lundell, F, Angilella, J.~R \& Mehlig, B}
+  2015{\natexlab{{\em a\/}}} Effect of weak fluid inertia upon jeffery orbits.
+  {\em Physical Review E\/} {\bf 91}~(4), 041002.%
+}{Open Access (CC BY 3.0) at \url{http://dx.doi.org/10.1103/PhysRevE.91.041002}}
 \includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/A.pdf}
 
 \paper{Paper B}{%
-citation B%
-}{arXiv B}
+{\sc Candelier, F, Einarsson, J, Lundell, F, Mehlig, B \& Angilella, J.-R} 2015
+  Role of inertia for the rotation of a nearly spherical particle in a general
+  linear flow. {\em Physical Review E\/} {\bf 91}~(5), 053023.%
+}{arXiv preprint available at \url{http://arxiv.org/abs/1505.02661}}
 \includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/B.pdf}
 
 \paper{Paper C}{%
-citation C%
-}{arXiv C}
+{\sc Einarsson, J, Candelier, F, Lundell, F, Angilella, J.~R \& Mehlig, B}
+  2015{\natexlab{{\em b\/}}} Rotation of a spheroid in a simple shear at small
+  reynolds number. {\em Physics of Fluids (1994-present)\/} {\bf 27}~(6),
+  063301.%
+}{Open Access (CC BY 3.0) at http://dx.doi.org/10.1063/1.4921543}
 \includepdf[pages=2-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/C.pdf}
 
 
@@ -391,8 +403,10 @@ citation C%
 
 
 \paper{Paper G}{%
-citation C%
-}{arXiv C}
+{\sc Byron, M, Einarsson, J, Gustavsson, K, Voth, G, Mehlig, B \& Variano, E}
+  2015 Shape-dependence of particle rotation in isotropic turbulence. {\em
+  Physics of Fluids (1994-present)\/} {\bf 27}~(3), 035101.%
+}{arXiv preprint available at \url{http://arxiv.org/abs/1412.3166}}
 \includepdf[pages=2-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/G.pdf}
 
 
