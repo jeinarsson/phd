@@ -52,6 +52,7 @@ n0=y[-1]
 z = [p-n0 for p in y]
 plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
 plt.gca().xaxis.set_major_locator(mdates.DayLocator())
-plt.plot(x,z)
+plt.plot(x,z,lw=3,color='#ff4433')
 plt.gcf().autofmt_xdate()
+plt.ylabel("Nya tecken i avhandlingen (netto)")
 plt.show()
