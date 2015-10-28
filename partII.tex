@@ -3,19 +3,15 @@
 
 \begin{document}
 
-In the following Sections I give the context and main results for each of the four projects I worked on recently. 
+In the following three Sections I give the context and main results of my recent work. 
 
-The main project is the development of an effective equation of motion for the orientation of a neutrally buoyant spheroid suspended in a simple shear flow, valid when inertial effects are weak but not vanishing. In short, we compute what happens to the Jeffery orbits when the particle Reynolds number is non-zero. The results are contained in the appended Papers A-D.
+In \Secref{effective} I describe the development of an effective equation of motion for the orientation of a neutrally buoyant spheroid suspended in a simple shear flow, valid when inertial effects are weak but not vanishing. In short, we calculate what happens to the Jeffery orbits when the particle Reynolds number is non-zero. The results are contained in the appended Papers A-D.
 
-In addition I have taken part in three studies related to the orientational motion of non-spherical particles. They have in common that they involve Jeffery's theory for ellipsoidal particles.
-\begin{enumerate}
-    \item a microfluidic experiment aiming to validate Jeffery's theory for the rotation of triaxial particles in shear flow (Paper E),
-    \item a study of the effects of thermal noise on the orientational dynamics of triaxial particles in shear flow, with implications for the dilute suspension rheology (Paper F),
-    \item a description of the rotational modes of disks and rods in isotropic turbulence, combining data from experiments, direct numerical simulations and random flow theory (Paper G).
-\end{enumerate}
+The other two studies also relate to the orientational motion of non-spherical particles, and their common denominator is that they involve Jeffery's theory for ellipsoidal particles.
+First, in \Secref{experiments}, is a microfluidic experiment aiming to validate Jeffery's theory for the rotation of triaxial particles in shear flow (Paper E). Second,
+, in \Secref{turbulence}, is a description of the rotational modes of small disks and rods in isotropic turbulence, combining data from experiments, direct numerical simulations and random flow theory (Paper F).
 
-
-\chapter[Effective equation for a spheroid]{Effective equation of motion for a spheroid in simple shear}\label{sec:effective}
+\chapter[Effects of inertia]{Effects of inertia on the Jeffery orbits}\label{sec:effective}
 
 This project is a collaboration with collegues in Cherbourg and Marseille (France), and Stockholm (Sweden). J.R. Angilella (Cherbourg) and F. Candelier (Marseille) have many years of experience in dynamical systems, fluid mechanics and perturbation theory, without which this project would not have landed. T. Ros\'en and F. Lundell in Stockholm are experts in direct numerical simulation of particulate flows by the lattice Boltzmann method, by which we could validate our calculations. I also attribute the initial idea to perform stability analysis on the log-rolling motion under inertial perturbation, however vague at the time, to F. Lundell at a COST meeting in Udine, Italy. 
 
@@ -23,7 +19,7 @@ Paper A is a brief summary of the calculation and result in letter form, while t
 
 \section{History of problem}
 
-The Jeffery equations for an axisymmetric particle in simple shear flow are interesting because their solutions are degenerate, as explained in \Secref{jefferyorbits} in Part I. Their solutions form a one-parameter family of periodic orbits. No orbit is preferred over another, it is the initial condition which determines the dynamics indefinitely. Jeffery was very aware of this fact, he writes \blockquote{It is obviously undesirable to leave a problem, which is physically quite determinate, in this indeterminate form.}
+The Jeffery equations for an axisymmetric particle in simple shear flow are interesting because their solutions are degenerate, as explained in \Secref{jefferyorbits}. Their solutions form a one-parameter family of periodic orbits. No orbit is preferred over another, so that the initial condition determines the dynamics indefinitely. Jeffery was very aware of this fact, he writes \blockquote{It is obviously undesirable to leave a problem, which is physically quite determinate, in this indeterminate form.}
 He further conjectures that \blockquote{this failure is due to the limitations of the theory of the slow motion of a viscous fluid.}
 In other words, he believed that inertial corrections were necessary to break the degenaracy. He concludes, referring to inertial corrections, \blockquote[][...]{[...] a more complete investigation would reveal the fact that the particles do tend to adopt special orientations} 
 In connection with this discussion Jeffery hypothesized that this preferred orientation would be such that the energy dissipated by viscosity is minimized: a prolate particle ends up log-rolling (long axis along the vorticity), and an oblate particle tumbles (with a diameter along vorticity.)
@@ -32,11 +28,11 @@ In connection with this discussion Jeffery hypothesized that this preferred orie
 
 \citet{harper1968} analyzed the rotation of two spheres rigidly constrained by an invisible rod, a so-called dumbbell. In the purely viscous regime a dumbell is equivalent to a prolate spheroid when its aspect ratio approaches infinity. They assumed that both spheres experienced lift forces (calculated by \citet{saffman1965}) independently of each other. By this method they found the opposite of Jeffery's minumum dissipation hypothesis: a slender rod ends up tumbling end-to-end in the flow-shear plane.
 
-More recently \citet{subramanian2005,subramanian2006} re-examined the slender fibre and nearly-spherical limiting cases using a reciprocal theorem \cite{kim1991,lovalenti1993}. Their method is less controversial than those employed by the earlier attemps. However, they found, like \citet{harper1968}, that for small values of the Reynolds number a slender rod tumbles end-to-end in the flow-shear plane. For larger values of the Reynolds number the tumbling orbit is destroyed and replaced by fixed points, which means that the particle stops rotating and aligns, a phenomenen observed in numerical studies \cite{ding2000} (see below). \citet{subramanian2006} found that a nearly spherical prolate particle aligns its long axis along the vorticity, and a nearly spherical oblate particle tumbles, in agreement with \citet{saffman1956}. They remark that the different types of motions for nearly spherical particles, and slender particles \blockquote{suggests a possible bifurcation [...] at an intermediate aspect ratio.}
+More recently \citet{subramanian2005,subramanian2006} re-examined the slender fibre and nearly-spherical limiting cases using a reciprocal theorem \cite{kim1991,lovalenti1993}. Their method is less controversial than those employed by the earlier attemps. However, they found, like \citet{harper1968}, that for small values of the Reynolds number a slender rod tumbles end-to-end in the flow-shear plane. For larger values of the Reynolds number the tumbling orbit is destroyed and replaced by fixed points, which means that the particle stops rotating and aligns, a phenomenen observed in numerical studies \cite{ding2000} (see below). \citet{subramanian2006} found that a nearly spherical prolate particle aligns its long axis along the vorticity, and a nearly spherical oblate particle tumbles, in agreement with \citet{saffman1956}. They remark that the different types of motions for nearly spherical prolate particles, and slender prolate particles \blockquote{suggests a possible bifurcation [...] at an intermediate aspect ratio.}
 
 Meanwhile, several groups began studies of this problem using direct numerical solution of the Navier-Stokes equations, via lattice Boltzmann simulations \cite{feng1995,ding2000,qi2003,yu2007,huang2012,rosen2014,mao2014,rosen2015a,rosen2015b}. These studies reveal a rich structure of dynamical modes for moderate to large values of the Reynolds number. Not only log-rolling or tumbling is possible, but also intermediate limit cycles and alignment with new fixed points. The studies are limited to a few particle shapes, typically $\lambda=1/4$, $\lambda=1/2$, $\lambda=2$ and $\lambda=4$. Instead they focus on the effects of increasing Reynolds numbers, confinement and particle buoyancy.
 
-I enter this chronology sometime in 2013, after submitting a paper \cite{einarsson2014} in which we describe the effects of particle inertia alone, neglecting the fluid inertia. We were intrigued by the results of \citet{subramanian2006,subramanian2006} outlined above, and the fact that no numerical results had shown the predicted log-rolling mode for nearly spherical prolate particles. For example, \citet{qi2003} simulated both oblate ($\lambda=1/2$) and prolate ($\lambda=2$) spheroids, and found for that the oblate particle log-rolls while the prolate particle tumbles, opposite to the existing theoretical prediction. But, as \citet{subramanian2006} points out, there were several possible explanations for this discrepancy. First, the simulations were performed at moderately small Reynolds numbers, but not much smaller than unity, where a perturbation theory should be valid. Second, they were performed in a finite computational domain, whereas the theory is valid for an unbounded shear flow. Third, the particle aspect ratio $\lambda=2$ is not close to unity, whereas the theory assumed $\lambda\approx1$. The parameter ranges where the existing theory should be valid is also where the numerical simulations become computationally impractical. More precisely, small values of the Reynolds number, large distance to the boundaries, and extreme particle shape all add to the computational cost. Therefore any comparisons to existing theory were qualitative.
+I enter this chronology sometime in 2013, after submitting a paper \cite{einarsson2014} in which we describe the effects of particle inertia alone, neglecting the fluid inertia. We were intrigued by the results of \citet{subramanian2005,subramanian2006} outlined above, and the fact that no numerical results had shown the predicted log-rolling mode for nearly spherical prolate particles. For example, \citet{qi2003} simulated both oblate ($\lambda=1/2$) and prolate ($\lambda=2$) spheroids, and found for that the oblate particle log-rolls while the prolate particle tumbles, opposite to the existing theoretical prediction. But, as \citet{subramanian2006} points out, there were several possible explanations for this discrepancy. First, the simulations were performed at moderately small Reynolds numbers, but not much smaller than unity, where a perturbation theory should be valid. Second, they were performed in a finite computational domain, whereas the theory is valid for an unbounded shear flow. Third, the particle aspect ratio $\lambda=2$ is not close to unity, whereas the theory assumed $\lambda\approx1$. The parameter ranges where the existing theory should be valid is also where the numerical simulations become computationally impractical. More precisely, small values of the Reynolds number, large distance to the boundaries, and extreme particle shape all add to the computational cost. Therefore any comparisons to existing theory were qualitative.
 
 These facts convinced us to attempt relaxing the assumption of $\lambda\approx1$, and find the exact value of $\lambda$ for the cross-over from log-rolling to tumbling.
 
@@ -55,9 +51,9 @@ We initially set out to calculate only the linear stability exponents of the log
 +b_3\,  \ma O \ma S \ve n 
 + b_4\,  \ma S \ma S \ve n\right]\,. \nn
 \end{align}
-Here the first row is the result of \citet{jeffery1922}. The projection matrix $\ma P=\ma 1 - \ve n \ve n\transpose$ removes any component of the vector field which is not tangent to the sphere (see also \Secref{jefferyequation} in Part I.) The scalar parameters $\Lambda$ and $b_\alpha$ are determined by the particle aspect ratio $\lambda$. The shape factor $\Lambda=(\lambda^2-1)/(\lambda^2+1)$ was computed by Jeffery. Our main accomplishment is the calculation of $b_\alpha(\lambda)$.
+Here the first row is the result of \citet{jeffery1922}. The projection matrix $\ma P=\ma 1 - \ve n \ve n\transpose$ removes any component of the vector field which is not tangent to the sphere (see also \Secref{jefferyequation} in Part I.) The scalar parameters $\Lambda$ and $b_\alpha$ depend only on the particle aspect ratio $\lambda$. The shape factor $\Lambda=(\lambda^2-1)/(\lambda^2+1)$ was computed by Jeffery. Our main accomplishment is the calculation of $b_\alpha(\lambda)$.
 
-The result \eqnref{ndoteffective} resolves the inconsistensies between earlier theories, and between theory and numerical simulations. It also conclusively refutes Jeffery's minimum dissipation hypothesis. I summarise these findings in the following Sections.
+The result \eqnref{ndoteffective} resolves the inconsistensies between earlier theories, and between theory and numerical simulations. It also conclusively refutes Jeffery's minimum dissipation hypothesis with respect to inertia. I summarise these findings in the following Sections.
 
 \subsection*{First effects of inertia}
 
@@ -133,7 +129,7 @@ In the phase diagram three lines extend to $\Reys=0$. One of them separates the 
 
 One may hope that the effective equation is qualitatively correct in predicting what the first bifurcation is as $\Reys$ increases. The data of \citet{rosen2015b} and Paper~D indicate that the ``critical point'', where several bifurcation lines merge, does exist also in the exact dynamics. However, the bifurcation lines seem to be sensitive to the confinement ratio in the numerical simulations and as of now we do not have enough data to confirm nor refute any claims on equivalence.
 
-\chapter[Measurements of asymmetric rods]{Measurements of asymmetric rods tumbling in microchannel flow}
+\chapter[Measurements of asymmetric rods]{Measurements of asymmetric rods tumbling in microchannel flow}\seclab{experiment}
 
 This project is a collaboration with our experimentalist collegues in Gothenburg, Sweden. Roughly, the division of work is that they build and perform the experiment, and we design the specifications and perform the analysis.
 
@@ -151,20 +147,8 @@ Second, we record several distinct trajectories with different initial condition
     \item Several trajectories for the same particle, but with different initial conditions.
 \end{enumerate}
 
-\chapter{Effects of thermal noise on the tumbling of triaxial ellipsoids}\label{sec:triaxialnoise}
-This project is the Master's thesis of G.~Almondo. The main result are orientational probability distributions for triaxial ellipsoids in simple shear flow, subject to rotational diffusion. Under my supervision he derived a new Langevin equation for quaternions representing rotations. He verified the new equation both against previous analytical results \cite{rallison1978,haber1984} and his own microscopic numerical simulations.
-
-This work resulted in Paper~F in which we describe the probability distributions as function of the particle shape and the noise strength. We also show how the intrinsic viscosity of a dilute suspension changes due to the presence of the particles.
-
-\section{History of problem}
-
-
-
-
-\section{Results}
-
-\chapter{Rotation rates of particles in turbulence}
-Paper~G started as the synthesis of discussions during a workshop at {\sc nordita} in Stockholm. For those I am grateful especially to E.~Variano and G.~Voth. The paper is a discussion of the rotations of axisymmetric particles in isotropic turbulence. I think the strength of this paper is it's breadth, as it contains pieces of experimental results, numerical results and analytical model calculations.
+\chapter{Rotation rates of particles in turbulence}\seclab{turbulence}
+Paper~F started as the synthesis of discussions during a workshop at {\sc nordita} in Stockholm. For those I am grateful especially to E.~Variano and G.~Voth. The paper is a discussion of the rotations of axisymmetric particles in isotropic turbulence. I think the strength of this paper is it's breadth, as it contains pieces of experimental results, numerical results and analytical model calculations.
 
 From what I remember, the discussions started because of confusion between the \emph{rotation rate} and the \emph{tumbling rate} of a particle. In this context rotation rate means magnitude of the angular velocity: $|\ve \omega|$. The tumbling rate is the rate at which the symmetry axis of the particle turns: $|\dot{\ve n}|=|\ve \omega \cross \ve n|$. The two are kinematically related, because
 \begin{align}
@@ -180,11 +164,13 @@ A key feature of turbulence is the existence of \emph{vortex tubes} \cite{she199
 
 We may partly understand these observations by a very simple picture. The effect of a rotational flow $\ve u_R= \ve \Omega \cross \ve r$ is to rotate a particle around $\ve \Omega$. The effect of a strain flow $\ve u_S=\ma S \ve r$ is to align a long axis of a particle with the strongest eigendirection of $\ma S$. The simple picture is that the same strain that stretches and intensifies a vortex to a vortex tube, will also align the axes of any nearby particles with $\ve \Omega$. Therefore long axes of rods, and diameters of disks tend to align with $\ve \Omega$ in these regions. With this alignment it follows that rods spin and disks tumble because of the strong vorticity.
 
-This simple argument cannot explain why the rotation rate of the disk happens to average to the same value as that of the rod. The details of the tumbling rate depends on how the vorticity $\ve \Omega$, and the particle direction $\ve n$, are aligned relative to the eigensystem of $\ma S$. The details and implications of these alignments are important open questions. The underlying reason for the shape-dependence of the average rotation rate in the random-flow model, is precisely that these alignments with the eigensystem of $\ma S$ is very weak.
+This simple argument cannot explain why the rotation rate of the disk happens to average to the same value as that of the rod. The details of the tumbling rate depends on how the vorticity $\ve \Omega$, and the particle direction $\ve n$, are aligned relative to the eigensystem of $\ma S$. The details and implications of these alignments are important open questions. In the random-flow model these alignments are very weak, and that is the underlying reason for the shape-dependence of the average rotation rate.
 
-\chapter{Outlook}
+\chapter{Conclusions}
 
-We have just started. Two years ago I firmly believed that the perturbation calculation in Paper C was far out of reach for me. We knew next to nothing about the fluid mechanics of particles. In our papers and this thesis I have exhausted everything I have learned, and yet we have barely scratched the surface. I suppose that we know next to next to nothing now. I end this thesis with a brief discussion of interesting future directions.
+\section{Summary}
+
+\section{Outlook}
 
 \subsubsection{Extensions to Papers~A-D}
 
@@ -195,22 +181,6 @@ There are two obvious extensions to our work on the orientational motion of sphe
 The reason that the calculation described in Papers~A-C is conceptually straightforward is that the Stokes flow works as the zeroth order flow field in the reciprocal theorem integral. Perturbation theory for small values of the Reynolds number is infamous, because the Stokes flow field is not a uniformly valid approximation of the flow field as $\Reys\to0$. In our case this did not matter, as the erronous contribution to the volume integral is small. But in cases involving translational motion the volume integral diverges. We may not, for example, reproduce the Saffman lift force on a sphere translating in simple shear with just the Stokes flow field and the reciprocal theorem.
 
 In order to solve most problems, it is necessary to construct uniformly valid flow fields to lowest order. This usually requires singular perturbation theory, of which asymptotic matching is perhaps the most common technique in fluid dynamics. I believe that understanding these methods is a necessary next step.
-
-\subsubsection{Conclusion}
-
-We routinely impose assumptions and symmetries on equations in order to find a solution and answer a question. Sometimes these assumptions lead to an indeterminacy in the solution, which therefore cannot answer our question. The Jeffery orbits are one example of this, and we ask: does the particle tumble or roll with inertia? What if the particle is not axisymmetric? Or if we break its mirror symmetry? Another example is the equation of motion of a sphere advected in a turbulent flow. The center-of mass an inertia-free sphere follows any curved streamline perfectly, but where does it actually go? Does the effect of inertia push it into, or out of a vortex? What if the particle is not spherical?
-
-In these degenerate cases it may be fruitful to relax an assumption ever so slightly by perturbation theory. Even an infinitesimal perturbation allows us to peek through the curtains to the other side of the assumption. We did this for the Jeffery orbits. What's next?
-
-% Concretely for our problem with a rotating particle in a simple shear, we assume that
-% \begin{align}
-%     \frac{\Reys|\ve u' \nabla \ve u^\infty|}{|\nabla^2 \ve u'|} \ll 1\,,
-% \end{align}
-% and this leads to the Stokes solution which behaves like $\ve u' \sim 1/r^2\,, r \to \infty$. But inserting this into our assumption gives
-% \begin{align}
-%     \frac{\Reys/r^2}{1/r^4} = \Reys r^2 \ll 1\,.
-% \end{align}
-% So at $r \approx 1/\sqrt{\Reys}$ the Stokes solution becomes invalid.
 
 
 \end{document}

@@ -675,10 +675,11 @@
  {\small
   \noindent \emph{\@title}\\
   \@author\\
-  ISBN \@ISBN\\[5mm]
+ISBN 978-91-628-9656-0 (PDF) \\
+ISBN 978-91-628-9657-7 (Print) \\[5mm]
  %
  This thesis is electronically published, available at \\
- \url{TODO}\\[5mm]
+ \url{http://hdl.handle.net/2077/40830}\\[5mm]
  %
   \@department\\
   \universityname\\
@@ -691,8 +692,8 @@
    \includegraphics[width=3cm]{figures/by.pdf}\\[3mm]
    In {Part IV},\\
    \emph{Paper B} is \copyright~2015 American Physical Society, and is reprinted with permission. \\
-   \emph{Paper G} is \copyright~2015 AIP Publishing LLC, and is reprinted with permission. \\
-   \emph{Papers A \& C-F} are \copyright~2015 their respective authors.\\[5mm]
+   \emph{Paper F} is \copyright~2015 AIP Publishing LLC, and is reprinted with permission. \\
+   \emph{Papers A \& C-E} are \copyright~2015 their respective authors.\\[5mm]
   Front cover: Illustration of spheroidal particle tumbling in a shear flow.\\
   Flipbooks: Ellipsoidal particles rotating in a simple shear flow. \\
   \emph{Odd pages:} TODO \emph{Even pages:} TODO\\[5mm]
@@ -775,6 +776,17 @@
  \@ifundefined{@paperwork}{}{
    \noindent \@paperwork
  }
+ \presectiontitle{My contributions}
+ \noindent My contributions to the appended publications are:\\[1em]
+ {\large \bf Papers A-D}\\[1em]
+ I devised and performed the main calculation (presented in Paper C) valid for arbitrary aspect ratio. I performed the stability analysis in Paper D. I wrote Paper C in collaboration with BM, and I took active part in writing of Papers A, B and D. \\[1cm]
+ %
+ {\large \bf Paper E}\\[1em]
+ I took part in designing the experiment and the data analysis. I did the theory together with BM, in particular the reversal symmetry arguments and Eq.~(2). I wrote Sections I \& II, and took active part in editing of the entire manuscript.\\[1cm]
+%
+ {\large \bf Paper F}\\[1em]
+ I computed the DNS results and took active part in interpreting the results of experiments, DNS and random models. I wrote most of Sec.~IV and App.~A, and took active part in writing the rest of the paper.\\[1cm]
+%
  \tableofpublications
 }
 
