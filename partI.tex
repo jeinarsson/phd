@@ -146,7 +146,7 @@ During the course of this work, I have also worked with students and collegues o
 
 \chapter{Prerequisite concepts}\label{sec:prerequisites}
 
-In this section I introduce some basic concepts needed to understand my work in Part II of this thesis, and the appended papers. My aim is to start at the beginning, and as quickly as possible arrive at the knowledge particular to the field of orientational dynamics of non-spherical particles. The scope is therefore narrow, but deep.
+In this section I introduce some basic concepts needed to understand my work in Part II of this thesis, and the appended papers. My aim is to start at the beginning, and as quickly as possible arrive at the knowledge particular to the field of orientational dynamics of non-spherical particles. The scope is therefore narrow, but deep. For a wider presentation of low-Reynolds hydrodynamics I refer to the books by \citet{kim1991} and \citet{happel1965}.
 
 \section{Fluid mechanics}
 
@@ -155,19 +155,17 @@ In this section I introduce some basic concepts needed to understand my work in 
 In this thesis we only encounter so-called Newtonian and incompressible fluids. The hydrodynamic state of such a fluid is described by a flow velocity vector field $\ve u(\ve x,t)$, and a scalar pressure field $p(\ve x, t)$. The incompressible nature of the fluid implies that $\nabla \cdot \ve u = 0$ everywhere.
 The fluid itself has two properties: its density $\rho_f$ ($\unitfrac{kg}{m^3}$), and its dynamic viscosity $\mu$ ($\unitfrac{kg}{m\cdot s}$). Sometimes it is convenient to refer to the kinematic viscosity $\nu = \mu / \rho_f$ ($\unitfrac{m^2}{s}$).
 
-The work presented in this thesis involve the flow gradients, because it is the gradients in the flow that gives rise to the torque on a small particle.
-
-The spatial derivatives of the flow field $\ve u$ form a tensor $\ma A \equiv \nabla \ve u\transpose$, because there are three vector components defined in three coordinates. The components of $\ma A$ in cartesian coordinates are
+The work presented in this thesis involves the flow gradients, because it is the gradients in the flow that give rise to the torque on a small particle. The spatial derivatives of the flow field $\ve u$ form a tensor $\ma A \equiv \nabla \ve u\transpose$, because there are three vector components defined in three coordinates. The components of $\ma A$ in Cartesian coordinates are
 \begin{align}
 A_{ij}=\pdiff{u_i}{x_j}\,.	
 \end{align}
-In general $\ma A$ is defined as the directional derivative in the direction $\hat{\ve y}$:
+In general the action of $\ma A$ is defined as the directional derivative in the direction of the unit vector $\hat{\ve y}$:
 \begin{align}
  	\ma A\hat{\ve y} = \lim_{\epsilon\to 0}\frac{\ve u(x+\epsilon \hat{\ve y},t)-\ve u(\ve x, t)}{\epsilon}\,.
 \end{align}
 The incompressibility condition $\nabla\cdot\ve u=0$ transfers directly to the condition $\tr \ma A=0$.
 
-It turns out that it is almost always convenient to decompose the gradient tensor $\ma A$ into its symmetric part $\ma S$ and anti-symmetric  part $\ma O$:
+It is often convenient to decompose the gradient tensor $\ma A$ into its symmetric part $\ma S$ and anti-symmetric part $\ma O$, because they have separate physical interpretations. We write
 \begin{align}
 	\ma A = \ma S + \ma O,\qquad
 	\ma S = \frac{1}{2}\left(\ma A + \ma A\transpose\right),\qquad
@@ -177,14 +175,14 @@ The symmetric part $\ma S$ is called the rate-of-strain tensor, and it describes
 \begin{align}
 	\ma O \ve x &= \frac{1}{2}\ve \omega_f \cross \ve x \equiv \ve \Omega \cross \ve x.\eqnlab{vorticityOdef}
 \end{align}
-The vector $\ve \Omega=\ve \omega_f/2$ is a common quantitiy in our calculations, and therefore is given its own symbol.
+The vector $\ve \Omega=\ve \omega_f/2$ is a common quantity in our calculations, and therefore is given its own symbol. For example, the angular velocity of a sphere in a simple shear flow is exactly $\ve \Omega$. This is explained in detail in \Secref{jefferyequation}.
 
 \subsection{The Navier-Stokes equations}
 
 For a given physical situation the flow and pressure fields are determined by a Navier-Stokes problem.
 A Navier-Stokes problem for a Newtonian, incompressible fluid is fully specified by a momentum balance, the incompressibility condition and a set of boundary conditions.
 
-Let us first derive the momentum equations. Consider the momentum balance in a volume $\mathcal V$ bounded by surface $\mathcal S$. I think of these as Newton's $m \ve a = \ve F$ over a volume:
+Let us first derive the momentum equations. Consider the momentum balance in a volume $\mathcal V$ bounded by surface $\mathcal S$. These equations are Newton's $m \ve a = \ve F$ over a volume:
 \begin{align}
     \pdiff{}{t}\int_\mathcal V  \rho_f \ve u \rd\mathcal V +
     \int_\mathcal S \rho_f\ve u (\ve u \cdot \rd \mathcal S) =
@@ -202,7 +200,7 @@ This equation holds point-wise, because the volume can be arbitrarily chosen. By
 \begin{align}\eqnlab{nsintro}
     \rho_f \left(\pdiff{}{t}\ve u + (\ve u \cdot \nabla) \ve u\right)=\nabla \cdot \bbsigma\,,\quad \nabla \cdot \ve u = 0\,,\quad \bbsigma = -p \ma 1 + 2\mu \ma S\,.
 \end{align}
-The boundary condition where the fluid meets a solid surface is the \emph{no-slip condition}. This means that the fluid at the boundary has the same velocity as the boundary itself. When considering problems with a particle suspended in a fluid, the typical boundary condition is no-slip on the particle surface and that the flow relaxes to a prescribed background flow as the distance to the particle goes to infinity. 
+The boundary condition where the fluid meets a solid surface is the \emph{no-slip condition}. This means that the fluid at the boundary has the same velocity as the boundary itself. When considering problems with a solid particle suspended in a fluid, the typical boundary condition is no-slip on the particle surface and that the flow relaxes to a prescribed background flow as the distance to the particle goes to infinity. 
 
 \subsection{Forces on particles}
 
@@ -220,7 +218,7 @@ To complete the problem formulation, the particle trajectory is governed by Newt
 \begin{align}
     m\ddot{\ve y} = \ve F\,, \quad \diff{}{t}(\ma I \ve \omega) = \ve T\,. \eqnlab{newtons}
 \end{align}
-Here $m$ is the particle mass, and $\ma I$ its moment-of-inertia tensor.
+Here dots denote the time derivative, $m$ is the particle mass, and $\ma I$ its moment-of-inertia tensor.
 
 The coupled equations (\ref{eqn:nsintro}-\ref{eqn:newtons}) describe the motion of both particle and fluid. However, they are incredibly complicated because of their non-linearities: the so-called \emph{convective term} $(\ve u \cdot \nabla) \ve u$ in \Eqnref{nsintro}, and the coupling through the moving boundary conditions \eqnref{nsbc}.
 
@@ -230,19 +228,23 @@ We may understand that the problem is very hard just by imagining a particle in 
 
 For the purposes of this thesis, the term \emph{effective equations of motion} means a set of equations for the particle motion that does not involve the equations of fluid motion. The effective equations should be an approximation to the exact equations (\ref{eqn:nsintro}-\ref{eqn:newtons}) in some limit.
 
-In principle that means that the force on the particle is a function of the particle state and history, and the background flow field $\ve u^\infty$:
+In principle that means that the force on the particle is a functional of the particle trajectory and the background flow field $\ve u^\infty$:
 \begin{align}
-	\ve F_{\mathrm{eff}} &= \ve g(\ve y, \dot{\ve y}, \ma R, \ve \omega, \ve u^\infty)\,.
+	\ve F_{\mathrm{eff}} &= \ve g(\ve y, \ma R, \ve u^\infty)\,.
 \end{align}
 A concrete and well-known example is the Stokes force on a spherical particle of radius $a$
 \begin{align}
 	\ve F_{\mathrm{Stokes}} &= 6\pi\mu a (\ve u^\infty(\ve y, t)-\dot{\ve y})\,,\eqnlab{stokesforce}
 \end{align}
-which we will discuss in detail shortly.
+which we will discuss in detail shortly. Another example is the Stokes-Boussinesq force on a sphere accelerating in a still fluid:
+\begin{align}
+	\ve F_{\mathrm{SB}} &= -6\pi\mu a\dot{\ve y} - \frac{m}{2}\frac{\rho_f}{\rho_p} \ddot{\ve y}-6a^2\sqrt{\pi\rho_f\mu} \int\limits_0^t\frac{\ddot{\ve y}(\tau)\rd \tau}{\sqrt{t-\tau}}\,.\eqnlab{FSB}
+\end{align}
+This force depends on the history of the particle acceleration, and it is appropriate to describe rapidly accelerating particles. It is for example necessary to use \Eqnref{FSB} to describe the velocity of a particle in thermally agitated Brownian motion \cite{clercx1992,kheifets2014}.
 
-The effective equation is also called a \emph{one-way coupling} approximation, because it explicitly gives the effect of the fluid on the particle, but not the other way around. We can therefore first compute, or choose, a flow field $\ve u^\infty$ in absence of any particles, and then use the effective equation to calculate the particle motion. This is a great simplification over solving the exact coupled system. It is a very common method to study for example the motion of particles in turbulence (for example, in Paper~G).
+The use of an effective equation is also called a \emph{one-way coupling} approximation, because it explicitly gives the effect of the fluid on the particle, but not the other way around. We can therefore first compute, or choose, a flow field $\ve u^\infty$ in absence of any particles, and then use the effective equation to calculate the particle motion. This is a great simplification over solving the exact coupled system. It is a very common method to study for example the motion of particles in turbulence (for example, in Paper~F).
 
-But we have to be careful. In the derivation of the Stokes force, it is assumed that the particle is alone in the fluid. If we use the Stokes force to consider several particles simultaneously and they happen to move close to each other, the approximation is no longer valid. In that case, we must create an effective equation for the particle pair instead. If the particle moves close to a wall, we have to make yet another equation for that. The price of simplicity is specialization.
+But we have to be careful. In the derivation of the Stokes force, for example, it is assumed that the particle is alone in the fluid. If we use the Stokes force to consider several particles simultaneously and they happen to move close to each other, the approximation is no longer valid. In that case, we must create an effective equation for the particle pair instead. If the particle moves close to a wall, we have to make yet another equation for that. The price of simplicity is specialization.
 
 \subsection{The particle Reynolds number}
 
@@ -254,11 +256,11 @@ As explained above, a particle moving through a fluid creates disturbances that 
 \end{align}
 More specifically,
 \begin{align}
-	\rep = \frac{a^2/\nu}{a/u_0} = \frac{u_0 a}{\nu},
+	\rep = \frac{a^2/\nu}{a/u_0} = \frac{u_0 a}{\nu}.
 \end{align}
-where $u_0$ is a typical flow speed relative to the particle surface, $a$ is the size of the particle and $\nu$ is the kinematic viscosity of the fluid. We see that the limit I call ``small particles'' is actually that of either small particles, or large viscosity, or slow motions. The Reynolds number determines whether the inertia of the fluid is important compared to the viscosity.
+Here $u_0$ is a typical flow speed relative to the particle surface, $a$ is the size of the particle and $\nu$ is the kinematic viscosity of the fluid. We see that the limit I call ``small particles'' is actually that of either small particles, or large viscosity, or slow motions. The Reynolds number determines whether the inertia of the fluid is important compared to the viscosity.
 
-In my work on rotating particles in shear flows, the typical flow speed $u_0 = sa$, where $s$ is the shear rate (the shear flow is explained in detail in \Secref{shearflow}.) The resulting dimensionless number is sometimes called the shear Reynolds number
+In my work on rotating particles in shear flows, the typical flow speed is $u_0 = sa$, where $s$ is the shear rate of units \unitfrac{1}{time} (the shear flow is explained in detail in \Secref{shearflow}.) The resulting dimensionless number is sometimes called the shear Reynolds number
 \begin{align}
 	\Reys = \frac{sa^2}{\nu}\,.
 \end{align}
@@ -267,6 +269,13 @@ We introduce the dimensionless numbers in our equations by changing all variable
 \Reys \left(\pdiff{}{t}\ve u + (\ve u \cdot \nabla) \ve u\right)=\nabla \cdot \bbsigma\,,\quad \nabla \cdot \ve u = 0\,,\quad \bbsigma = -p \ma 1 + 2\ma S\,.\eqnlab{nsintrodimless}
 \end{align}
 In the limit of $\Reys\to 0$ we can hope to compute the force and torque on a particle by perturbation theory. The Stokes approximation is to set $\Reys=0$, and solve $\nabla \cdot \bbsigma=0$. This important limit is the topic of \Secref{stokes}.
+
+Let me make a general remark about de-dimensionalisation and changes of variables. Mathematically, we assume nothing by just making a change of variables such as that from \Eqnref{nsintro} to \eqnref{nsintrodimless}. If we solve \Eqnref{nsintrodimless} \emph{exactly} and transform the result back to dimensionful variables, we find the exact solution to \Eqnref{nsintro}. However, if we solve \Eqnref{nsintrodimless} asymptotically as $\Reys\to0$, the change of variables determines the relative importance of the terms in \Eqnref{nsintro}, and therefore the resulting asymptotic solution. If we choose another change of variables, say $t = a^2t'/\nu$, \Eqnref{nsintrodimless} is modified. In this case we have instead
+\begin{align}
+\pdiff{}{t}\ve u + \Reys(\ve u \cdot \nabla) \ve u=\nabla \cdot \bbsigma\,,\quad \nabla \cdot \ve u = 0\,,\quad \bbsigma = -p \ma 1 + 2\ma S\,.\eqnlab{nsintrodimless2}
+\end{align}
+Again, if we solve \Eqnref{nsintrodimless2} \emph{exactly} and transform the result back to dimensionful variables we find the exact solution to \Eqnref{nsintro}. But the asymptotic solution to \Eqnref{nsintrodimless2} is qualitatively different from that of \Eqnref{nsintrodimless}. The choice of dimensionless variables embodies the physical assumptions that are effected by the perturbation theory. For the force on a translating sphere, this example of a change in time scaling is responsible for the difference between the Stokes and the Stokes-Boussinesq forces in Eqs.~\eqnref{stokesforce} and \eqnref{FSB}.
+
 \subsection{The Stokes number}\label{sec:stokesnumber}
 If we change the variables in the fluid equations, we must also make the corresponding changes in the coupled particle equations. The equation for the angular dynamics, for instance, becomes\footnote{I am sweeping some finer details under the carpet here. They are irrelevant for this argument, and you'll find it all in Sec.~III in Paper C.}
 \begin{align}
@@ -274,24 +283,24 @@ If we change the variables in the fluid equations, we must also make the corresp
 \end{align}
 Another dimensionless number shows up: the Stokes number $\st$. The Stokes number determines whether the particle inertia is important compared to the fluid forces. It is therefore not surprising that the Stokes number is related to the particle Reynolds number. They both compare inertial effects to the viscous forces. The only difference is through their relative densities. If the particle is heavier, its inertia is more important than the inertia of the fluid, and vice versa. 
 
-A neutrally buoyant particle has the same density as the fluid: $\rho_p = \rho_f$, and $\st = \Reys$. This means that when we assume $\Reys$ small, we also assume $\st$ small. If the densities are different, we must consider the effects of gravity, unless $\Reys=\st=0$. In this thesis I don't consider the effects of gravity, and therefore $\st = \Reys$.
+A neutrally buoyant particle has the same density as the fluid: $\rho_p = \rho_f$, and $\st = \Reys$. This means that when we assume $\Reys$ small, we also assume $\st$ small. If the densities are different, the particle will sink or float and we must consider its translation, unless $\Reys=\st=0$. In this thesis I consider only the orientation of the particle, and consequently I take $\st = \Reys$.
 
 \section{The Stokes approximation}\label{sec:stokes}
 
-In the extreme case when $\Reys=0$, the Navier-Stokes equation \eqnref{nsintrodimless} reduces to the linear Stokes equation $\nabla \cdot \bbsigma = 0$:
+In the case when $\Reys=0$, the Navier-Stokes equation \eqnref{nsintrodimless} reduces to the linear Stokes equation $\nabla \cdot \bbsigma = 0$:
 \begin{align}
 	\nabla^2 \ve u = \nabla p\,,\quad\nabla\cdot\ve u=0\,.\eqnlab{stokes}
 \end{align}
-This type of flow is called viscous flow, or creeping flow. It is completely dominated by viscosity, and disturbances are assumed to disappear so quickly that they don't even exist in the equations: there is no time derivative in \Eqnref{stokes}. Stokes equations are linear, and therefore many problems admit analytical solution. In particular, the force and torque on a particle in linear viscous flow has been worked out in quite some detail. The formalism of resistance tensors was introduced by Brenner \cite{brenner1974, happel1965}, but here I follow the notation used in the book \emph{Microhydrodynamics} by Kim \& Karrila \cite{kim1991}.
+This type of flow is called viscous flow, or creeping flow. Such flows are completely dominated by viscosity, and disturbances are assumed to disappear so quickly that they do not even exist in the equations: there is no time derivative in \Eqnref{stokes}. Stokes equations are linear, and therefore many problems admit analytical solution. In particular, the force and torque on a particle in linear viscous flow has been worked out in quite some detail \cite{brenner1964,happel1965,brenner1972a,kim1991}. 
 
 The fundamental result is that the force and torque on a particle suspended in a flow is linearly related to the undisturbed flow. Given the particle velocity $\dot{\ve y}$ and angular velocity $\ve \omega$, we write the force $\ve F$ and torque $\ve T$ as
 \begin{align}
-	\ve F &= \te A (\ve u - \dot{\ve y}) + \te B (\ve \Omega - \ve \omega), \nn \\
+	\ve F &= \te A (\ve u - \dot{\ve y}) + \te B (\ve \Omega - \ve \omega) + \te G \dd \ma S, \nn \\
 	\ve T &= \te B\transpose (\ve u - \dot{\ve y}) + \te C (\ve \Omega - \ve \omega) + \te H \dd \ma S. \eqnlab{resistanceformulation}
 \end{align}
-Here $\ma S$ and $\ve \Omega$ are the flow gradients as explained in \Secref{fluidflows}. The resistance tensors $\te A$, $\te B$, $\te C$ and $\te H$ depend only upon particle shape, and can be computed once and for all. The tensor $\te H$ of is third order, and the double dot product $\te H \dd \ma S$ is a contraction over two indices. In index notation it reads $(\te H \dd \ma S)_i = H_{ijk}S_{jk}$. 
+Here $\ma S$ and $\ve \Omega$ are the flow gradients as explained in \Secref{fluidflows}. The resistance tensors $\te A$, $\te B$, $\te C$, $\te G$ and $\te H$ depend only on the particle shape, and can be computed once and for all \cite{kim1991}. The tensors $\te G$ and $\te H$ are of rank three, and the double dot product $\te H \dd \ma S$ is a contraction over two indices. In index notation it reads $(\te H \dd \ma S)_i = H_{ijk}S_{jk}$ (with implied summation over repeated indices). 
 
-The resistance tensors in the case of a sphere of radius $a$ are  $\te A = 6\pi\mu a \ma 1$, $\te B=\te H = 0$ and $\te C = 8\pi\mu a^3 \ma 1$. In fact, for any particle which is mirror-symmetric in all three cartesian planes it holds that $\te B = 0$. In such cases there is neither coupling between rotation and force, nor between translation and torque. An example of the contrary is a cork-screw-shaped particle.  However, this thesis concerns particles with shapes such that the orientational dynamics decouple from the translational motion.
+The resistance tensors in the case of a sphere of radius $a$ are  $\te A = 6\pi\mu a \ma 1$, $\te B=\te G=\te H = 0$ and $\te C = 8\pi\mu a^3 \ma 1$. In fact, for any particle that is mirror-symmetric in three orthogonal planes it holds that $\te B = 0$ \cite{brenner1964}. In such cases there is neither coupling between rotation and force, nor between translation and torque. An example of the contrary is a cork-screw-shaped particle.  However, this thesis concerns particles with shapes such that the orientational dynamics decouple from the translational motion.
 
 There is a hidden complication in \Eqnref{resistanceformulation}: the flow is usually known in a fixed frame of reference, but the resistance tensors are known in the frame of reference of the particle. Expressing the resistance tensors in the fixed frame of reference entails a rotation dependent on the particle orientation. Thus, the torque is in general a non-linear function of particle orientation.
 
@@ -314,7 +323,7 @@ The flow gradient of the simple shear flow is constant and in cartesian coordina
 		0 & 0 & 0 
 	\end{bmatrix}.
 \end{align}
-The shear flow is important for two reasons. First, it is one of the fundamental flows in rheology, the study of fluids. It is the flow inside a Couette device, used for example to measure viscosity. Second, as far as particle dynamics go, the simple shear flow is relevant for \emph{any} flow with parallel streamlines. Consider for example the laminar flow of a suspension through a pipe. The pipe is assumed to be large compared to the suspended particles, and the flow profile is most likely a complicated function of position $y$ in the pipe cross section\footnote{In principle the function should also depend on the position in the $z$-direction. In that case the result is also a simple shear flow, although rotated.}:
+The shear flow is important for two reasons. First, it is one of the fundamental flows in rheology, the study of fluids. It is the flow inside an ideal Couette device, used for example to measure viscosity. Second, as far as particle dynamics go, the simple shear flow is relevant for \emph{any} flow with parallel streamlines. Consider for example the laminar flow of a suspension through a pipe. The pipe is assumed to be large compared to the suspended particles, and the flow profile is most likely a complicated function of position $y$ in the pipe cross section\footnote{In principle the function should also depend on the position in the $z$-direction. In that case the result is also a simple shear flow, although rotated.}:
 \begin{align}
 	\ve u(y) &= f(y)\hat{\ve x},
 \end{align}
@@ -326,7 +335,7 @@ The shear flow is important for two reasons. First, it is one of the fundamental
 		0 & 0 & 0 
 	\end{bmatrix}.
 \end{align}
-Thus, if the flow profile $f$ varies slowly over the particle size, the particle experiences a simple shear flow of strength $f'(y)$. This is the case in the experiment described in Paper E.
+Thus, if the flow profile $f$ varies slowly over the particle size, the particle experiences a simple shear flow of strength $f'(y)$. This is the case in the experiment described in Paper~E.
 
 Curiously, the dynamics of non-spherical particles in a viscous shear flow offers a rich variety of behaviours. There is no stationary state, but a particle tumbles end-to-end indefinitely. If the particle is axisymmetric, the tumbling is periodic. The technical details and explanations of this are discussed in Sec.~\ref{sec:jefferyequation}, but we can understand the underlying reason from the composition of the shear flow. Fig.~\ref{fig:shear_decomposition} illustrates schematically how the shear is a superposition of two flows. One is a pure rotation, corresponding to the antisymmetric part $\ma O$ of the flow gradient. The other is a pure strain, the symmetric part $\ma S$ of the flow gradient. Now imagine a rod-shaped particle in these flows. The pure rotation, the vorticity, will rotate the rod with a constant angular velocity, regardless of the rod's orientation. The strain, on the other hand, has a preferred direction to which it will attract the long axis of the rod. Sometimes the vorticity and strain will cooperate to turn the rod onto the strain eigendirection, and sometimes the vorticity will struggle to rotate the rod out of the attracting direction. The result is that the rod will always rotate, but sometimes faster and sometimes slower. When the difference between the fast and the slow rotations is large, we perceive this as intermittent tumbling.
 \begin{figure}
@@ -366,12 +375,12 @@ The main result of \citet{jeffery1922} is the hydrodynamic torque $\ve T$ on a g
 
 The viscous torque is calculated neglecting the effects of fluid inertia, $\Reys=0$. To be consistent (see \Secref{stokesnumber}) we will also neglect the effects of particle inertia, $\st=0$. This is the overdamped limit where the equation of motion is determined by a static force and torque balance. Jeffery found the angular velocity of the particle by solving $\ve T=0$. Here I give the result in my notation, the details are available in \Appref{triaxial_equation}.
 
-We represent the shape and orientation of an ellipsoid by the lengths $(a_1, a_2, a_3)$ and directions $(\ve n_1, \ve n_2, \ve n_3)$ of the three half-axes. Then $\ve n_1$ gives the direction of the axis with length $a_1$, and so on. The angular velocity depends on the flow gradients, the particle orientation and the aspect ratios of the particle. 
+We represent the shape and orientation of an ellipsoid by the lengths $(a_1, a_2, a_3)$ and directions $(\ve n_1, \ve n_2, \ve n_3)$ of the three half-axes. Then $\ve n_1$ gives the direction of the axis with length $a_1$, and so on. The angular velocity of the particle depends on the flow gradients, the particle orientation and the aspect ratios of the particle as \cite{jeffery1922}
 \begin{align}
 	\ve \omega &= \ve \Omega
 	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
 	 - \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
-	  + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3,\eqnlab{triaxialomega}
+	  + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3\,,\eqnlab{triaxialomega}
 \end{align}
 where
 \begin{align}
@@ -393,6 +402,8 @@ We rename $\ve n = \ve n_1$ and $\ve p=\ve n_2$, and compute their equation of m
 	  + \frac{\Lambda(1-K^2)}{K \Lambda - 1}\left(\ve n\transpose \ma S\ve p\right)\ve n\,. \eqnlab{np}
 \end{align}
 \Eqnref{np} is the Jeffery equation of motion for a the axes of an triaxial ellipsoid. Recall that $\ma O \ve n=\ve \Omega \cross \ve n$. The motion of the third axis is fully determined by $\ve n_3 = \ve n \cross \ve p$. The equations are symmetric under the simultaneous exchange of $\Lambda\leftrightarrow K$ and $\ve n\leftrightarrow\ve p$, because the new equations describe the same physical situation with the axes permuted.
+
+
 
 In the following Sections we will study the solutions to \Eqnref{np} in some detail. But it is helpful to first inspect the meaning of the different terms in the equation of motion:
 
