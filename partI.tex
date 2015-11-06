@@ -403,7 +403,7 @@ We rename $\ve n = \ve n_1$ and $\ve p=\ve n_2$, and compute their equation of m
 \end{align}
 \Eqnref{np} is the Jeffery equation of motion for a the axes of an triaxial ellipsoid. Recall that $\ma O \ve n=\ve \Omega \cross \ve n$. The motion of the third axis is fully determined by $\ve n_3 = \ve n \cross \ve p$. The equations are symmetric under the simultaneous exchange of $\Lambda\leftrightarrow K$ and $\ve n\leftrightarrow\ve p$, because the new equations describe the same physical situation with the axes permuted.
 
-
+For a simple shear flow \Eqnref{np} is \emph{reversible} in the general sense \cite{lamb1998}: the equations are symmetric under $(t,n_x,p_x)\to(-t, -n_x, -p_x)$, with $\hat{\ve x}$ the flow direction of the shear flow. A reversible dynamical system shares many properties with conservative (\lq Hamiltonian\rq) systems \cite{lamb1998}. In particular, around any elliptic fixed point there must exist a family of periodic orbits. In \Secref{jefftriaxial} we will see that this is exactly the case for the solutions of \Eqnref{np} for a triaxial particle in shear flow.
 
 In the following Sections we will study the solutions to \Eqnref{np} in some detail. But it is helpful to first inspect the meaning of the different terms in the equation of motion:
 
@@ -424,6 +424,7 @@ In this section we consider axisymmetric particles: particles which are rotation
 \dot{\ve p}	&=    \ma O \ve p
 	  -\Lambda\left(\ve n\transpose \ma S\ve p\right)\ve n\,. \eqnlab{npaxip}
 \end{align}
+The vector $\ve n$ describes the direction of the symmetry axis of the particle, see \Figref{naxidef}. The vector $\ve p$ describes the rotation around the symmetry axis. The equations for $\ve n$ and $\ve p$ are decoupled: we may first solve \Eqnref{npaxin} for $\ve n(t)$, then \Eqnref{npaxip} is a linear equation for $\ve p(t)$. In this Section we will neglect the dynamics of $\ve p$, it is discussed in \Secref{jefftriaxial}. 
 
 \begin{figure}
 \centering
@@ -436,8 +437,6 @@ In this section we consider axisymmetric particles: particles which are rotation
 \caption{\label{fig:naxidef} Illustration of axisymmetric particles and the definition of the vector $\ve n$. \emph{Left}: Oblate, disk-shaped particle. \emph{Right}: Prolate, rod-shaped particle.}%
 \end{figure}
 
-
-The vector $\ve n$ describes the direction of the symmetry axis of the particle, see \Figref{naxidef}. The vector $\ve p$ describes the rotation around the symmetry axis. The equations for $\ve n$ and $\ve p$ are decoupled: we may first solve \Eqnref{npaxin} for $\ve n(t)$, then \Eqnref{npaxip} is a linear equation for $\ve p(t)$. In this Section we will neglect the dynamics of $\ve p$, it is discussed in \Secref{jefftriaxial}. 
 
 \Eqnref{npaxin} is a non-linear vector equation, and as such it is seemingly hard to solve. However, the non-linearity is only apparent: it is due to the geometric constraint that $\ve n$ is a unit vector. The underlying dynamics is in fact linear. I will now explain two ways to understand this fact.
 
@@ -452,9 +451,8 @@ Owing to the common linear terms in \Eqnref{npaxin} and \Eqnref{jefferyq}, the v
 
 Another, more mathematical, way of understanding how the linear companion equation \eqnref{jefferyq} arises is the following. Like above, we choose to represent the particle orientation by a vector $\ve q$ which is parallel to $\ve n$. Define $\ve q = \alpha(t)\ve n$, with $\alpha(t)$ an arbitrary function of time. We know from this definition that we may always recover $\ve n$ by normalising $\ve q$ to unit length. Now, we can calculate the equation of motion for $\ve q$:
 \begin{align}
-	\diff{\ve q}{t} &= \diff{}{t}\left(\alpha \ve n\right) \nn \\
-	&= \dot \alpha \ve n + \alpha \dot{\ve n} \nn\\
-	&= \dot \alpha \ve n + \alpha \left(\ma O \ve n + \Lambda \left(\ma S \ve n - \ve n \ve n \transpose \ma S \ve n\right)\right). \eqnlab{jefferyderivation1}
+	\diff{\ve q}{t} &= \diff{}{t}\left(\alpha \ve n\right) 
+	= \dot \alpha \ve n + \alpha \left(\ma O \ve n + \Lambda \left(\ma S \ve n - \ve n \ve n \transpose \ma S \ve n\right)\right). \eqnlab{jefferyderivation1}
 \end{align}
 But $\alpha(t)$ is an arbitrary function which we may choose. In particular we can choose $\alpha(t)$ to be a function satisfying
 \begin{align}
@@ -462,7 +460,7 @@ But $\alpha(t)$ is an arbitrary function which we may choose. In particular we c
 \end{align}
 By inserting this choice of $\alpha(t)$ into \Eqnref{jefferyderivation1}, we again arrive at \Eqnref{jefferyq}.
 
-We will now consider the solutions of Jeffery's equation in a time-independent linear flow. This case includes for example the simple shear flow. It is also a useful model when the flow changes only slowly in time, compared to the time it takes for the gradients to affect the particle orientation. First, I will describe the possible solutions of \Eqnref{npaxin} in linear flows. Second, I will discuss the solutions of Jeffery's equation in a simple shear flow. These solutions are called the Jeffery orbits, and they play an important role in Papers~A-F.
+We now consider the solutions of Jeffery's equation in a time-independent linear flow. This case includes for example the simple shear flow. It is also a useful model when the flow changes only slowly in time, compared to the time it takes for the gradients to affect the particle orientation. First, I will describe the possible solutions of \Eqnref{npaxin} in linear flows. Second, I will discuss the solutions of Jeffery's equation in a simple shear flow. These solutions are called the Jeffery orbits, and they play an important role in Papers~A-F.
 
 When $\ma O$ and $\ma S$ are time-independent the linear companion equation \eqnref{jefferyq} is solved by the matrix exponential:
 \begin{align}
@@ -471,11 +469,11 @@ When $\ma O$ and $\ma S$ are time-independent the linear companion equation \eqn
 This solution implies that the long-time dynamics of $\ve q$, and therefore $\ve n$, is determined by the eigenvalues and eigenvectors of the matrix $\ma B = \ma O + \Lambda\ma S$. For an incompressible flow $\tr\ma B=0$, because $\tr\ma A=0$. In three spatial dimensions, the three eigenvalues of $\ma B$ must sum to zero. Thus, as noted by Bretherton \cite{bretherton1962}, there are four distinct possibilities for the eigensystem of $\ma B$:
 \begin{enumerate}
 	\item Three real eigenvalues, then
-	\item[] $\ve q$ will align with the eigenvector corresponding to the largest eigenvalue.
+	\item[] $\ve q$ aligns with the eigenvector corresponding to the largest eigenvalue.
 	\item One real eigenvalue $a>0$, and a complex pair $-a/2 \pm i\omega$, then
-	\item[] $\ve q$ will spiral into alignment with the eigenvector corresponding to the real eigenvalue.
+	\item[] $\ve q$ spirals into alignment with the eigenvector corresponding to the real eigenvalue.
 	\item One real eigenvalue $a<0$, and a complex pair $-a/2 \pm i\omega$, then
-	\item[] $\ve q$ will spiral out towards infinity in the plane that contains the origin and is spanned by the real and imaginary parts of the complex eigenvector.
+	\item[] $\ve q$ spirals out towards infinity in the plane that contains the origin and is spanned by the real and imaginary parts of the complex eigenvector.
 	\item One real eigenvalue $a=0$, and an imaginary pair $\pm i\omega$, then
 	\item[] $\ve q$ rotates indefinitely in a closed elliptic orbit in a plane that contains the initial condition and is spanned by the real and imaginary parts of the complex eigenvector.
 \end{enumerate}
@@ -507,9 +505,9 @@ In the region where there is a pair of complex eigenvalues, the two cases of spi
 \begin{align}
 	\tr \ma B^3 = 3\Lambda \tr \ma O\ma O \ma S + \Lambda^3 \tr \ma S\ma S \ma S.
 \end{align}
-The other combinations of $\ma S$ and $\ma O$ which could be expected to contribute, such as $\tr \ma O\ma O \ma O$, vanish identically because of symmetries of $\ma O$ and $\ma S$. As explained above, changing a particle from rod-like to disk-shaped implies a change of sign of the shape factor $\Lambda$. We discussed the implications of this observation for the tumbling of particles in turbulent and random flows, in an earlier paper \cite{gustavsson2014}.
+The other combinations of $\ma S$ and $\ma O$ which could be expected to contribute, such as $\tr \ma O\ma O \ma O$, vanish identically because of symmetries of $\ma O$ and $\ma S$. As explained above, changing a particle from rod-like to disk-shaped implies a change of sign of the shape factor $\Lambda$. We discussed the implications of this observation for the tumbling of particles in turbulent and random flows in an earlier paper \cite{gustavsson2014}.
 
-\subsubsection{The Jeffery Orbits}\seclab{jefferyorbits}
+\subsubsection{Jeffery Orbits}\seclab{jefferyorbits}
 
 The remainder of this section concerns the case of simple shear flow. This case is characterised by $\tr \ma B^3=0$ and $\tr \ma B^2<0$. The simple shear has a special position among flows, and we understand the significance of the condition $\tr\ma B^3=0$ from the above discussion: First, a change of particle shape does not change the qualitative dynamics. Both disk-shaped particles and rod-like particles rotate in a shear flow. Second, $\ma B$ has a zero eigenvalue, as seen from the characteristic equation \eqnref{bcharacteristic}. The zero eigenvalue is important, because it implies that the particle dynamics never forgets its initial condition. The eigenvector of the zero eigenvalue is the vorticity direction\footnote{See Fig.~\ref{fig:coordinates} and Sec.~\ref{sec:shearflow} for the definition of the coordinate system and the terminology of its directions in a simple shear flow.}, thus the component of $\ve q$ in the vorticity direction is constant in a shear flow. The other two eigenvalues form an imaginary pair, resulting in a periodic rotation of $\ve q$.
 
@@ -554,16 +552,11 @@ In summary, the dynamics of $\ve q$ in a simple shear flow is a periodic rotatio
 
 When the trajectories $\ve q(t)$ are projected onto the unit sphere, the result $\ve n(t)$ are the Jeffery orbits. I visualise this in Fig.~\ref{fig:projection_orbits} where the trajectories $\ve q(t)$ and $\ve n(t)$ are shown for three different initial conditions.
 
-The orbits on the north and south hemispheres are the same, because of the particle inversion symmetry: changing $\ve n \to -\ve n$ implies $\dot{\ve n} \to - \dot{\ve n}$. The orbits are also symmetric under a 180 degree rotation around the vorticity, becuse the shear flow is. These two symmetries together enforce that no orbit may cross the equator of the sphere. The Jeffery orbit which is exactly on the equator of the sphere is called the \emph{tumbling orbit}, because the vector $\ve n$ tumbles in the flow-shear plane. The orbit at a pole of the sphere, where $\ve n$ is aligned with the vorticity direction, is called the \emph{log-rolling} orbit. The name refers to the motion of a rod which rolls around its axis of symmetry, but the name is used for both prolate and oblate particles. Log-rolling for an oblate particle means that it spins like a frisbee. These particular orbits are depicted in \Figref{tumbling_lr}.
+The orbits on the north and south hemispheres are the same, because of the particle inversion symmetry: changing $\ve n \to -\ve n$ implies $\dot{\ve n} \to - \dot{\ve n}$. The orbits are also symmetric under a 180 degree rotation around the vorticity, $\ve n \to \ma R_\pi \ve n$ implies $\dot{\ve n} \to \ma R_\pi \dot{\ve n}$, becuse of the symmetry of the shear flow. These two symmetries together enforce that no orbit may cross the equator of the sphere, because on the equator the two symmetries coincide but have different sign. The Jeffery orbit which is exactly on the equator of the sphere is called the \emph{tumbling orbit}, because the vector $\ve n$ tumbles in the flow-shear plane. The orbit at a pole of the sphere, where $\ve n$ is aligned with the vorticity direction, is called the \emph{log-rolling} orbit. The name refers to the motion of a rod which rolls around its axis of symmetry, but the name is used for both prolate and oblate particles. Log-rolling for an oblate particle means that it spins like a frisbee. These particular orbits are depicted in \Figref{tumbling_lr}.
 
-The solutions to Jeffery's equation in a simple shear flow are degenerate: the orientational trajectory depends on the initial condition indefinitely. The degeneracy is a result of the assumptions made in the course deriving the Jeffery orbits. In this thesis we encounter two possible mechanisms to break this degeneracy.
-
-First, there may be inertial effects. The Jeffery equation neglects the effects of both fluid and particle inertia. In fact, Jeffery suggested that inertia should dissolve the degeneracy and lead to a determinate prediction. My work in the Papers~A-D resolves this question. Although Jeffery was right in principle, it did not turn out exactly like he envisaged it. This is described in detail in \Secref{effective} in Part II.
-
-Second, there may be Brownian noise. The idea is that thermal fluctuations kick the particle out of one Jeffery orbit and into another. After some time, the initial condition is forgotten and the state of the particle is described by an orientational probability distribution. This line of work formed the basis of the theories describing the rheology of dilute particle suspensions.
+The solutions to Jeffery's equation in a simple shear flow are degenerate: the orientational trajectory depends on the initial condition indefinitely. The degeneracy is a result of the assumptions made in the course deriving the Jeffery orbits. The Jeffery equation neglects the effects of both fluid and particle inertia. In fact, Jeffery suggested that inertia should dissolve the degeneracy and lead to a determinate prediction. My work in the Papers~A-D resolves this question. Although Jeffery was right in principle, it did not turn out exactly like he envisaged it. This is described in detail in \Secref{effective} in Part II.
 
 One might expect that the degeneracy of the Jeffery orbits could be broken by a particle which is not perfectly axisymmetric. This is not the case. However, the dynamics are much more intricate. This is the topic of \Secref{jefftriaxial}.
-
 
 \begin{figure}
 \centering
@@ -599,25 +592,62 @@ One might expect that the degeneracy of the Jeffery orbits could be broken by a 
 
 In this Section I describe the solutions to the Jeffery equation \eqnref{np} for a triaxial particle in a simple shear flow. It turns out that a triaxial particle also tumbles, but in a much more complicated fashion than the Jeffery orbits for an axisymmetric particle \cite{gierszewski1978,hinch1979,yarin1997}. In general no closed form solutions are known, therefore we rely on numerical solutions in this section.
 
-A rotation in three dimensions has three degrees of freedom, and can be represented in different ways. In general it is complicated to represent rotations, because the space of rotations $SO(3)$ does not simply map to $\ma R^3$. Fortunately the tumbling of a triaxial particle shares one property with the Jeffery orbits: the vector $\ve n$ monotonically rotates around the vorticity. This fact was proven by \citet{hinch1979}. They expressed \Eqnref{np} in Euler angle coordinates, such that $(\varphi, \theta)$ are spherical coordinates for $\ve n$ (\Figref{coordinates}), and $\psi$ is the angle of rotation around $\ve n$. Then $\dot\varphi < 0$ for all values of $\Lambda$ and $K$. It follows that it is sufficient to observe the trajectories the as they pass through a plane in phase space, as depicted in \Figref{sos}. The monotonic rotation guarantees that all trajectories hit the surface-of-section, over and over again.
+A rotation in three dimensions has three degrees of freedom, but in general it is complicated to represent rotations because the space of rotations $SO(3)$ does not simply map to $\ma R^3$.
+For the purpose of visualisations, we use Euler angle coordinates in the Goldstein $z$-$x'$-$z''$ convention \cite{goldstein}: starting from $\ve n_i = \ve e_i$, first rotate the $\ve n_i$ by $\varphi$ around $\ve n_3$, then by $\theta$ around the resulting $\ve n_1$ and finally by $\psi$ around the resulting $\ve n_3$. With the shorthand $cx=\cos x$ and $sx=\sin x$ the elements of the rotation matrix are
+\begin{align}
+	\ma R=\left(
+\begin{array}{ccc}
+ c\varphi c\psi-c\theta s\varphi s\psi & c\psi s\varphi+c\theta c\varphi s\psi & s\theta s\psi \\
+ -c\theta c\psi s\varphi-c\varphi s\psi & c\theta c\varphi c\psi-s\varphi s\psi & c\psi s\theta \\
+ s\theta s\varphi & -c\varphi s\theta & c\theta \\
+\end{array}
+\right)\,.
+\end{align}
+\citet{hinch1979} showed that in the absence of noise $\dot \varphi < 0$. This means that the tumbling of a triaxial particle shares one property with the Jeffery orbits: the vector $\ve n$ monotonically rotates around the vorticity. It is natural then to regard the orientation space as a torus, in which the deterministic trajectories go around, see \Figref{torus}. Each transversal slice of constant $\varphi$ of this torus is a \emph{Poincar\'e surface-of-section} \cite{Strogatz} which intersects all trajectories, schematically shown in \Figref{torus}.
+
 
 \begin{figure}
 \centering
+\begin{overpic}[unit=1mm,width=8cm]{figs/torus2.png}
+\put(37,35.8){$\varphi$}
+\put(21.5,68.5){$\psi$}
+\put(21.5,1){$\psi$}
+\put(62,68.5){$\psi$}
+\put(62,1){$\psi$}
+\put(3,18){\makebox(0,0){\rotatebox{90}{$\cos\theta$}}}
+\put(43.5,18){\makebox(0,0){\rotatebox{90}{$\cos\theta$}}}
+\put(3,85){\makebox(0,0){\rotatebox{90}{$\cos\theta$}}}
+\put(43.5,85){\makebox(0,0){\rotatebox{90}{$\cos\theta$}}}
+\put(62,32){\makebox(0,0){$\varphi=\pi/2$}}
+\put(22,99){\makebox(0,0){$\varphi=\pi$}}
+\put(62,99){\makebox(0,0){$\varphi=3\pi/4$}}
+\put(22,32){\makebox(0,0){$\varphi=5\pi/4$}}
+\end{overpic}
+\caption{\label{fig:torus} Schematic explanation of the surfaces-of-section for the orientational dynamics of triaxial ellipsoids in shear flow. The torus depicts the three-dimensional orientational space for an ellipsoid. The major axis of the ellipsoid rotates monotonously around the vorticity \cite{hinch1979}, depicted by the azimuthal angle $\varphi$ along the torus. The surfaces-of-sections shown correspond to the major axis pointing the direction along the flow, along the extensional strain, perpendicular to the flow, and along the compressing strain. The surfaces-of-section at $\varphi \to \varphi+\pi$ are equal, because the flow is symmetric under this rotation.}
+\end{figure}
+\begin{figure}
+\centering
 \begin{overpic}[unit=1mm,width=10cm]{figs/sos.png}
-\put(70,84){$\varphi = \pi/2+2n\pi$}
+\put(70,84){$\varphi = 2n\pi$}
 \put(75,5){$\big[\varphi(t),\theta(t),\psi(t)\big]$}
 \end{overpic}
-\caption{\label{fig:sos} Illustration of the surface-of-section $\varphi=\pi/2+2n\pi$. The trajectory (in red) starts at a point in the surface-of-section, makes one revolution of $\varphi $in phase-space, and returns to another point on the same curve in the surface-of-section.}%
+\caption{\label{fig:sos} Illustration of the surface-of-section $\varphi=2n\pi$. The trajectory (in red) starts at a point in the surface-of-section, makes one revolution of $\varphi $in phase-space, and returns to another point on the same curve in the surface-of-section.}%
 \end{figure}
 
-We follow \citet{hinch1979} and choose the surface-of-section $\varphi = \pi/2+2n\pi$. This corresponds to $n_x=0, n_y > 0$. We solve \Eqnref{np} numerically for many different initial conditions. Every time a trajectory passes through the surface-of-section we plot a point at the corresponding value of $n_z=\cos \theta$ and $\psi$. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
+We follow \citet{hinch1979} and choose the surface-of-section $\varphi = 2n\pi$. This corresponds to $n_x=0, n_y<0$. We solve \Eqnref{np} numerically for many different initial conditions. Every time a trajectory passes through the surface-of-section we plot a point at the corresponding value of $n_z=\cos \theta$ and $\psi$. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
 
-\Figref{poincare1o00} shows the surface-of-section for an axisymmetric particle. The horizontal lines are the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because of the perodicity of the Jeffery orbit. However, it turns out that the value of $\psi$ is in general not periodic. This means that the vector $\ve p$ does not, in general, make one revolution around $\ve n$ for every Jeffery orbit. The strict periodicity of the Jeffery orbits really only apply to the motion of the symmetry axis. This detail has no physical implications for the motion. But if we were to paint a pattern on a particle, and observe the motion experimentally, this aperiodicity would be apparent.
+\Figref{poincare1o00} shows the surface-of-section for an axisymmetric particle. The horizontal lines are the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because of the perodicity of the Jeffery orbit. However, it turns out that the value of $\psi$ is in general not periodic. This means that the vector $\ve p$ does not, in general, make one revolution around $\ve n$ for every Jeffery orbit. The strict periodicity of the Jeffery orbits really only applies to the motion of the symmetry axis. This detail has no physical implications for the motion. But if we were to paint a pattern on a particle, and observe the motion experimentally, this aperiodicity would be apparent.
 
 For the trajectory of a nearly axisymmetric particle neither $n_z$, nor $\psi$ is constant. The structure of trajectories on the surface-of-section is more complicated, with closed ellipses near $n_z\approx 0$, and curved lines towards $n_z\approx\pm 1$, shown in \Figref{poincare1o10}.
-However, a trajectory is always confined to the curve on which it started. In this sense the orientational dynamics of a triaxial particle is degenerate, just like the Jeffery orbits for an axisymmetric particle. No orbit is physically preferred over any other, but the dynamics are determined by the initial condition.
+The point $(0,0)$ on the surface-of-section is an elliptic fixed point. As explained in \Secref{jefftriaxial} the dynamical system \eqnref{np} is reversible, and consequently the dynamics around the fixed point is described by a one-parameter family of closed orbits \cite{lamb1998}.
 
-When we consider a significantly non-axisymmetric particle, the trajectories on the surface-of-section look very different, like in \Figref{poincare1o30} and \Figref{poincare2o00}. Many initial conditions lead to deterministic chaos, which shows up as areas full of gray dots without apparent structure. A trajectory starting in this chaotic layer can go anywhere else inside it.
+A trajectory is always confined to the curve on which it started. In this sense the orientational dynamics of a triaxial particle is degenerate, just like the Jeffery orbits for an axisymmetric particle. No orbit is physically preferred over any other, but the dynamics are determined by the initial condition.
+
+The degeneracy of these solutions may be broken by the effect of particle and fluid inertia, like in the case of axisymmetric particles. \citet{lundell2011} show numerical simulations for $\Reys=0$ but $\st>0$ which support this expectation. The method used in Papers~A-D and Refs.~\cite{subramanian2005,subramanian2006} can in principle be extended to the case of ellipsoids. However, that calculation will involve rather large amounts of algebra.
+
+When we consider a significantly non-axisymmetric particle, the trajectories on the surface-of-section look very different, like in \Figref{poincare1o30} and \Figref{poincare2o00}. Many initial conditions lead to deterministic chaos, which shows up as areas full of gray dots without apparent structure. A trajectory starting in this chaotic layer can go anywhere else inside it. 
+
+
 
 \begin{figure}
 \centering
@@ -644,11 +674,8 @@ When we consider a significantly non-axisymmetric particle, the trajectories on 
 }
 \end{figure}
 
+In Paper~E we describe experimental observations of microsized glass fiber rods in a microfluidic channel flow. Their orientational motion is consistent with the solutions presented in this Section, however we can not resolve the angle $\psi$ in the experiment. This experiment is further described in \Secref{experiment} and Paper~E.
 
-The degeneracy of these solutions may be broken in the same way as discussed for axisymmetric particles in \Secref{jeffaxisymmetric}.
 
-First, I expect the effect of particle and fluid inertia to make one or a few orbits preferred over the others, like in the axisymmetric case. \citet{lundell2011} show numerical simulations for $\Reys=0$ but $\st>0$ which support this expectation. The method used in Papers~A-D and Refs.~\cite{subramanian2005,subramanian2006} can in principle be extended to the case of ellipsoids. However, that calculation will involve large amounts of complicated algebra.
-
-Second, thermal noise will kick the trajectories between different curves in the surface of section, analogous to the axisymmetric case. Eventually the initial condition is forgotten, and there is an orientational probability distribution over the space of all rotations. The distribution depends on the particle shape, and the strength of the noise. This is the topic of Paper~F, described further in \Secref{triaxialnoise} in Part II. In \Secref{orientationaldistributions} I introduce the concept of an orientational distribution more carefully.
 
 \end{document}
