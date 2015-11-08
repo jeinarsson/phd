@@ -40,7 +40,7 @@ of the higher-order effects...}, implying that the value of the Reynolds number 
 
 \section{Results}
 
-We initially set out to calculate only the linear stability exponents of the log-rolling position. But it turned out that we could compute an explicit correction to Jeffery's equation of motion, which is more useful. Let $\ve n$ be the unit vector along the symmetry axis of the particle, and $\ma O$ and $\ma S$ the antisymmetric and symmetric parts of the shear flow gradient (see \Secref{fluidflows} in Part I for details.) Then the result is
+We initially set out to calculate only the linear stability exponents of the log-rolling position. But it turned out that we could compute an explicit correction to Jeffery's equation of motion, which is more useful. Let $\ve n$ be the unit vector along the symmetry axis of the particle, and $\ma O$ and $\ma S$ the antisymmetric and symmetric parts of the shear flow gradient (see \Secref{fluidflows} for details.) Then the result is
 \begin{align}
 \eqnlab{ndoteffective}
   \dot {\ve n} &=  
@@ -64,66 +64,52 @@ For an arbitrarily small value of $\Reys>0$ the phase space looks almost like th
     \item $1/7.3\approx\lambda_c < \lambda < 1$ (thick oblate): The particle drifts to the stable log-rolling fixed point, whatever the initial condition.
     \item $0 < \lambda < \lambda_c$ (thin oblate): Both the log-rolling fixed point and the tumbling limit cycle are stable. Their basins of attraction are separated by one of the intermediate Jeffery orbits which have turned into an unstable limit cycle. The position of the unstable limit cycle depends on the particle shape, shown in Fig.~4 of Paper~C. 
 \end{itemize}
-Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. We have checked this in two ways. First, we asked F. Candelier to independently analyse the case of nearly spherical particles. We knew that my general solution must match his solution for nearly spherical particles exactly, as $\lambda\to1$. We compared notes and could eventually match our independent calculations. His calculation is described in Paper~B. At that point we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. The second check of our result is the direct numerical stability analysis by T. Ros\'en and F. Lundell. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D (in particular Fig.~2). We conclude that our effective equation is correct. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the shear Reynolds number.
+Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} in the limit $\lambda\to\infty$ (up to a factor of $8\pi$). However, we find that the earlier results for nearly spherical particles \cite{saffman1956,subramanian2006} are mistaken. We have checked this in two ways. First, with F. Candelier we analysed the case of nearly spherical particles by a simultaneous perturbation around $\Reys=0$ and $\lambda=1$. We regard this complementary calculation as technically independent, because the flow solutions are expressed in spherical harmonics instead of a singularity system, and it does not use the symmetry arguments we put forward for the general case. This calculation, due mostly to F.~Candelier, is described in Paper~B. We knew that my general solution must match this special solution for nearly spherical particles exactly, as $\lambda\to1$. Once we established this equivalence we compared my solution to \citet{subramanian2005} as $\lambda\to\infty$, and found agreement up to a numerical factor of $8\pi$. We have not identified exactly where in their calculation this factor appears, but the likely culprit is in the definition of Green's functions for Stokes flow (see App.~A.2 in Paper~C.) With these comparisons we were confident enough to submit our calculations for review and publication. The second check of our result is the direct numerical stability analysis by T. Ros\'en and F. Lundell. Our effective equation \eqnref{ndoteffective} agrees very well with the full numerical solution as $\Reys\to0$ and the computational box size becomes large. This comparison is in Paper~D (in particular Fig.~2). We conclude that our effective equation is correct. But we also see that the orientational dynamics of a non-spherical particle in shear flow is sensitive to both confinement (wall-effects), and to higher-order corrections in the shear Reynolds number.
 
 \subsubsection*{Dynamics of oblate particles at finite values of $\Reys$}
-In the previous Section I discussed the first effects of inertia, for which we expect the perturbative effective equation \eqnref{ndoteffective} to be valid. For larger values of $\Reys$ we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. For example, the effective equation can in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. Nevertheless, we construct a bifurcation diagram of the effective equation in the parameter space $(\lambda, \Reys)$. We know that any bifurcation line that extends to $\Reys=0$ must \emph{connect} to a corresponding bifurcation line in the parameter space of the exact dynamics. This constrains the possible bifurcation topologies for the exact equations, and may serve as a guide for further numerical analysis.
+In the previous Section I discussed the first effects of inertia, for which we expect the perturbative effective equation \eqnref{ndoteffective} to be valid. For larger values of $\Reys$ we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. For example, the effective equation can in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. Nevertheless, we may construct a bifurcation diagram of the effective equation in the parameter space $(\lambda, \Reys)$. We know that any bifurcation line that extends to $\Reys=0$ in the parameter space of the effective equation must \emph{connect} to a corresponding bifurcation line in the parameter space of the exact dynamics. This constrains the possible bifurcation topologies for the exact equations, and may serve as a guide for further numerical analysis.
 
-In the bifurcation diagram for the effective equation three lines extend to $\Reys=0$. Two bifurcation lines describe the value of $\Reys$ where the tumbling orbit ceases to exist and is replaced by a pair of fixed points. Those reach $\Reys=0$ only asymptotically as $\lambda\to0$ and $\lambda\to\infty$, corresponding to infinitely thin disks or rods. The slender-body limit was described by \citet{subramanian2005}. But the third bifurcation line separates the regions of stable and unstable tumbling for oblate particles, referred to in the previous Section. It connects to $\Reys=0$ at $\lambda=\lambda_c\approx1/7.3$. In Paper~D there is numerical evidence that this happens also in the exact equations. This raises the question: where does this bifurcation line go as $\Reys$ increase in the effective equation?
-To this end, we compute the bifurcation diagram for oblate particles at small but finite values of $\Reys$. \Figref{phasediagram} is a schematic drawing of this diagram. For larger values of $\Reys$ there are more bifurcations (not shown), but we expect them to be less relevant. The interesting feature of this diagram is the fate of the tumbling orbit bifurcation. It meets several other bifurcation lines in a ``critical point''. 
+Three bifurcation lines in the parameter space of the effective equation extend to $\Reys=0$. Two of them describe the value of $\Reys$ where the tumbling orbit ceases to exist and is replaced by a pair of fixed points. Those reach $\Reys=0$ only asymptotically as $\lambda\to0$ and $\lambda\to\infty$, corresponding to infinitely thin disks or rods. The slender-body limit was described by \citet{subramanian2005}. The third bifurcation line separates the regions of stable and unstable tumbling for oblate particles, referred to in the previous Section. It connects to $\Reys=0$ at $\lambda=\lambda_c\approx1/7.3$. In Paper~D there is numerical evidence that this happens also in the exact equations. This raises the question: where does this bifurcation line go as $\Reys$ increase in the effective equation?
+To answer this question I show the bifurcation diagram for oblate particles in \Figref{phasediagram}. For larger values of $\Reys$ there may exist more bifurcations (not shown), but I expect them to be less relevant. The interesting feature of this diagram is the fate of the tumbling orbit bifurcation. It meets several other bifurcation lines in a ``critical point'' (marked by a red circle in \Figref{phasediagram}). 
 
 Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. One may hope that the effective equation is qualitatively correct in predicting what the first bifurcation is as $\Reys$ increases. The data of \citet{rosen2015b} and Paper~D indicate that the ``critical point'', where several bifurcation lines merge, does exist also in the exact dynamics. However, the bifurcation lines seem to be sensitive to the confinement ratio in the numerical simulations and as of now we do not have enough data to confirm nor refute any claims on equivalence.
 
 \begin{figure}
-\begin{overpic}[unit=1mm,width=\linewidth]{figs/bifurcations.pdf}
-\put(38,-1){\colorbox{white}{{%
-     $0.137$}
-}}
-\put(56,-1){\colorbox{white}{{%
-     $0.245$}
-}}
-\put(76,-1){\colorbox{white}{{%
-     $0.5$}
-}}
-\put(83,-1){\colorbox{white}{{%
-     $0.8$}
-}}
-\put(92,-1){\colorbox{white}{{%
-     $1$}
-}}
-\put(3,2){\colorbox{white}{{%
-     $\lambda$}
-}}
-\put(95,55){\colorbox{white}{{%
-     $\Reys$}
-}}
+\begin{overpic}[unit=1mm]{figs/phasediagram.pdf}
+\put(70,30){\LARGE A}
+\put(35,20){\LARGE B}
+\put(23,33.5){\LARGE C}
+\put(35,45){\LARGE D}
+\put(76,64){\LARGE E}
+\put(40,65){\LARGE F}
 \end{overpic}
 \vspace{1em}
-\caption{\figlab{phasediagram} Bifurcation diagram for oblate particles in the effective equations.%
+\caption{\figlab{phasediagram} Bifurcation diagram for oblate particles ($\lambda<1$) in the effective equations \eqnref{ndoteffective}. Log-rolling is stable everywhere in this phase diagram. Regions:%
 \begin{itemize}
-    \item For larger $\Reys$ there are more bifurcations not depicted in this figure, for instance an additional pair of fixed points is created in the flow-shear plane.
-    \item The Log-rolling fixed point is always stable. It is a spiral below the dashed line and node above.
     \item[A] \begin{itemize}
         \item Tumbling orbit unstable,
         \item No additional fixed points/orbits exist.
     \end{itemize}
     \item[B] \begin{itemize}
         \item Tumbling orbit stable,
-        \item Unstable limit cycle separates log rolling FP/tumbling orbit.
+        \item Unstable limit cycle separates basins of attraction of log rolling and tumbling.
     \end{itemize}
     \item[C] \begin{itemize}
-        \item Tumbling fixed points exist: Saddle / Stable,
-        \item Limit cycle exists.
+        \item Tumbling fixed points exist: one saddle, one stable node,
+        \item Unstable limit cycle exists.
     \end{itemize}
     \item[D] \begin{itemize}
-        \item Tumbling fixed points exist: Unstable / Stable,
-        \item Non-trivial saddle point exists in interior near tumbling fixed points.
+        \item Tumbling fixed points exist: one unstable node, one stable node,
+        \item Saddle point exists in interior near tumbling fixed points.
     \end{itemize}
     \item[E] \begin{itemize}
-        \item Tumbling fixed points exist: Unstable / Saddle,
+        \item Tumbling fixed points exist: one un unstable node, one saddle,
         \item No additional fixed points/orbits exist.
     \end{itemize}
-\end{itemize}}
+    \item[F] \begin{itemize}
+        \item Two new fixed points are created, in total four tumbling fixed points exist.
+    \end{itemize}
+\end{itemize} For larger values of $\Reys$ there may exist more bifurcations (not shown).}
 \end{figure}
 \chapter[Measurements of asymmetric rods]{Measurements of asymmetric rods tumbling in microchannel flow}\seclab{experiment}
 

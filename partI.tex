@@ -378,17 +378,17 @@ The viscous torque is calculated neglecting the effects of fluid inertia, $\Reys
 We represent the shape and orientation of an ellipsoid by the lengths $(a_1, a_2, a_3)$ and directions $(\ve n_1, \ve n_2, \ve n_3)$ of the three half-axes. Then $\ve n_1$ gives the direction of the axis with length $a_1$, and so on. The angular velocity of the particle depends on the flow gradients, the particle orientation and the aspect ratios of the particle as \cite{jeffery1922}
 \begin{align}
 	\ve \omega &= \ve \Omega
-	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
-	 - \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
-	  + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3\,,\eqnlab{triaxialomega}
+	 + \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
+	 + \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
+	  - K\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3\,,\eqnlab{triaxialomega}
 \end{align}
 where
 \begin{align}
-	K=\frac{\kappa^2-1}{\kappa^2+1}, \qquad \Lambda=\frac{\lambda^2-1}{\lambda^2+1},\qquad \lambda=a_1/a_3, \qquad \kappa=a_2/a_3\,.
+	K=\frac{\kappa^2-1}{\kappa^2+1}, \qquad \Lambda=\frac{\lambda^2-1}{\lambda^2+1},\qquad \lambda=a_3/a_1, \qquad \kappa=a_2/a_1\,.
 \end{align}
 Here $\ve \Omega$ and $\ma S$ are the flow rotation and strain as defined in \Secref{fluidflows}. The coefficients $\Lambda$ and $K$ are the \emph{shape parameters}, and for an ellipsoid $-1 < \Lambda, K < 1$. A sphere is described by $\Lambda=K=0$. If either $\Lambda$ or $K$ is zero, the particle is an axisymmetric spheroid. \Eqnref{triaxialomega} is valid for most particles with the same mirror symmetries as an ellipsoid, with a suitable redefinition of $\Lambda$ and $K$ \cite{bretherton1962,happel1965,kim1991}. More precisely, there are other particle shapes described by resistance tensors of the same \emph{form}, but different numerical values of the elements.
 
-We rename $\ve n = \ve n_1$ and $\ve p=\ve n_2$, and compute their equation of motion by $\dot{\ve n}_i=\ve \omega \cross \ve n_i$ (details in \Appref{triaxial_equation}):
+We rename $\ve n = \ve n_3$ and $\ve p=\ve n_2$, and compute their equation of motion by $\dot{\ve n}_i=\ve \omega \cross \ve n_i$ (details in \Appref{triaxial_equation}):
 \begin{align}
 	\dot{\ve n}	&= \ma O \ve n 
 	+ \Lambda\left(
@@ -592,8 +592,8 @@ One might expect that the degeneracy of the Jeffery orbits could be broken by a 
 
 In this Section I describe the solutions to the Jeffery equation \eqnref{np} for a triaxial particle in a simple shear flow. It turns out that a triaxial particle also tumbles, but in a much more complicated fashion than the Jeffery orbits for an axisymmetric particle \cite{gierszewski1978,hinch1979,yarin1997}. In general no closed form solutions are known, therefore we rely on numerical solutions in this section.
 
-A rotation in three dimensions has three degrees of freedom, but in general it is complicated to represent rotations because the space of rotations $SO(3)$ does not simply map to $\ma R^3$.
-For the purpose of visualisations, we use Euler angle coordinates in the Goldstein $z$-$x'$-$z''$ convention \cite{goldstein}: starting from $\ve n_i = \ve e_i$, first rotate the $\ve n_i$ by $\varphi$ around $\ve n_3$, then by $\theta$ around the resulting $\ve n_1$ and finally by $\psi$ around the resulting $\ve n_3$. With the shorthand $cx=\cos x$ and $sx=\sin x$ the elements of the rotation matrix are
+A rotation in three dimensions has three degrees of freedom, but in general it is complicated to represent rotations because there is no simple set of three coordinates which covers all rotations without singularities. The vectors $\ve n$ and $\ve p$ in \Eqnref{np} are physically intuitive, but mathematically their six components are strongly redundant because of the constraints $|\ve n|=|\ve p|=1$ and $\ve n\cdot\ve p=0$.
+For the purpose of visualisations, we use Euler angle coordinates in the Goldstein $z$-$x'$-$z''$ convention \cite{goldstein}: Start from $\ve n_i = \ve e_i$, with $\ve e_i$ a fixed frame of reference. First rotate the $\ve n_i$ by $\varphi$ around $\ve n_3$, then by $\theta$ around the resulting $\ve n_1$ and finally by $\psi$ around the resulting $\ve n_3$. With the shorthand $cx=\cos x$ and $sx=\sin x$ the elements of the rotation matrix are
 \begin{align}
 	\ma R=\left(
 \begin{array}{ccc}
@@ -603,8 +603,8 @@ For the purpose of visualisations, we use Euler angle coordinates in the Goldste
 \end{array}
 \right)\,.
 \end{align}
-\citet{hinch1979} showed that in the absence of noise $\dot \varphi < 0$. This means that the tumbling of a triaxial particle shares one property with the Jeffery orbits: the vector $\ve n$ monotonically rotates around the vorticity. It is natural then to regard the orientation space as a torus, in which the deterministic trajectories go around, see \Figref{torus}. Each transversal slice of constant $\varphi$ of this torus is a \emph{Poincar\'e surface-of-section} \cite{Strogatz} which intersects all trajectories, schematically shown in \Figref{torus}.
-
+The rows of this matrix are the components of $\ve n_i$ along the coordinate axes $\ve e_i$. In particular the second and third rows are the elements of $\ve p$ and $\ve n$.
+\citet{hinch1979} showed that in the absence of noise $\dot \varphi < 0$. This means that the tumbling of a triaxial particle shares one property with the Jeffery orbits: the vector $\ve n$ monotonically rotates around the vorticity. It is therefore natural to regard the orientation space as a torus, in which the deterministic trajectories go around, see \Figref{torus}. Each transversal slice of constant $\varphi$ of this torus is a \emph{Poincar\'e surface-of-section} \cite{Strogatz} which intersects all trajectories, schematically shown in \Figref{torus}.
 
 \begin{figure}
 \centering
@@ -636,7 +636,7 @@ For the purpose of visualisations, we use Euler angle coordinates in the Goldste
 
 We follow \citet{hinch1979} and choose the surface-of-section $\varphi = 2n\pi$. This corresponds to $n_x=0, n_y<0$. We solve \Eqnref{np} numerically for many different initial conditions. Every time a trajectory passes through the surface-of-section we plot a point at the corresponding value of $n_z=\cos \theta$ and $\psi$. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
 
-\Figref{poincare1o00} shows the surface-of-section for an axisymmetric particle. The horizontal lines are the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because of the perodicity of the Jeffery orbit. However, it turns out that the value of $\psi$ is in general not periodic. This means that the vector $\ve p$ does not, in general, make one revolution around $\ve n$ for every Jeffery orbit. The strict periodicity of the Jeffery orbits really only applies to the motion of the symmetry axis. This detail has no physical implications for the motion. But if we were to paint a pattern on a particle, and observe the motion experimentally, this aperiodicity would be apparent.
+\Figref{poincare1o00} shows the surface-of-section for an axisymmetric particle. The horizontal lines are the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because the Jeffery orbits are strictly periodic in $\ve n$. However, it turns out that the value of $\psi$ is in general not periodic. This means that the vector $\ve p$ does not, in general, make one revolution around $\ve n$ for every Jeffery orbit. The strict periodicity of the Jeffery orbits really only applies to the motion of the symmetry axis. This detail has no physical implications for the motion. But if we were to paint a pattern on a particle, and observe the motion experimentally, this aperiodicity would be apparent.
 
 For the trajectory of a nearly axisymmetric particle neither $n_z$, nor $\psi$ is constant. The structure of trajectories on the surface-of-section is more complicated, with closed ellipses near $n_z\approx 0$, and curved lines towards $n_z\approx\pm 1$, shown in \Figref{poincare1o10}.
 The point $(0,0)$ on the surface-of-section is an elliptic fixed point. As explained in \Secref{jefftriaxial} the dynamical system \eqnref{np} is reversible, and consequently the dynamics around the fixed point is described by a one-parameter family of closed orbits \cite{lamb1998}.
@@ -674,7 +674,7 @@ When we consider a significantly non-axisymmetric particle, the trajectories on 
 }
 \end{figure}
 
-In Paper~E we describe experimental observations of microsized glass fiber rods in a microfluidic channel flow. Their orientational motion is consistent with the solutions presented in this Section, however we can not resolve the angle $\psi$ in the experiment. This experiment is further described in \Secref{experiment} and Paper~E.
+In Paper~E we describe experimental observations of microsized glass fiber rods in a microfluidic channel flow. We argue that their orientational motion is consistent with the solutions presented in this Section although the analysis is complicated by the fact that we can not resolve the angle $\psi$ in the experiment. This is further described in \Secref{experiment} and Paper~E.
 
 
 

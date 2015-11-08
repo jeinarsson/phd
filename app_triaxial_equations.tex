@@ -37,80 +37,59 @@ We can put Jeffery's expression into a single vector expression
 \end{align*}
 
 
-In order to ease the notation we introduce the two aspect ratios $\lambda = a_3/a_1$ and $\kappa=a_2/a_3$:
+In order to ease the notation we introduce the two aspect ratios $\lambda = a_3/a_1$ and $\kappa=a_2/a_1$:
 \begin{align*}
 	\ve \omega &= \ve \Omega
-	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
-	 - \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
-	  + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3,
+	 + \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
+	 + \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_2
+	  - K\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_3,
 \end{align*}
 where
 \begin{align*}
 	K=\frac{\kappa^2-1}{\kappa^2+1}, \qquad \Lambda=\frac{\lambda^2-1}{\lambda^2+1}.
 \end{align*}
-Now, take the equations of motion for $\ve n_1$ and $\ve n_2$,
+Now, take the equations of motion for $\ve n_2$ and $\ve n_3$,
 \begin{align*}
-	\dot{\ve n}_1 &= \ve \omega \cross \ve n_1 \\
-	&= \ve \Omega \cross \ve n_1 
-	+ \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_3
-    + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2
-	,\\
 	\dot{\ve n}_2 &= \ve \omega \cross \ve n_2 \\
-	&= \ve \Omega \cross \ve n_2
-	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_3
-	  - \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1.
+	&= \ve \Omega \cross \ve n_2 
+	+ K\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1
+    + \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_3
+	,\\
+	\dot{\ve n}_3 &= \ve \omega \cross \ve n_3 \\
+	&= \ve \Omega \cross \ve n_3
+	 + \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_1
+	  - \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_2.
 \end{align*}
-The final step is to eliminate $\ve n_3$ from the equations. This elimination is accomplished by noting that
+The final step is to eliminate $\ve n_1$ from the equations. This elimination is accomplished by noting that
 \begin{align*}
 	\ma S \ve x &= (\ve n_1 \transpose \ma S \ve x) \ve n_1 + (\ve n_2 \transpose \ma S \ve x) \ve n_2 + (\ve n_3 \transpose \ma S \ve x) \ve n_3,
 	\intertext{implying}
-	(\ve n_3 \transpose \ma S \ve x) \ve n_3 &= \ma S \ve x - (\ve n_1 \transpose \ma S \ve x) \ve n_1 - (\ve n_2 \transpose \ma S \ve x) \ve n_2.
+	(\ve n_1 \transpose \ma S \ve x) \ve n_1 &= \ma S \ve x - (\ve n_3 \transpose \ma S \ve x) \ve n_3 - (\ve n_2 \transpose \ma S \ve x) \ve n_2.
 \end{align*}
-Take the equation for $\dot{\ve n}_1$,
+Take the equation for $\dot{\ve n}_3$,
 \begin{align*}
-	\dot{\ve n}_1
-    &= 	\ve \Omega \cross \ve n_1 
-	+ \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_3
-    + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2 \\
-	&= \ve \Omega \cross \ve n_1 
+	\dot{\ve n}_3
+    &= 	\ve \Omega \cross \ve n_3
+	 + \Lambda\left(\ve n_3\transpose \ma S\ve n_1\right)\ve n_1
+	  - \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_2\\
+    &= 	\ve \Omega \cross \ve n_3
+	 + \Lambda\left(\ma S \ve n_3 - (\ve n_3 \transpose \ma S \ve n_3) \ve n_3 - (\ve n_2 \transpose \ma S \ve n_3) \ve n_2\right)
+	  - \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_2\\
+	&= \ve \Omega \cross \ve n_3 
 	+ \Lambda\left(
-	\ma S \ve n_1 - (\ve n_1 \transpose \ma S \ve n_1) \ve n_1 - (\ve n_2 \transpose \ma S \ve n_1) \ve n_2
+	\ma S \ve n_3 - (\ve n_3 \transpose \ma S \ve n_3) \ve n_3
 	\right)
-    + \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2 \\
-	&= \ve \Omega \cross \ve n_1 
-	+ \Lambda\left(
-	\ma S \ve n_1 - (\ve n_1 \transpose \ma S \ve n_1) \ve n_1
-	\right)
-    + \frac{K- \Lambda - \Lambda(K \Lambda - 1)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2 \\
-	&= \ve \Omega \cross \ve n_1 
-	+ \Lambda\left(
-	\ma S \ve n_1 - (\ve n_1 \transpose \ma S \ve n_1) \ve n_1
-	\right)
-    + \frac{K(1- \Lambda^2)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_2. 
+    + \frac{K(1-\Lambda^2)}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_2. 
 \end{align*}
 In the same fashion, we find for $\dot{\ve n}_2$,
 \begin{align*}
-	\dot{\ve n}_2
-	&= \ve \Omega \cross \ve n_2
-	 + K\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_3
-	  - \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1 \\
-	&= \ve \Omega \cross \ve n_2
-	 + K\left(
-\ma S \ve n_2 - (\ve n_1 \transpose \ma S \ve n_2) \ve n_1 - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
-	 \right)
-	  - \frac{K- \Lambda}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1 \\
-	&= \ve \Omega \cross \ve n_2
-	 + K\left(
-\ma S \ve n_2  - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
-	 \right)
-	  - \frac{K- \Lambda + K(K \Lambda - 1)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1\\
-	&= \ve \Omega \cross \ve n_2
-	 + K\left(
-\ma S \ve n_2  - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
-	 \right)
-	  + \frac{\Lambda(1-K^2)}{K \Lambda - 1}\left(\ve n_1\transpose \ma S\ve n_2\right)\ve n_1.
+	\dot{\ve n}_2= \ve \Omega \cross \ve n_2
+	+ K\left(
+	\ma S \ve n_2 - (\ve n_2 \transpose \ma S \ve n_2) \ve n_2
+	\right)
+    + \frac{\Lambda(1-K^2)}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_3. 
 \end{align*}
-In most places in this thesis, I write the cross product with $\ve \Omega$ as the matrix product with $\ma O$ instead. We also rename $\ve n = \ve n_1$ and $\ve p = \ve n_2$:
+In most places in this thesis, I write the cross product with $\ve \Omega$ as the matrix product with $\ma O$ instead. We also rename $\ve n = \ve n_3$ and $\ve p = \ve n_2$:
 \begin{align*}
 	\dot{\ve n}	&= \ma O \ve n 
 	+ \Lambda\left(
