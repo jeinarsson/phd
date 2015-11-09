@@ -69,12 +69,9 @@ Our result \eqnref{ndoteffective} agrees with those of \citet{subramanian2005} i
 \subsubsection*{Dynamics of oblate particles at finite values of $\Reys$}
 In the previous Section I discussed the first effects of inertia, for which we expect the perturbative effective equation \eqnref{ndoteffective} to be valid. For larger values of $\Reys$ we cannot be certain that the dynamics of the effective equation reflects the dynamics of the exact equations. For example, the effective equation can in general not predict at which value of $\Reys$ a disk-shaped particle with $\lambda=1/12$ will cease rotating. Nevertheless, we may construct a bifurcation diagram of the effective equation in the parameter space $(\lambda, \Reys)$. We know that any bifurcation line that extends to $\Reys=0$ in the parameter space of the effective equation must \emph{connect} to a corresponding bifurcation line in the parameter space of the exact dynamics. This constrains the possible bifurcation topologies for the exact equations, and may serve as a guide for further numerical analysis.
 
-Three bifurcation lines in the parameter space of the effective equation extend to $\Reys=0$. Two of them describe the value of $\Reys$ where the tumbling orbit ceases to exist and is replaced by a pair of fixed points. Those reach $\Reys=0$ only asymptotically as $\lambda\to0$ and $\lambda\to\infty$, corresponding to infinitely thin disks or rods. The slender-body limit was described by \citet{subramanian2005}. The third bifurcation line separates the regions of stable and unstable tumbling for oblate particles, referred to in the previous Section. It connects to $\Reys=0$ at $\lambda=\lambda_c\approx1/7.3$. In Paper~D there is numerical evidence that this happens also in the exact equations. This raises the question: where does this bifurcation line go as $\Reys$ increase in the effective equation?
-To answer this question I show the bifurcation diagram for oblate particles in \Figref{phasediagram}. For larger values of $\Reys$ there may exist more bifurcations (not shown), but I expect them to be less relevant. The interesting feature of this diagram is the fate of the tumbling orbit bifurcation. It meets several other bifurcation lines in a ``critical point'' (marked by a red circle in \Figref{phasediagram}). 
-
-Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. One may hope that the effective equation is qualitatively correct in predicting what the first bifurcation is as $\Reys$ increases. The data of \citet{rosen2015b} and Paper~D indicate that the ``critical point'', where several bifurcation lines merge, does exist also in the exact dynamics. However, the bifurcation lines seem to be sensitive to the confinement ratio in the numerical simulations and as of now we do not have enough data to confirm nor refute any claims on equivalence.
 
 \begin{figure}
+\centering
 \begin{overpic}[unit=1mm]{figs/phasediagram.pdf}
 \put(70,30){\LARGE A}
 \put(35,20){\LARGE B}
@@ -111,23 +108,37 @@ Numerical simulation of the exact equations reveals many different modes of rota
     \end{itemize}
 \end{itemize} For larger values of $\Reys$ there may exist more bifurcations (not shown).}
 \end{figure}
+
+Three bifurcation lines in the parameter space of the effective equation extend to $\Reys=0$. Two of them describe the value of $\Reys$ where the tumbling orbit ceases to exist and is replaced by a pair of fixed points. Those reach $\Reys=0$ only asymptotically as $\lambda\to0$ and $\lambda\to\infty$, corresponding to infinitely thin disks or rods. The slender-body limit was described by \citet{subramanian2005}. The third bifurcation line separates the regions of stable and unstable tumbling for oblate particles, referred to in the previous Section. It connects to $\Reys=0$ at $\lambda=\lambda_c\approx1/7.3$. In Paper~D there is numerical evidence that this happens also in the exact equations. This raises the question: where does this bifurcation line go as $\Reys$ increase in the effective equation?
+To answer this question I show the bifurcation diagram for oblate particles in \Figref{phasediagram}. For larger values of $\Reys$ there may exist more bifurcations (not shown), but I expect them to be less relevant. The interesting feature of this diagram is the fate of the tumbling orbit bifurcation. It meets several other bifurcation lines in a ``critical point'' (marked by a red circle in \Figref{phasediagram}). 
+
+Numerical simulation of the exact equations reveals many different modes of rotation, depending on parameters such as particle aspect ratio, Reynolds number, confinement ratio and particle buoyancy. One may hope that the effective equation is qualitatively correct in predicting what the first bifurcation is as $\Reys$ increases. The data of \citet{rosen2015b} and Paper~D indicate that the ``critical point'', where several bifurcation lines merge, does exist also in the exact dynamics. However, the bifurcation lines seem to be sensitive to the confinement ratio in the numerical simulations and as of now we do not have enough data to confirm nor refute any claims on equivalence.
+
+\raggedbottom\makeatletter
+\afterpage{\global\let\@textbottom\relax \global\let\@texttop\relax}
+
 \chapter[Measurements of asymmetric rods]{Measurements of asymmetric rods tumbling in microchannel flow}\seclab{experiment}
+\section{Overview}
+This project is a collaboration with our experimentalist collegues in Gothenburg, Sweden. Roughly the division of work is that they build and perform the experiment, and we design the specifications and perform the analysis.
 
-This project is a collaboration with our experimentalist collegues in Gothenburg, Sweden. Roughly, the division of work is that they build and perform the experiment, and we design the specifications and perform the analysis.
-
-The project was initiated with an intention of observing the scattering between Jeffery orbits due to thermal noise. But first we needed to observe plain Jeffery orbits, as a baseline. With hindsight that was naive, given the long list of skilled experimentalists before us who struggled with this: Sec.~II in Paper E is a more or less exhaustive list. 
+The project was initiated with an intention of observing the scattering between Jeffery orbits due to thermal noise. But first we needed to observe plain Jeffery orbits, as a baseline. With hindsight that was naive, given the long list of skilled experimentalists before us who struggled with this: Sec.~II in Paper E gives a more or less exhaustive list. 
 
 Our focus has shifted away from thermal noise, to the sensitive dependence on particle shape and initial condition. In \Secref{jefftriaxial} in Part I, I explained how Jeffery's result implies complicated dynamics for triaxial particles, even if the deviation from axisymmetry very small \cite{hinch1979,yarin1997}. We want to observe this effect in experiment.
 
-We previously published two papers \cite{mishra2012,einarsson2013} describing our methods and some initial observations. In Paper~E we describe our most recent measurements. There are two main differences from before. First, we employ an optical trap to arrange particles for the experimental runs. This allows us to use the same particle several times, and to control its initial condition. Second, we have particles made from glass fibres which have a very symmetric cross-section.
+We previously published two papers \cite{mishra2012,einarsson2013} describing our methods and some initial observations. In Paper~E we describe our most recent measurements. There are two main differences from before. First, we employ an optical trap to arrange particles for the experimental runs. This allows us to use the same particle several times, and to control its initial condition. Second, we have particles made from glass rods which have a very symmetric cross-section.
 
-In Paper~E we claim to observe both quasi-periodic and chaotic trajectories, for the same particle. Thus we confirm the predictions of \citet{hinch1979} and \citet{yarin1997}. We can claim that the observed trajectories are due to particle shape because of two main reasons. First, we reverse the pressure over the channel at the end of each particle trajectory. The particle must then retrace its trajectory backwards. If they do not, we discard the data. These reversals exclude any non-reversible effects, in particular effects of inertia or thermal noise.
+In Paper~E we claim to observe both quasi-periodic and chaotic trajectories, for the same particle. Thus we confirm the predictions of \citet{hinch1979} and \citet{yarin1997}. We claim that the observed trajectories are due to particle shape for two reasons. 
 
-Second, we record several distinct trajectories with different initial conditions a single particle.
-\begin{enumerate}
-    \item Pressure reversals revert the orientational dynamics, which excludes any non-reversible effects such as inertia or thermal noise,
-    \item Several trajectories for the same particle, but with different initial conditions.
-\end{enumerate}
+First, we reverse the pressure over the channel at the end of each particle trajectory. The particle must then retrace its trajectory backwards because of the time-reversal symmetry of the Jeffery equations discussed in \Secref{jefferyequation}. If the particle trajectory does not reverse we discard the data. These reversals exclude any non-reversible effects, in particular effects of inertia or thermal noise. 
+
+Second, with each particle we record several distinct trajectories with different initial conditions. This enables comparison with theory despite the fact that we cannot determine the particle shape accurately. We know that all trajectories for the same particle must be consistent with the same surface-of-section of the Jeffery dynamics (see \Secref{jefftriaxial}). Another complication is that we cannot measure the rotation of the rod around its long axis, that is the angle $\psi$ in the surface-of-section. However, the elliptic-island structure of the surface-of-section makes a comparison with the measured values of $n_z$ meaningful, because the dynamics are strongly influenced by the initial condition.
+
+\section{Outlook}
+There are two obvious questions raised by this work, one theoretical and one experimental.
+
+Experimentally the next step is to measure the complete three-dimensional orientation of the particle. This is very difficult with microrods, and therefore we investigate alternative particle shapes. For example it is possible to measure the orientation of a triangular platelet using only one camera, except for some degenerate orientations which have to be determined by continuity.
+
+The theoretical question concerns how the surface-of-section is modified for asymmetric particles. The Jeffery equation is valid for any particle with three orthogonal mirror symmetries \cite{brenner1964}. But the real particles in this experiment are not perfectly symmetric. The trajectories are sensitive to the transition from axisymmetric to triaxial, and the question is whether they are equally sensitive to breaking the mirror symmetries as well. 
 
 \chapter{Rotation rates of particles in turbulence}\seclab{turbulence}
 Paper~F started as the synthesis of discussions during a workshop at {\sc nordita} in Stockholm. For those I am grateful especially to E.~Variano and G.~Voth. The paper is a discussion of the rotations of axisymmetric particles in isotropic turbulence. I think the strength of this paper is it's breadth, as it contains pieces of experimental results, numerical results and analytical model calculations.
@@ -148,7 +159,12 @@ We may partly understand these observations by a very simple picture. The effect
 
 This simple argument cannot explain why the rotation rate of the disk happens to average to the same value as that of the rod. The details of the tumbling rate depends on how the vorticity $\ve \Omega$, and the particle direction $\ve n$, are aligned relative to the eigensystem of $\ma S$. The details and implications of these alignments are important open questions. In the random-flow model these alignments are very weak, and that is the underlying reason for the shape-dependence of the average rotation rate.
 
-\chapter{Conclusions}
+\chapter{Closing words}
+
+The past five years have been an immense learning experience for me. I was fortunate to come to Bernhard Mehlig's group around 2010. They had been working on the dynamics of particles in random flows for some time, and were increasingly interested in the theory of fluid mechanics underlying the equations of motion. I got the job as a Ph.D student, and my new job was to learn, which is a fantastic job description.
+
+Five years later I can say that I surely learned some fluid mechanics and mathematics, but more importantly I learned about intellectual independence. I learned that independent thought requires \emph{knowing what you don't know.} It seems trivial that we should not accept arguments that we do not understand. In my experience it can nevertheless be tempting to accept an argument because I find the conclusion attractive. The most important skill I take with me is to recognize and fight this temptation within myself.
+
 
 \section{Summary}
 

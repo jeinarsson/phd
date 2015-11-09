@@ -778,16 +778,27 @@ ISBN 978-91-628-9657-7 (Print) \\[5mm]
  }
  \presectiontitle{My contributions}
  \noindent My contributions to the appended publications are:\\[1em]
- {\large \bf Papers A-D}\\[1em]
- I devised and performed the main calculation (presented in Paper C) valid for arbitrary aspect ratio. I performed the stability analysis in Paper D. I wrote Paper C in collaboration with BM, and I took active part in writing of Papers A, B and D. \\[1cm]
+ {\large \bf Papers A-D}\\[0.5em]
+ I devised and performed the main calculation (presented in Paper C) valid for arbitrary aspect ratio. I performed the stability analysis in Paper D. I wrote Paper C in collaboration with BM, and I took active part in writing of Papers A, B and D. \\[1em]
  %
- {\large \bf Paper E}\\[1em]
- I took part in designing the experiment and the data analysis. I did the theory together with BM, in particular the reversal symmetry arguments and Eq.~(2). I wrote Sections I \& II, and took active part in editing of the entire manuscript.\\[1cm]
+ {\large \bf Paper E}\\[0.5em]
+ I took part in designing the experiment and the data analysis. I did the theory together with BM, in particular the reversal symmetry arguments and Eq.~(2). I wrote Sections I \& II, and took active part in editing of the entire manuscript.\\[1em]
 %
- {\large \bf Paper F}\\[1em]
- I computed the DNS results and took active part in interpreting the results of experiments, DNS and random models. I wrote most of Sec.~IV and App.~A, and took active part in writing the rest of the paper.\\[1cm]
+ {\large \bf Paper F}\\[0.5em]
+ I computed the DNS results and took active part in interpreting the results of experiments, DNS and random models. I wrote most of Sec.~IV and App.~A, and took active part in writing the rest of the paper.\\[0.5em]
 %
- \tableofpublications
+\presectiontitle{Earlier work}
+\noindent The following publications were part of my Licentiate thesis \cite{lic}:\\[0.5em]
+{\sc Gustavsson, K, Einarsson, J \& Mehlig, B} 2014 Tumbling of small
+  axisymmetric particles in random and turbulent flows. {\em Physical Review
+  Letters\/} {\bf 112}~(1), 014501. \\[1em]
+{\sc Einarsson, J, Angilella, J.~R \& Mehlig, B} 2014 Orientational dynamics of
+  weakly inertial axisymmetric particles in steady viscous flows. {\em Physica
+  D: Nonlinear Phenomena\/} {\bf 278{\textendash}279}, 79--85.  \\[1em]
+{\sc Mishra, Y.~N, Einarsson, J, John, O.~A, Andersson, P, Mehlig, B \&
+  Hanstorp, D} 2012 A microfluidic device for studies of the orientational
+  dynamics of microrods. , vol. 8251, pp. 825109--825109--11.  
+ %\tableofpublications
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
