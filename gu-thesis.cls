@@ -413,7 +413,7 @@
 % {Type}{Number}{Full citation}
 \newcommand{\topentry}[3]{%
   \noindent\parbox[c]{\topcolumn}{\large \hyperlink{#1:#2}{\textbf{#1\ #2}}\hfil}\\
-  {#3}\\[10mm]
+  {#3}\\[8mm]
 }
 
 %\newcommand{\topentry}[3]{%

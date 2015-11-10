@@ -249,13 +249,21 @@ Country
 %\covercaption{Some explanation}
 
 \firstabstract{%
+A small particle suspended in a fluid experiences a hydrodynamic torque due to the local fluid velocity, and this torque leads to rotational motion. When inertial effects are negligible the torque is given by Jeffery's theory [\textsc{Jeffery, G. B.} \emph{Proc. R. Soc. Lond. A} \textbf{102},~161–179~(1922)]. In this thesis and the appended papers I describe three studies that all relate to this torque.
+
+First, we derive an effective equation of motion for the orientation of a spheroid in a simple shear flow, valid for small values of the shear Reynolds number $\Reys=sa^2/\nu$, where $s$ is the shear rate, $a$ the particle size and $\nu$ the kinematic viscosity of the suspending fluid. In absence of inertia the equation of motion has infinitely many periodic solutions, the {\lq}Jeffery orbits{\rq}. We show how this degeneracy is lifted by the effects of inertia.
+
+Second, we describe experimental observations of 
+
+Third, we discuss the angular dynamics of axisymmetric particles in turbulent flow. 
+
 }
 %\secondabstract{swedish}{Text}
 \keywords{}
 
 %\preface{Text}
 \acknowledgements{
-Bloodbath
+...
 }
 %\paperwork{Text}
 
@@ -350,9 +358,9 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
 \bibliography{references} % Legacy command
 
 \cleardoublepage
-\part{Appendices} % Using the starred command avoids numbering.
+\part*{Appendix} % Using the starred command avoids numbering.
 \appendix
-\subfile{betaexpressions}
+%\subfile{betaexpressions}
 \subfile{app_triaxial_equations}
 \thispagestyle{fb}
 \appendix
@@ -388,14 +396,16 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
 
 
 \paper{Paper D}{%
-citation C%
-}{arXiv C}
+{\sc Rosen T, Einarsson, J, Nordmark, A, Aidun, C. K, Lundell, F \& Mehlig, B} 2015
+  Numerical analysis of the angular motion of a neutrally buoyant spheroid in shear flow at small Reynolds numbers. {\em Physical Review E (in review)\/}. arXiv \href{http://arxiv.org/abs/1508.04976}{1508.04976}. %
+}{arXiv preprint available at \url{http://arxiv.org/abs/1508.04976}}
 \includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/D.pdf}
 
 
 \paper{Paper E}{%
-citation C%
-}{arXiv C}
+{\sc Einarsson, J, Mihiretie, B. M, Laas, A, Ankardal, S, Angilella, J. R, Hanstorp, D, \& Mehlig, B} 2015
+  Tumbling of asymmetric microrods in a microchannel flow. {\em Physics of Fluids (in review)\/}. arXiv \href{http://arxiv.org/abs/1503.03023}{1503.03023}%
+}{arXiv preprint available at \url{http://arxiv.org/abs/1503.03023}}
 \includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/E.pdf}
 \includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/Es.pdf}
 
