@@ -298,7 +298,7 @@ Finally, this thesis contains an extensive introduction to the field aimed at ne
 
 
 \setlength{\topcolumn}{0.22\textwidth} % Column for "Thesis" page which might need adjustments if there is other publications.
-
+\usepackage{enumitem}
 \begin{document}
 
 %% TITLE
@@ -319,12 +319,10 @@ Finally, this thesis contains an extensive introduction to the field aimed at ne
 
 \cleardoublepage\pagenumbering{arabic}
 \pagestyle{fancy}
-\part{Introduction} % Using the starred command avoids numbering.
-\thispagestyle{empty}
- \subfile{partI}
-
-
-\cleardoublepage\thispagestyle{fb}
+\part{Introduction}
+\thispagestyle{fb}
+\subfile{partI}
+\clearpage\thispagestyle{fb}\cleardoublepage\thispagestyle{fb}
 {
 \null\vfill
 \centering
@@ -340,10 +338,10 @@ Men då mitt skarpsinne visade sig otillräckligt även för detta, slungade jag
 
 
 \newpage\thispagestyle{fb}\cleardoublepage
-\part{My work} % Using the starred command avoids numbering.
+\part{My work}
 \thispagestyle{fb}
 \subfile{partII}
-\thispagestyle{fb}\cleardoublepage
+\clearpage\thispagestyle{fb}\cleardoublepage
 \thispagestyle{fb}
 {
 \null\vfill
@@ -358,39 +356,34 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
 }
 \newpage\thispagestyle{fb}\cleardoublepage
 \thispagestyle{fb}\makeacknowledgementspage
-\nocite{paperA,paperB,paperC,paperD,paperE,paperF,paperG}
-\cleardoublepage
+\clearpage\thispagestyle{fb}\cleardoublepage
+\pagestyle{fancy}
+%\nocite{paperA,paperB,paperC,paperD,paperE,paperF,paperG}
 \nobibliography*
 \bibliography{references} % Legacy command
-
-\cleardoublepage
+\clearpage\thispagestyle{fb}\cleardoublepage
 \part*{Appendix} % Using the starred command avoids numbering.
 \appendix
-%\subfile{betaexpressions}
-\subfile{app_triaxial_equations}
 \thispagestyle{fb}
-\appendix
-%\subfile{app_spheroidal_multipoles}
+\subfile{app_triaxial_equations}
 
-\cleardoublepage
+\clearpage\thispagestyle{fb}\cleardoublepage
 \label{endpage}\part{Papers}
 \pagestyle{fb}
-% You can write this manually \paper{Paper Title}{Full reference} or have bib entries entered automatically
-
 \paper{Paper A}{%
 {\sc Einarsson, J, Candelier, F, Lundell, F, Angilella, J.~R \& Mehlig, B}
   2015{\natexlab{{\em a\/}}} Effect of weak fluid inertia upon {J}effery orbits.
   {\em Physical Review E\/} {\bf 91}~(4), 041002.%
 }{Open Access (CC BY 3.0) at \url{http://dx.doi.org/10.1103/PhysRevE.91.041002}}
-\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/A.pdf}
+%\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/A.pdf}
 
 \paper{Paper B}{%
 {\sc Candelier, F, Einarsson, J, Lundell, F, Mehlig, B \& Angilella, J.-R} 2015
   Role of inertia for the rotation of a nearly spherical particle in a general
   linear flow. {\em Physical Review E\/} {\bf 91}~(5), 053023.%
 }{arXiv preprint available at \url{http://arxiv.org/abs/1505.02661}}
-\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/B.pdf}
-\includepdf[pages=3-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/Bc.pdf}
+%\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/B.pdf}
+%\includepdf[pages=3-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/Bc.pdf}
 
 \paper{Paper C}{%
 {\sc Einarsson, J, Candelier, F, Lundell, F, Angilella, J.~R \& Mehlig, B}
@@ -398,22 +391,22 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
   {R}eynolds number. {\em Physics of Fluids\/} {\bf 27}~(6),
   063301.%
 }{Open Access (CC BY 3.0) at http://dx.doi.org/10.1063/1.4921543}
-\includepdf[pages=2-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/C.pdf}
+%\includepdf[pages=2-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/C.pdf}
 
 
 \paper{Paper D}{%
 {\sc Rosen T, Einarsson, J, Nordmark, A, Aidun, C. K, Lundell, F \& Mehlig, B} 2015
   Numerical analysis of the angular motion of a neutrally buoyant spheroid in shear flow at small Reynolds numbers. {\em Physical Review E (in review)\/}. arXiv \href{http://arxiv.org/abs/1508.04976}{1508.04976}. %
 }{arXiv preprint available at \url{http://arxiv.org/abs/1508.04976}}
-\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/D.pdf}
+%\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/D.pdf}
 
 
 \paper{Paper E}{%
 {\sc Einarsson, J, Mihiretie, B. M, Laas, A, Ankardal, S, Angilella, J. R, Hanstorp, D, \& Mehlig, B} 2015
   Tumbling of asymmetric microrods in a microchannel flow. {\em Physics of Fluids (in review)\/}. arXiv \href{http://arxiv.org/abs/1503.03023}{1503.03023}%
 }{arXiv preprint available at \url{http://arxiv.org/abs/1503.03023}}
-\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/E.pdf}
-\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/Es.pdf}
+%\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/E.pdf}
+%\includepdf[pages=-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/Es.pdf}
 
 
 \paper{Paper F}{%
@@ -421,7 +414,7 @@ Blåsten visslar i fönsterspringorna, och regnet porlar i takrännan, och nu ä
   2015 Shape-dependence of particle rotation in isotropic turbulence. {\em
   Physics of Fluids\/} {\bf 27}~(3), 035101.%
 }{arXiv preprint available at \url{http://arxiv.org/abs/1412.3166}}
-\includepdf[pages=2-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/F.pdf}
+%\includepdf[pages=2-,width=\paperwidth,pagecommand={\thispagestyle{fb}}]{papers/F.pdf}
 
 
 \pagestyle{fb}

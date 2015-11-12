@@ -373,9 +373,9 @@ Curiously, the dynamics of non-spherical particles in a viscous shear flow offer
 
 The main result of \citet{jeffery1922} is the hydrodynamic torque $\ve T$ on a general ellipsoid rotating in a viscous shear flow (his Eq.~(36)). In other words, he computed the elements of the resistance tensors in \Eqnref{resistanceformulation}. Some elements were known to Jeffery from earlier work by \citet{oberbeck1876} and \citet{edwardes1893}. However, Jeffery completed what is arguably the hardest part of the calculation, and has received the most credit for this work.
 
-The viscous torque is calculated neglecting the effects of fluid inertia, $\Reys=0$. To be consistent (see \Secref{stokesnumber}) we will also neglect the effects of particle inertia, $\st=0$. This is the overdamped limit where the equation of motion is determined by a static force and torque balance. Jeffery found the angular velocity of the particle by solving $\ve T=0$. Here I give the result in my notation, the details are available in \Appref{triaxial_equation}.
+The viscous torque is calculated neglecting the effects of fluid inertia, $\Reys=0$. To be consistent (see \Secref{stokesnumber}) we will also neglect the effects of particle inertia, $\st=0$. This is the overdamped limit where the equation of motion is determined by a static force and torque balance. \citet{jeffery1922} found the angular velocity of the particle by solving $\ve T=0$. Here I give the result in my notation, the details are available in \Appref{triaxial_equation}.
 
-We represent the shape and orientation of an ellipsoid by the lengths $(a_1, a_2, a_3)$ and directions $(\ve n_1, \ve n_2, \ve n_3)$ of the three half-axes. Then $\ve n_1$ gives the direction of the axis with length $a_1$, and so on. The angular velocity of the particle depends on the flow gradients, the particle orientation and the aspect ratios of the particle as \cite{jeffery1922}
+We represent the shape and orientation of an ellipsoid by the lengths $(a_1, a_2, a_3)$ and directions $(\ve n_1, \ve n_2, \ve n_3)$ of the three half-axes. Then $\ve n_1$ gives the direction of the axis with length $a_1$, and so on. The angular velocity of the particle depends on the flow gradients, the particle orientation and the aspect ratios of the particle as
 \begin{align}
 	\ve \omega &= \ve \Omega
 	 + \frac{\Lambda-K}{K \Lambda - 1}\left(\ve n_2\transpose \ma S\ve n_3\right)\ve n_1
@@ -405,7 +405,7 @@ We rename $\ve n = \ve n_3$ and $\ve p=\ve n_2$, and compute their equation of m
 
 For a simple shear flow \Eqnref{np} is \emph{reversible} in the general sense \cite{lamb1998}: the equations are symmetric under $(t,n_x,p_x)\to(-t, -n_x, -p_x)$, with $\hat{\ve x}$ the flow direction of the shear flow. A reversible dynamical system shares many properties with conservative (\lq Hamiltonian\rq) systems \cite{lamb1998}. In particular, around any elliptic fixed point there must exist a family of periodic orbits. In \Secref{jefftriaxial} we will see that this is exactly the case for the solutions of \Eqnref{np} for a triaxial particle in shear flow.
 
-In the following Sections we will study the solutions to \Eqnref{np} in some detail. But it is helpful to first inspect the meaning of the different terms in the equation of motion:
+In the following we will study the solutions to \Eqnref{np} in some detail. But it is helpful to first inspect the meaning of the different terms in the equation of motion:
 
 The first term means that the particle is rotated by the local flow vorticity, and that this rotation is independent of the particle shape.
 
@@ -430,9 +430,9 @@ The vector $\ve n$ describes the direction of the symmetry axis of the particle,
 \centering
 \begin{overpic}[unit=1mm]{figs/naxidef.pdf}
 \put(0,55){\parbox[t][20mm][t]{40mm}{\centering Oblate\\$\Lambda < 0$}}
-\put(50,55){\parbox[t][20mm][t]{40mm}{\centering Prolate\\$\Lambda > 0$}}
-\put(21,39){$\ve n$}
-\put(95,47){$\ve n$}
+\put(55,55){\parbox[t][20mm][t]{40mm}{\centering Prolate\\$\Lambda > 0$}}
+\put(21.5,33){$\ve n$}
+\put(82,44){$\ve n$}
 \end{overpic}
 \caption{\label{fig:naxidef} Illustration of axisymmetric particles and the definition of the vector $\ve n$. \emph{Left}: Oblate, disk-shaped particle. \emph{Right}: Prolate, rod-shaped particle.}%
 \end{figure}
@@ -631,10 +631,10 @@ The rows of this matrix are the components of $\ve n_i$ along the coordinate axe
 \put(70,84){$\varphi = 2n\pi$}
 \put(75,5){$\big[\varphi(t),\theta(t),\psi(t)\big]$}
 \end{overpic}
-\caption{\label{fig:sos} Illustration of the surface-of-section $\varphi=2n\pi$. The trajectory (in red) starts at a point in the surface-of-section, makes one revolution of $\varphi $in phase-space, and returns to another point on the same curve in the surface-of-section.}%
+\caption{\label{fig:sos} Illustration of the surface-of-section $\varphi=2n\pi$. The trajectory (in red) starts at a point in the surface-of-section, makes one revolution of $\varphi$ in phase-space, and returns to another point on the same curve in the surface-of-section. We create a picture of the surface-of-section by computing many trajectories with many different initial conditian and plotting a point at each hit.}%
 \end{figure}
 
-We follow \citet{hinch1979} and choose the surface-of-section $\varphi = 2n\pi$. This corresponds to $n_x=0, n_y<0$. We solve \Eqnref{np} numerically for many different initial conditions. Every time a trajectory passes through the surface-of-section we plot a point at the corresponding value of $n_z=\cos \theta$ and $\psi$. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
+We follow \citet{hinch1979} and choose the surface-of-section $\varphi = 2n\pi$. This corresponds to $n_x=0, n_y<0$. We solve \Eqnref{np} numerically for many different initial conditions. Every time a trajectory passes through the surface-of-section we plot a point at the corresponding value of $n_z=\cos \theta$ and $\psi$, see \Figref{sos}. Four examples for $\lambda=5$ and increasing values of $\kappa$ are shown in Figs.~\ref{fig:poincare1o00}-\ref{fig:poincare2o00}.
 
 \Figref{poincare1o00} shows the surface-of-section for an axisymmetric particle. The horizontal lines are the Jeffery orbits of an axisymmetric particle. Every time a trajectory reaches the surface-of-section, the value of $n_z$ is the same, because the Jeffery orbits are strictly periodic in $\ve n$. However, it turns out that the value of $\psi$ is in general not periodic. This means that the vector $\ve p$ does not, in general, make one revolution around $\ve n$ for every Jeffery orbit. The strict periodicity of the Jeffery orbits really only applies to the motion of the symmetry axis. This detail has no physical implications for the motion. But if we were to paint a pattern on a particle, and observe the motion experimentally, this aperiodicity would be apparent.
 

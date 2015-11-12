@@ -696,7 +696,7 @@ ISBN 978-91-628-9657-7 (Print) \\[5mm]
    \emph{Papers A \& C-E} are \copyright~2015 their respective authors.\\[5mm]
   Front cover: Illustration of spheroidal particle tumbling in a shear flow.\\
   Flipbooks: Ellipsoidal particles rotating in a simple shear flow. \\
-  \emph{Odd pages:} TODO \emph{Even pages:} TODO\\[5mm]
+  \emph{Odd pages:} Symmetric particle with major aspect ratio $\lambda=7$ and minor aspect ratio $\kappa=1$. \emph{Even pages:} Slightly asymmetric particle with $\lambda=7$ and $\kappa=1.2$. Both particles started with identical initial conditions. See \Secref{jefferyequation} for further explanation. \\[5mm]
  Printed by \@printers \\
  \cityname, \countryname\ \@copyrightyear
   }
