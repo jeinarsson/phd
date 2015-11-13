@@ -5,7 +5,7 @@
 
 This thesis is about \emph{effective equations of motion} for solid particles suspended in fluid flows. In all but the simplest cases we are unable to directly compute the forces acting on a solid particle from first principles. The fundamental equations of fluid mechanics are too complicated, and even finding a numerical approximation with a computer is often too expensive.
 
-But if we limit our scope to a particular physical situation, we may exploit its particular properties to simplify the calculations. With these simplifications we may find an effective equation governing the motion of the suspended particles. The effective equation is simpler, and therefore more useful, than the fundamental equations. The price for the simplicity is that they apply only within the limited scope. In this thesis we consider \emph{small} particles. I will make a precise definition of what small means later. For now think of small as the plankton in the oceans, not the shark, or the misty droplets in the clouds, not an airplane.
+But if we limit our scope to a particular physical situation, we may exploit its particular properties to simplify the calculations. With these simplifications we may find an effective equation governing the motion of the suspended particles. The effective equation is simpler, and therefore more useful, than the fundamental equations. The price for the simplicity is that they apply only within the limited scope. In this thesis we consider \emph{small} particles. I will make a precise definition of what small means later. For now think of small as the plankton in the oceans, not the shark, or the mist droplets in the clouds, not an airplane.
 
 The effective equations of motion are used as building blocks in higher-level modeling. For example the effective force on a small sphere becomes a building block in a model of the droplets in a rain cloud, and the effective torque on a spheroid is used to model the order of fibers in a paper-making machine.
 
@@ -119,7 +119,7 @@ The idea is that in order to determine if a quantity $x_1$ is ``small'' we have 
 
 Imagine stirring your cup of tea with a spoon. As you stir there is a wake behind the spoon, perhaps even a vortex is created if you are enthusiastic. When you stop stirring, the tea will splash about for a moment and then settle down because of its viscosity. If you stir vigorously, then stop suddenly and hold on to the spoon, you feel the force of the splashing fluid on the spoon. This continuing motion after you stopped forcing the fluid is due to the inertia of the fluid. Inertia means that things continue to move in their current direction, unless a force is applied. The inertia of the fluid is difficult to analyse mathematically, because the force on the spoon depends in a complicated fashion on how you stirred the tea in the past. To perform my calculation I want the inertia to be \emph{small}. But small compared to what? How can I make a dimensionless number?
 
-Imagine stirring with a spoon in syrup instead of tea. The wake behind the spoon relaxes quickly in the more viscous fluid. The viscous friction is the force which cancels the inertia. Viscous friction smears out any disturbances. Therefore we divide two times: the time it takes for viscosity to smear out a disturbance over the particle (the \emph{viscous time}), with the time it takes for the fluid to flow past the spoon:
+Imagine stirring with a spoon in syrup instead of tea. The wake behind the spoon relaxes quickly in the more viscous fluid. The viscous friction is the force which cancels the inertia. Viscous friction smears out any disturbances. Therefore we divide two times: the time it takes for viscosity to smear out a disturbance over the size of the spoon (the \emph{viscous time}), with the time it takes for the fluid to flow past the spoon:
 \begin{align*}
 \rep = \frac{\textrm{Viscous time}}{\textrm{Time for fluid to flow past the spoon}}.
 \end{align*} 
@@ -274,7 +274,7 @@ Let me make a general remark about de-dimensionalisation and changes of variable
 \begin{align}
 \pdiff{}{t}\ve u + \Reys(\ve u \cdot \nabla) \ve u=\nabla \cdot \bbsigma\,,\quad \nabla \cdot \ve u = 0\,,\quad \bbsigma = -p \ma 1 + 2\ma S\,.\eqnlab{nsintrodimless2}
 \end{align}
-Again, if we solve \Eqnref{nsintrodimless2} \emph{exactly} and transform the result back to dimensionful variables we find the exact solution to \Eqnref{nsintro}. But the asymptotic solution to \Eqnref{nsintrodimless2} is qualitatively different from that of \Eqnref{nsintrodimless}. The choice of dimensionless variables embodies the physical assumptions that are effected by the perturbation theory. For the force on a translating sphere, this example of a change in time scaling is responsible for the difference between the Stokes and the Stokes-Boussinesq forces in Eqs.~\eqnref{stokesforce} and \eqnref{FSB}.
+Again, if we solve \Eqnref{nsintrodimless2} \emph{exactly} and transform the result back to dimensionful variables we find the exact solution to \Eqnref{nsintro}. But the asymptotic solution of \Eqnref{nsintrodimless2} as $\Reys\to0$ is qualitatively different from that of \Eqnref{nsintrodimless}. The choice of dimensionless variables embodies the physical assumptions that are effected by the perturbation theory. For the force on a translating sphere, this change in time scaling is responsible for the difference between the Stokes and the Stokes-Boussinesq forces in Eqs.~\eqnref{stokesforce} and \eqnref{FSB}.
 
 \subsection{The Stokes number}\label{sec:stokesnumber}
 If we change the variables in the fluid equations, we must also make the corresponding changes in the coupled particle equations. The equation for the angular dynamics, for instance, becomes\footnote{I am sweeping some finer details under the carpet here. They are irrelevant for this argument, and you'll find it all in Sec.~III in Paper C.}
@@ -293,7 +293,7 @@ In the case when $\Reys=0$, the Navier-Stokes equation \eqnref{nsintrodimless} r
 \end{align}
 This type of flow is called viscous flow, or creeping flow. Such flows are completely dominated by viscosity, and disturbances are assumed to disappear so quickly that they do not even exist in the equations: there is no time derivative in \Eqnref{stokes}. Stokes equations are linear, and therefore many problems admit analytical solution. In particular, the force and torque on a particle in linear viscous flow has been worked out in quite some detail \cite{brenner1964,happel1965,brenner1972a,kim1991}. 
 
-The fundamental result is that the force and torque on a particle suspended in a flow is linearly related to the undisturbed flow. Given the particle velocity $\dot{\ve y}$ and angular velocity $\ve \omega$, we write the force $\ve F$ and torque $\ve T$ as
+The fundamental result is that the force and torque on a small particle suspended in a flow is linearly related to the undisturbed flow. Given the particle velocity $\dot{\ve y}$ and angular velocity $\ve \omega$, we write the force $\ve F$ and torque $\ve T$ as
 \begin{align}
 	\ve F &= \te A (\ve u - \dot{\ve y}) + \te B (\ve \Omega - \ve \omega) + \te G \dd \ma S, \nn \\
 	\ve T &= \te B\transpose (\ve u - \dot{\ve y}) + \te C (\ve \Omega - \ve \omega) + \te H \dd \ma S. \eqnlab{resistanceformulation}
@@ -308,12 +308,45 @@ The Stokes resistance of a rotating ellipsoid was computed in a now famous paper
 
 \section{Simple shear flow}\label{sec:shearflow}
 
-The simple shear flow is a uni-directional linear flow which varies magnitude in only one transversal direction. It is shown in Fig.~\ref{fig:shear_decomposition}. The equation describing the shear flow is simply,
+The simple shear flow is a uni-directional linear flow which varies in magnitude in only one transversal direction. It is shown in Fig.~\ref{fig:shear_decomposition}. The equation describing the shear flow is simply,
 \begin{align}
 	\ve u(y) &= s y \hat{\ve x}.
 \end{align}
 Here $s$ is a scalar called the shear strength, and $y$ is the coordinate along the $\hat{\ve y}$-axis. 
 Fig.~\ref{fig:coordinates} shows the coordinate system we use for shear flows in this thesis and in the appended papers. The three principal directions are the flow direction $\hat{\ve x}$, the shear direction $\hat{\ve y}$ and the vorticity direction $\hat{\ve z}$. The vorticity direction $\hat{\ve z}$ is also the direction of $\ve \Omega$ introduced in Sec.~\ref{sec:fluidflows}.
+
+
+\begin{figure}
+\centering
+  %\makebox[\textwidth]{\includegraphics[width=1.2\textwidth]{figs/shear_decomposition}}
+\begin{lpic}{figs/shear_decomposition(10cm,)}
+   \lbl[b]{25,0;\vphantom{Hq}Rotation}
+   \lbl[b]{85,0;\vphantom{Hq}stretching}
+   \lbl[b]{152,0;\vphantom{Hq}shear}
+   \lbl[c]{55,30;$+$}
+   \lbl[c]{120,30;$=$}
+   \lbl[b]{55,0;\vphantom{Hq}$+$}
+   \lbl[b]{120,0;\vphantom{Hq}$=$}
+\end{lpic}  
+\caption{\label{fig:shear_decomposition} Decomposition of the simple shear flow into rotation and strain.}%
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{overpic}[unit=1mm]{figs/coords.pdf}
+\put(83,78){$\ve n$}
+\put(-1.5,5){$\hat{\ve x}$}
+\put(100.5,12.5){$\hat{\ve y}$}
+\put(54.5,85.5){$\hat{\ve z}$}
+\put(57,44){$\theta$}
+\put(52,28){$\varphi$}
+\end{overpic}
+\vspace{5mm}
+\caption{\figlab{coordinates}Coordinate system of simple shear flow in this thesis. The directions are the flow direction $\hat{\ve x}$, the shear direction $\hat{\ve y}$, and the vorticity direction $\hat{\ve z}$. The angles $(\theta, \varphi)$ are the spherical coordinates of the particle direction $\ve n$. }%
+\end{figure}
+
+
+
 
 The flow gradient of the simple shear flow is constant and in cartesian coordinates given by
 \begin{align}
@@ -337,43 +370,13 @@ The shear flow is important for two reasons. First, it is one of the fundamental
 \end{align}
 Thus, if the flow profile $f$ varies slowly over the particle size, the particle experiences a simple shear flow of strength $f'(y)$. This is the case in the experiment described in Paper~E.
 
-Curiously, the dynamics of non-spherical particles in a viscous shear flow offers a rich variety of behaviours. There is no stationary state, but a particle tumbles end-to-end indefinitely. If the particle is axisymmetric, the tumbling is periodic. The technical details and explanations of this are discussed in Sec.~\ref{sec:jefferyequation}, but we can understand the underlying reason from the composition of the shear flow. Fig.~\ref{fig:shear_decomposition} illustrates schematically how the shear is a superposition of two flows. One is a pure rotation, corresponding to the antisymmetric part $\ma O$ of the flow gradient. The other is a pure strain, the symmetric part $\ma S$ of the flow gradient. Now imagine a rod-shaped particle in these flows. The pure rotation, the vorticity, will rotate the rod with a constant angular velocity, regardless of the rod's orientation. The strain, on the other hand, has a preferred direction to which it will attract the long axis of the rod. Sometimes the vorticity and strain will cooperate to turn the rod onto the strain eigendirection, and sometimes the vorticity will struggle to rotate the rod out of the attracting direction. The result is that the rod will always rotate, but sometimes faster and sometimes slower. When the difference between the fast and the slow rotations is large, we perceive this as intermittent tumbling.
-\begin{figure}
-\centering
-\begin{overpic}[unit=1mm]{figs/coords.pdf}
-\put(83,78){$\ve n$}
-\put(-1.5,5){$\hat{\ve x}$}
-\put(100.5,12.5){$\hat{\ve y}$}
-\put(54.5,85.5){$\hat{\ve z}$}
-\put(57,44){$\theta$}
-\put(52,28){$\varphi$}
-\end{overpic}
-\vspace{5mm}
-\caption{\figlab{coordinates}Coordinate system of simple shear flow in this thesis. The directions are the flow direction $\hat{\ve x}$, the shear direction $\hat{\ve y}$, and the vorticity direction $\hat{\ve z}$. The angles $(\theta, \varphi)$ are the spherical coordinates of the particle direction $\ve n$. }%
-\end{figure}
-
-
-\begin{figure}
-\centering
-  %\makebox[\textwidth]{\includegraphics[width=1.2\textwidth]{figs/shear_decomposition}}
-\begin{lpic}{figs/shear_decomposition(10cm,)}
-   \lbl[b]{25,0;\vphantom{Hq}Rotation}
-   \lbl[b]{85,0;\vphantom{Hq}stretching}
-   \lbl[b]{152,0;\vphantom{Hq}shear}
-   \lbl[c]{55,30;$+$}
-   \lbl[c]{120,30;$=$}
-   \lbl[b]{55,0;\vphantom{Hq}$+$}
-   \lbl[b]{120,0;\vphantom{Hq}$=$}
-\end{lpic}  
-\caption{\label{fig:shear_decomposition} Decomposition of the simple shear flow into rotation and strain.}%
-\end{figure}
-
+Curiously, the dynamics of an ellipsoidal particle in a viscous shear flow offers a rich variety of behaviours. There is no stationary state, but a particle tumbles end-to-end indefinitely. If the particle is axisymmetric, the tumbling is periodic. The technical details and explanations of this are discussed in Sec.~\ref{sec:jefferyequation}, but we can understand the underlying reason from the composition of the shear flow. Fig.~\ref{fig:shear_decomposition} illustrates schematically how the shear is a superposition of two flows. One is a pure rotation, corresponding to the antisymmetric part $\ma O$ of the flow gradient. The other is a pure strain, the symmetric part $\ma S$ of the flow gradient. Now imagine a rod-shaped particle in these flows. The pure rotation, the vorticity, will rotate the rod with a constant angular velocity, regardless of the rod's orientation. The strain, on the other hand, has a preferred direction to which it will attract the long axis of the rod. Sometimes the vorticity and strain will cooperate to turn the rod onto the strain eigendirection, and sometimes the vorticity will struggle to rotate the rod out of the attracting direction. The result is that the rod will always rotate, but sometimes faster and sometimes slower. When the difference between the fast and the slow rotations is large, we perceive this as intermittent tumbling.
 
 \section{The Jeffery equation and its solutions}\seclab{jefferyequation}
 
 The main result of \citet{jeffery1922} is the hydrodynamic torque $\ve T$ on a general ellipsoid rotating in a viscous shear flow (his Eq.~(36)). In other words, he computed the elements of the resistance tensors in \Eqnref{resistanceformulation}. Some elements were known to Jeffery from earlier work by \citet{oberbeck1876} and \citet{edwardes1893}. However, Jeffery completed what is arguably the hardest part of the calculation, and has received the most credit for this work.
 
-The viscous torque is calculated neglecting the effects of fluid inertia, $\Reys=0$. To be consistent (see \Secref{stokesnumber}) we will also neglect the effects of particle inertia, $\st=0$. This is the overdamped limit where the equation of motion is determined by a static force and torque balance. \citet{jeffery1922} found the angular velocity of the particle by solving $\ve T=0$. Here I give the result in my notation, the details are available in \Appref{triaxial_equation}.
+The viscous torque is calculated neglecting the effects of fluid inertia, $\Reys=0$. To be consistent (see \Secref{stokesnumber}) we also neglect the effects of particle inertia, $\st=0$. This is the overdamped limit where the equation of motion is determined by a static force and torque balance. \citet{jeffery1922} found the angular velocity of the particle by solving $\ve T=0$. Here I give the result in my notation, the details are available in \Appref{triaxial_equation}.
 
 We represent the shape and orientation of an ellipsoid by the lengths $(a_1, a_2, a_3)$ and directions $(\ve n_1, \ve n_2, \ve n_3)$ of the three half-axes. Then $\ve n_1$ gives the direction of the axis with length $a_1$, and so on. The angular velocity of the particle depends on the flow gradients, the particle orientation and the aspect ratios of the particle as
 \begin{align}
@@ -460,7 +463,13 @@ But $\alpha(t)$ is an arbitrary function which we may choose. In particular we c
 \end{align}
 By inserting this choice of $\alpha(t)$ into \Eqnref{jefferyderivation1}, we again arrive at \Eqnref{jefferyq}.
 
-We now consider the solutions of Jeffery's equation in a time-independent linear flow. This case includes for example the simple shear flow. It is also a useful model when the flow changes only slowly in time, compared to the time it takes for the gradients to affect the particle orientation. First, I will describe the possible solutions of \Eqnref{npaxin} in linear flows. Second, I will discuss the solutions of Jeffery's equation in a simple shear flow. These solutions are called the Jeffery orbits, and they play an important role in Papers~A-F.
+We now consider the solutions of Jeffery's equation in a time-independent linear flow. This case includes for example the simple shear flow. It is also a useful model when the flow changes only slowly in time, compared to the time it takes for the gradients to affect the particle orientation. First, I will describe the possible solutions of \Eqnref{npaxin} in linear flows. Second, I will discuss the solutions of Jeffery's equation in a simple shear flow. These solutions are called the Jeffery orbits, and they play an important role in Papers~A-E.
+
+\begin{figure}
+\centering
+\makebox[\textwidth]{\includegraphics{figs/bmap}}
+\caption{\label{fig:bmap}  Map of the three possible types of particle motion, as determined by the eigensystem of $\ma B=\ma O + \Lambda \ma S$. On the red line between ``Spiral out'' and ``Spiral in'' the motion is on a closed orbit.}%
+\end{figure}
 
 When $\ma O$ and $\ma S$ are time-independent the linear companion equation \eqnref{jefferyq} is solved by the matrix exponential:
 \begin{align}
@@ -477,11 +486,6 @@ This solution implies that the long-time dynamics of $\ve q$, and therefore $\ve
 	\item One real eigenvalue $a=0$, and an imaginary pair $\pm i\omega$, then
 	\item[] $\ve q$ rotates indefinitely in a closed elliptic orbit in a plane that contains the initial condition and is spanned by the real and imaginary parts of the complex eigenvector.
 \end{enumerate}
-\begin{figure}
-\centering
-\makebox[\textwidth]{\includegraphics{figs/bmap}}
-\caption{\label{fig:bmap}  Map of the three possible types of particle motion, as determined by the eigensystem of $\ma B=\ma O + \Lambda \ma S$. On the red line between ``Spiral out'' and ``Spiral in'' the motion is on a closed orbit.}%
-\end{figure}
 The characteristic equation for the eigenvalues $b$ of a $3\times3$-matrix $\ma B$ is
 \begin{align}
 	-b^3 + b^2\tr \ma B  + \frac{b}{2}\left(\tr \ma B^2-(\tr \ma B)^2\right)+\det\ma B = 0.
@@ -554,9 +558,9 @@ When the trajectories $\ve q(t)$ are projected onto the unit sphere, the result 
 
 The orbits on the north and south hemispheres are the same, because of the particle inversion symmetry: changing $\ve n \to -\ve n$ implies $\dot{\ve n} \to - \dot{\ve n}$. The orbits are also symmetric under a 180 degree rotation around the vorticity, $\ve n \to \ma R_\pi \ve n$ implies $\dot{\ve n} \to \ma R_\pi \dot{\ve n}$, becuse of the symmetry of the shear flow. These two symmetries together enforce that no orbit may cross the equator of the sphere, because on the equator the two symmetries coincide but have different sign. The Jeffery orbit which is exactly on the equator of the sphere is called the \emph{tumbling orbit}, because the vector $\ve n$ tumbles in the flow-shear plane. The orbit at a pole of the sphere, where $\ve n$ is aligned with the vorticity direction, is called the \emph{log-rolling} orbit. The name refers to the motion of a rod which rolls around its axis of symmetry, but the name is used for both prolate and oblate particles. Log-rolling for an oblate particle means that it spins like a frisbee. These particular orbits are depicted in \Figref{tumbling_lr}.
 
-The solutions to Jeffery's equation in a simple shear flow are degenerate: the orientational trajectory depends on the initial condition indefinitely. The degeneracy is a result of the assumptions made in the course deriving the Jeffery orbits. The Jeffery equation neglects the effects of both fluid and particle inertia. In fact, Jeffery suggested that inertia should dissolve the degeneracy and lead to a determinate prediction. My work in the Papers~A-D resolves this question. Although Jeffery was right in principle, it did not turn out exactly like he envisaged it. This is described in detail in \Secref{effective} in Part II.
+The solutions to Jeffery's equation in a simple shear flow are degenerate: the orientational trajectory depends on the initial condition indefinitely. The degeneracy is a result of the assumptions made in the course deriving the Jeffery orbits. The Jeffery equation neglects the effects of both fluid and particle inertia. In fact, Jeffery suggested that inertia should dissolve the degeneracy and lead to a determinate prediction. My work in the Papers~A-D resolves this question. Although Jeffery was right in principle, it did not turn out exactly like he envisaged it. This is described in detail in \Secref{effective}.
 
-One might expect that the degeneracy of the Jeffery orbits could be broken by a particle which is not perfectly axisymmetric. This is not the case. However, the dynamics are much more intricate. This is the topic of \Secref{jefftriaxial}.
+One might expect that the degeneracy of the Jeffery orbits is lifted for a particle that is not perfectly axisymmetric. This is not the case. However, the trajectories are much more intricate. This is the topic of \Secref{jefftriaxial}.
 
 \begin{figure}
 \centering
@@ -623,7 +627,7 @@ The rows of this matrix are the components of $\ve n_i$ along the coordinate axe
 \put(62,99){\makebox(0,0){$\varphi=3\pi/4$}}
 \put(22,32){\makebox(0,0){$\varphi=5\pi/4$}}
 \end{overpic}
-\caption{\label{fig:torus} Schematic explanation of the surfaces-of-section for the orientational dynamics of triaxial ellipsoids in shear flow. The torus depicts the three-dimensional orientational space for an ellipsoid. The major axis of the ellipsoid rotates monotonously around the vorticity \cite{hinch1979}, depicted by the azimuthal angle $\varphi$ along the torus. The surfaces-of-sections shown correspond to the major axis pointing the direction along the flow, along the extensional strain, perpendicular to the flow, and along the compressing strain. The surfaces-of-section at $\varphi \to \varphi+\pi$ are equal, because the flow is symmetric under this rotation.}
+\caption{\label{fig:torus} Schematic explanation of the surfaces-of-section for the orientational dynamics of triaxial ellipsoids in shear flow. The torus depicts the three-dimensional orientational space for an ellipsoid. The major axis of the ellipsoid rotates monotonously around the vorticity \cite{hinch1979}, depicted by the azimuthal angle $\varphi$ along the torus. The surfaces-of-sections shown correspond to the major axis pointing the direction along the flow, along the extensional strain, perpendicular to the flow, and along the compressing strain. The surfaces-of-section at $\varphi \to \varphi+\pi$ are equal, because the flow is symmetric under this rotation. Surfaces-of-section computed by G. Almondo.}
 \end{figure}
 \begin{figure}
 \centering
@@ -674,7 +678,7 @@ When we consider a significantly non-axisymmetric particle, the trajectories on 
 }
 \end{figure}
 
-In Paper~E we describe experimental observations of microsized glass fiber rods in a microfluidic channel flow. We argue that their orientational motion is consistent with the solutions presented in this Section although the analysis is complicated by the fact that we can not resolve the angle $\psi$ in the experiment. This is further described in \Secref{experiment} and Paper~E.
+In Paper~E we describe experimental observations of microsized glass rods in a microfluidic channel flow. We argue that their orientational motion is consistent with the solutions presented in this Section although the analysis is complicated by the fact that we can not resolve the angle $\psi$ in the experiment. This is further described in \Secref{experiment} and Paper~E.
 
 
 

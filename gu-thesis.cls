@@ -687,16 +687,16 @@ ISBN 978-91-628-9657-7 (Print) \\[5mm]
   \countryname\\
   \telephonename: \@telephone\\[5mm]
  %
-   \emph{Parts I--III, pages 1--\pageref{endpage}}, including all figures, are licensed under a \\
+   \emph{Parts I--II, pages 1--\pageref{endpage}}, including all figures, are licensed under a \\
    Creative Commons Attribution 3.0 Unported License.\\
    \includegraphics[width=3cm]{figures/by.pdf}\\[3mm]
    In {Part IV},\\
    \emph{Paper B} is \copyright~2015 American Physical Society, and is reprinted with permission. \\
    \emph{Paper F} is \copyright~2015 AIP Publishing LLC, and is reprinted with permission. \\
    \emph{Papers A \& C-E} are \copyright~2015 their respective authors.\\[5mm]
-  Front cover: Illustration of spheroidal particle tumbling in a shear flow.\\
+  Front cover: Illustration of ellipsoidal particle tumbling in a shear flow.\\
   Flipbooks: Ellipsoidal particles rotating in a simple shear flow. \\
-  \emph{Odd pages:} Symmetric particle with major aspect ratio $\lambda=7$ and minor aspect ratio $\kappa=1$. \emph{Even pages:} Slightly asymmetric particle with $\lambda=7$ and $\kappa=1.2$. Both particles started with identical initial conditions. See \Secref{jefferyequation} for further explanation. \\[5mm]
+  \emph{Odd pages:} Symmetric particle with major aspect ratio $\lambda=7$ and minor aspect ratio $\kappa=1$. \emph{Even pages:} Slightly asymmetric particle with $\lambda=7$ and $\kappa=1.2$. Their trajectories are qualitatively different despite the very slight asymmetry. See \Secref{jefferyequation} for further explanation. \\[5mm]
  Printed by \@printers \\
  \cityname, \countryname\ \@copyrightyear
   }
@@ -795,9 +795,10 @@ ISBN 978-91-628-9657-7 (Print) \\[5mm]
 {\sc Einarsson, J, Angilella, J.~R \& Mehlig, B} 2014 Orientational dynamics of
   weakly inertial axisymmetric particles in steady viscous flows. {\em Physica
   D: Nonlinear Phenomena\/} {\bf 278{\textendash}279}, 79--85.  \\[1em]
-{\sc Mishra, Y.~N, Einarsson, J, John, O.~A, Andersson, P, Mehlig, B \&
-  Hanstorp, D} 2012 A microfluidic device for studies of the orientational
-  dynamics of microrods. , vol. 8251, pp. 825109--825109--11.  
+{\sc Einarsson, J, Johansson, A, Mahato, S.~K, Mishra, Y.~N, Angilella, J.~R,
+  Hanstorp, D \& Mehlig, B} 2013 Periodic and aperiodic tumbling of microrods
+  advected in a microchannel flow. {\em Acta Mechanica\/} {\bf 224}~(10),
+  2281--2289.
  %\tableofpublications
 }
 
