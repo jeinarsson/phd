@@ -626,7 +626,7 @@
  \@checkifdefined{department}
  \@checkifdefined{copyrightyear}
  \begin{center}
-  \textsc{\large Licentiate Thesis}
+  \textsc{\large Doctorate Thesis}
   \\[25mm]
   {\Large \@title}
   \\[10mm]
@@ -634,11 +634,14 @@
   \\[20mm]
   %\noindent\rule{90mm}{0.4pt}
   %\\[15mm]
-  \parbox{105mm}{Vetenskaplig avhandling f\"or avl\"aggande av licentiatexamen i fysik vid G\"oteborgs universitet. Avhandlingen f\"orsvaras vid ett seminarium m\aa ndagen den 2 december 2013, kl 13:15 i Euler, Institutionen f\"or matematiska vetenskaper, Chalmers Tv\"argata 3, G\"oteborg. Avhandlingen f\"orsvaras p\aa~engelska.}
+  \parbox{115mm}{Akademisk avhandling f\"or avl\"aggande av doktorsexamen i fysik vid G\"oteborgs universitet. Avhandlingen f\"orsvaras vid ett offentligt seminarium m\aa ndagen den 14 december 2015, kl 09:00 i PJ-salen, Institutionen f\"or fysik, Fysikg\aa rden 2, G\"oteborg. Avhandlingen f\"orsvaras p\aa~engelska.}
   ~\\[10mm]
   {\small
   \begin{tabular}{rl}
-  \emph{Granskare}&Ralf Eichhorn, Nordita\\
+  \emph{Fakultetsopponent}&Prof. Eric Shaqfeh, Stanford University\\
+  \emph{Betygskommitt\'e}&Prof. Anna-Karin Tornberg, KTH\\
+  ~&Doc. Geert Brethouwer, KTH\\
+  ~&Prof. M\aa ns Henningson, Chalmers\\
   \emph{Handledare}&Bernhard Mehlig, G\"oteborgs universitet \\
   \emph{Examinator}&Stellan \"Ostlund, G\"oteborgs universitet \\
   \end{tabular}
